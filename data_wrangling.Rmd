@@ -1,6 +1,5 @@
 ---
 title: "Data wrangling in R"
-author: "Emma James"
 output: 
   html_document:
     toc: true
@@ -53,29 +52,17 @@ You don't need to worry too much about what these different variables mean for t
 
 ### Data dictionary
 
--   <div>
+-   **ID** --- a unique anonymised code for each participant
+-   **group** --- whether participants were good comprehenders (GC) or poor comprehenders (PC)
+-   **task** --- which task this data comes from (all PNN)
+-   **week** --- whether participants completed this learnTime condition in the first or second week (counterbalanced)
+-   **learnTime** --- whether participants learned the items in the morning (AM) or evening (PM). This was a repeated measures manipulation---all participants completed both a morning and evening condition to compare sleep and wake effects on memory.
+-   **time** --- whether the data are from test 1 (immediately after learning), test 2 (12 hours later), test 3 (24 hours later), or test 4 (one month later)
+-   **item** --- the word trained and tested
+-   **acc** --- whether the participant successfully recalled the word in the picture naming task
+-   **RT** --- response time (ms), for accurate responses only
 
-    > -   **ID** --- a unique anonymised code for each participant
-    >
-    > -   **group** --- whether participants were good comprehenders (GC) or poor comprehenders (PC)
-    >
-    > -   **task** --- which task this data comes from (all PNN)
-    >
-    > -   **week** --- whether participants completed this learnTime condition in the first or second week (counterbalanced)
-    >
-    > -   **learnTime** --- whether participants learned the items in the morning (AM) or evening (PM). This was a repeated measures manipulation---all participants completed both a morning and evening condition to compare sleep and wake effects on memory.
-    >
-    > -   **time** --- whether the data are from test *1* (immediately after learning), test *2* (12 hours later), test **3** (24 hours later), or test *4* (one month later)
-    >
-    > -   **item** --- the word trained and tested
-    >
-    > -   **acc** --- whether the participant successfully recalled the word in the picture naming task
-    >
-    > -   **RT** --- response time (ms), for accurate responses only
-
-    </div>
-
-We don't necessarily need anything here, so let's start wrangling!
+We don't necessarily need everything here, so let's start wrangling!
 
 # Select relevant variables using `select()`
 
@@ -323,7 +310,7 @@ write.csv(sleep_wake, "../data/processed/picName_processed.csv", row.names = FAL
 
 Today we have learned how to load data, select and rename relevant variables, filter for relevant observations, create new variables, summarise across them, and save processed datasets for future use (phew!). In the end, we saw how efficiently you can run and re-run this with just a few lines of code chained together.
 
-The *tidyverse* has plenty of useful tools for data wrangling beyond those we've explored today. For example, `pivot_longer()` and `pivot_wider()` are useful tools for transforming your data between wide (one row per participant, with each column representing a different trial) and long (one row per trial per participant) formats. Functions such as `left_join()` allow us to link data from different files based on the participant ID. There are helpful tools for parsing character strings, or processing dates and times. You name it, you can find it! 
+The *tidyverse* has plenty of useful tools for data wrangling beyond those we've explored today. For example, `pivot_longer()` and `pivot_wider()` are useful tools for transforming your data between wide (one row per participant, with each column representing a different trial) and long (one row per trial per participant) formats. Functions such as `left_join()` allow us to link data from different files based on the participant ID. There are helpful tools for parsing character strings, or processing dates and times. You name it, you can find it!
 
 Check out the [resources page](https://emljames.github.io/introR/resources.html) for links to some more guidance on data processing steps, or try using google (or chatGPT!) to figure out how to do things. Adding "tidyverse" to your search terms will help to identify solutions that are consistent with our data processing approach today.
 

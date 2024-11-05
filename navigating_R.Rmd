@@ -1,6 +1,5 @@
 ---
 title: "Navigating R and RStudio"
-author: "Emma James"
 output: html_document
 ---
 

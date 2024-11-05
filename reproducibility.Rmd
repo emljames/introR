@@ -1,7 +1,5 @@
 ---
 title: "Reproducible practices"
-author: "Emma James"
-date: "2024-11-05"
 output: html_document
 ---
 
