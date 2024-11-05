@@ -23,11 +23,23 @@ In the bottom right window are several sections that can be navigated around by 
 
 We give each bit of information a name, and can use that name to call upon it as we run our analyses. These pieces of information are called *variables*, although they are often referred to as *objects* to avoid confusion with variables in our experimental design. Variables or objects are like boxes that you can store information in. They can be small (e.g., containing a single number) or very large (e.g., an entire dataset).
 
-Let's create our first object, by typing `a <- 5` in the Console, then hitting the return key. The arrow `<-` is used to assign everything on the right to the name that you provide on the left. So here we are creating the object (or variable) `a` and assigning it the value 5.
+Let's create our first object, by typing the following into the Console, then hitting the return key:
+
+```{r first-object}
+a <- 5
+```
+
+The arrow `<-` is used to assign everything on the right to the name that you provide on the left. So here we are creating the object (or variable) `a` and assigning it the value 5.
 
 You’ll notice that in the top right section, in the ‘Environment’ window, a variable called ‘a’ has now appeared, and it has the value 5. We can treat this variable as though it is a number. So, we can do mathematical operations on it, and we will get an answer out that depends on the value of the variable. So, if we type (in the Console) `a^2`, we get the answer 25 (because this is 5 squared). Try this now.
 
-But why not just type 5\^2? The reason variables are useful is that we can change their values, or include many numbers in them. Let’s make a new variable called ‘b’, by typing `b <- c(1, 2, 3, 4, 5)`. This variable contains a list of numbers (sometimes called a vector) from 1 to 5. If we now type `b^2`, we get a list of the squares of all of the elements of b: 1 4 9 16 25.
+But why not just type 5\^2? The reason variables are useful is that we can change their values, or include many numbers in them. Let’s make a new variable called ‘b’, by typing:
+
+```{r second-object}
+b <- c(1, 2, 3, 4, 5)
+```
+
+This variable contains a list of numbers (sometimes called a vector) from 1 to 5. If we now type `b^2`, we get a list of the squares of all of the elements of b: 1 4 9 16 25.
 
 This seems pretty arbitrary at the moment, but today we will be using variables to store and manipulate datasets in R.
 
@@ -56,7 +68,7 @@ Today we we will be using functions from the *tidyverse* package. However, you c
 
 If you have followed the set-up instructions for this workshop, you should have already installed the tidyverse package. If not, you can install it now by typing the following line into your console:
 
-```{r install-tidyverse}
+```{r install-tidyverse, eval = FALSE}
 install.packages("tidyverse")
 ```
 

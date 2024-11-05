@@ -28,7 +28,7 @@ The folder circulated included folder with the data in it, so we need to instruc
 Let's read in the picture naming file, and assign it to the object "raw_dat".
 
 ```{r load-data}
-raw_dat <- read_csv("../data/picName_raw.csv")
+raw_dat <- read_csv("./data/picName_raw.csv")
 ```
 
 You should now see an object named 'raw_dat' in the environment pane, on the top right of your RStudio window. You can see that it has `r nrow(raw_dat)` observations (rows) for `r ncol(raw_dat)` variables (columns). You can inspect this by click on the little grid icon next to it. 
@@ -108,7 +108,7 @@ names(raw_dat)
 rename_dat1 <- set_names(raw_dat, c("ppt_ID", "read_group", "exp_task", "counterbalanced_order", "encode_time", "test_time", "word", "correct", "rt"))
 
 # Check 
-names(renamed_dat)
+names(rename_dat1)
 ```
 Sometimes you might want to rename only certain variables. You can do this using the rename function, following the format new_name = old_name:
 
@@ -135,19 +135,19 @@ We can use different [logical operators](https://bookdown.org/rwnahhas/IntroToR/
 
 ```{r filter-obs2}
 # Example 1
-filter_dat2 <- filter(raw_dat, vocab > 20)
+filter_dat2 <- filter(raw_dat, RT > 500)
 
 # Example 2
-filter_dat3 <- filter(raw_dat, vocab <= 40)
+filter_dat3 <- filter(raw_dat, RT <= 2000)
 
 # Example 3
-filter_dat4 <- filter(raw_dat, !is.na(vocab))
+filter_dat4 <- filter(raw_dat, !is.na(RT))
 
 # Example 4 - Character string
 filter_dat4 <- filter(raw_dat, item == "agouti")
 
 # Example 5 - Multiple criteria
-filter_dat5 <- filter(raw_dat, session == 1 & vocab <= 20 )
+filter_dat5 <- filter(raw_dat, time == 1 & RT <= 2000 )
 
 # Example 6 - Multiple criteria
 filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
@@ -167,8 +167,8 @@ For example, we can select our variables of interest then filter for the observa
 
 ```{r pipe-example}
 select_filter_dat <- raw_dat %>%
-  select(ID, test, item, RT) %>% 
-  rename(test_time = test) %>% 
+  select(ID, time, item, RT) %>% 
+  rename(test_time = time) %>% 
   filter(RT < 3000)
 ```
 
@@ -188,7 +188,7 @@ ppt_average1 <- raw_dat %>%
 If you inspect the dataframe, you can see that we now have one row per participant, and that we have 
 summarised the accuracy scores into a mean for each one.We called our new summary variable mean_acc, and specified how it should be calculated using the mean function. We can also ask for an average RT at the same time by adding it as another argument to the summary function. 
 
-```{r ppt-avg1}
+```{r ppt-avg2}
 ppt_average1 <- raw_dat %>% 
   group_by(ID) %>% 
   summarise(mean_acc = mean(acc),
@@ -197,7 +197,7 @@ ppt_average1 <- raw_dat %>%
 
 What do you notice about the averaged RT variable? 
 
-```{r ppt-avg1}
+```{r ppt-avg3}
 ppt_average1 <- raw_dat %>% 
   group_by(ID) %>% 
   summarise(mean_acc = mean(acc),
@@ -206,7 +206,7 @@ ppt_average1 <- raw_dat %>%
 
 Importantly, we can use more than one variable in the `group_by()` to calculate participant averages for each condition. Let's work out how participants do at each of the four time points. 
 
-```{r ppt-avg2}
+```{r ppt-avg4}
 ppt_average2 <- raw_dat %>% 
   group_by(ID, time) %>% 
   summarise(mean_acc = mean(acc),
@@ -236,7 +236,7 @@ We've taken our data frame of participant averages, and used mutate to create a 
 
 Let's try adding another example. Reaction time data are often skewed, and require some kind of transformation to aid analysis. One such transformation is the inverse, which we calculate using 1/RT value. Let's add this to the above example. 
 
-```{r new-var1}
+```{r new-var2}
 ppt_average3 <- ppt_average2 %>% 
   mutate(percent_correct = mean_acc*100,
          inv_RT = 1/mean_RT)
@@ -272,7 +272,7 @@ sleep_wake %>%
 We've now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don't have to re-run this script each time. Let's save it back to the data folder, giving it a new name to clarify that it's the processed version. 
 
 ```{r save-dat}
-write.csv(sleep_wake, "../data/picName_processed.csv", row.names = FALSE)
+write.csv(sleep_wake, "./data/picName_processed.csv", row.names = FALSE)
 ```
 
 ## Saving annotated analysis files 
