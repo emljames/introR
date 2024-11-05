@@ -1,7 +1,5 @@
 ---
 title: "Beyond the workshop"
-author: "Emma James"
-date: "2024-10-30"
 output: html_document
 ---
 
