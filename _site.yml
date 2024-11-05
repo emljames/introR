@@ -17,5 +17,7 @@ navbar:
 output_dir: docs
 output: 
   html_document:
+    toc: true
+    toc_depth: 2
     theme: readable
     css: style.css
