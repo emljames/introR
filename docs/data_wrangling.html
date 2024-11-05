@@ -330,7 +330,7 @@ Console first.</p>
 <p>We will be working with data collected from a study of sleep and word
 learning in children (<a
 href="https://acamh.onlinelibrary.wiley.com/doi/full/10.1111/jcpp.13253">James,
-Gaskell, &amp; Henderson, 2020</a>. The experiment involved teaching
+Gaskell, &amp; Henderson, 2020</a>). The experiment involved teaching
 children the names of unusual plants/animals, and testing their memory
 for them after periods of wake and sleep. For this lesson, we will
 analyse the data from the picture naming task, in which children were
@@ -353,8 +353,8 @@ environment pane, on the top right of your RStudio window. You can see
 that it has 6602 observations (rows) for 9 variables (columns). You can
 inspect this by click on the little grid icon next to it.</p>
 <p>We can also inspect the data format by calling <code>summary()</code>
-preview the data using the <code>head()</code> function to print the
-first few rows.</p>
+to preview the data, and using the <code>head()</code> function to print
+the first few rows.</p>
 <pre class="r"><code># Print summary of variables
 summary(raw_dat)</code></pre>
 <pre><code>##       ID               group               task                week        learnTime              time           item          
@@ -693,8 +693,8 @@ Let’s add this to the above example.</p>
 <div id="combined-data-processing-steps" class="section level2">
 <h2>Combined data processing steps</h2>
 <p>Today we have learned how to load data, select and rename relevant
-variables, filter out irrelevant cases, summarise across
-participants/variables,</p>
+variables, filter out irrelevant cases, and summarise across
+participants/variables.</p>
 <p>As a final exercise, let’s create a processed dataset that can show
 us whether windows of sleep or wake are better for picture naming.</p>
 <blockquote>
@@ -723,13 +723,11 @@ processed dataset so that we don’t have to re-run this script each time,
 and so that we have a shareable data file.</p>
 <p>It’s good practice to save your raw and processed data in separate
 folders, and choosing a file name that clarifies that it’s the processed
-version. We can use the <code>write.csv()</code> function to do this,
+version. We can use the <code>write_csv()</code> function to do this,
 which requires the name of the dataframe you want to save and the file
 path you want to save it to (here specifying how to navigate to the
-correct folder, and including the file extension). Setting the
-<code>row.names</code> argument to FALSE prevents it from adding a
-column with the row numbers.</p>
-<pre class="r"><code>write.csv(sleep_wake, &quot;../data/processed/picName_processed.csv&quot;, row.names = FALSE)</code></pre>
+correct folder, and including the file extension).</p>
+<pre class="r"><code>write_csv(sleep_wake, &quot;../data/processed/picName_processed.csv&quot;)</code></pre>
 </div>
 </div>
 <div id="other-data-processing-steps" class="section level1">
@@ -752,7 +750,7 @@ find it!</p>
 <p>Check out the <a
 href="https://emljames.github.io/introR/resources.html">resources
 page</a> for links to some more guidance on data processing steps, or
-try using google (or chatGPT!) to figure out how to do things. Adding
+try using Google (or ChatGPT!) to figure out how to do things. Adding
 “tidyverse” to your search terms will help to identify solutions that
 are consistent with our data processing approach today.</p>
 <p>In the <a

@@ -11,7 +11,7 @@ This introductory R workshop has been put together for York Psychology ECR Forum
 
 The session will provide you with the basic skills for getting started in using R your own research. We will prioritise skills for data wrangling using a set of tools referred to as the *tidyverse*. The course is aimed at complete beginners -- **no programming experience or prior knowledge of R is required.**
 
-The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie have experience in using R for psychological research, and supporting beginning learners without programming backgrounds.
+The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockcroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie have experience in using R for psychological research, and supporting beginning learners without programming backgrounds.
 
 # Before the workshop
 
@@ -39,7 +39,7 @@ This workshop consists of three key sections, with the following objectives:
 3.  [**Reproducible research practices**](https://emljames.github.io/introR/reproducibility.html)
     -   The benefits of coding
     -   Always comment your code!
-    -   Using Rmarkdown for readable outputs
+    -   Using R Markdown for readable outputs
 
 This is quite an ambitious amount to achieve in two hours! It's hard to gauge how far we will get, but these materials are written so that you should be able to work through them independently at a later stage. You can also find some suggested resources for further learning [here](https://emljames.github.io/introR/resources.html).
 

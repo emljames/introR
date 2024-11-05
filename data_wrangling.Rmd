@@ -22,7 +22,7 @@ library(tidyverse)
 
 ## Load data
 
-We will be working with data collected from a study of sleep and word learning in children ([James, Gaskell, & Henderson, 2020](https://acamh.onlinelibrary.wiley.com/doi/full/10.1111/jcpp.13253). The experiment involved teaching children the names of unusual plants/animals, and testing their memory for them after periods of wake and sleep. For this lesson, we will analyse the data from the picture naming task, in which children were asked to name pictures of the items as quickly as they could. We will focus on data from the first two test sessions only (12-hour period containing wake or sleep).
+We will be working with data collected from a study of sleep and word learning in children ([James, Gaskell, & Henderson, 2020](https://acamh.onlinelibrary.wiley.com/doi/full/10.1111/jcpp.13253)). The experiment involved teaching children the names of unusual plants/animals, and testing their memory for them after periods of wake and sleep. For this lesson, we will analyse the data from the picture naming task, in which children were asked to name pictures of the items as quickly as they could. We will focus on data from the first two test sessions only (12-hour period containing wake or sleep).
 
 The folder circulated included folder with the data in it, so we need to instruct R to navigate to the correct file within the raw data folder. If you look in the files pane, you should see that we are currently located in the scripts folder. To navigate to the data folder, we need to include "../" in the file path to instruct R to go "up one level", then "data/" to go into the data folder, "raw/" to go into the raw data folder, then the file name (including path extension).
 
@@ -38,7 +38,7 @@ raw_dat <- read_csv("./workshop_files/data/raw/picName_raw.csv")
 
 You should now see an object named `raw_dat` in the environment pane, on the top right of your RStudio window. You can see that it has `r nrow(raw_dat)` observations (rows) for `r ncol(raw_dat)` variables (columns). You can inspect this by click on the little grid icon next to it.
 
-We can also inspect the data format by calling `summary()` preview the data using the `head()` function to print the first few rows.
+We can also inspect the data format by calling `summary()` to preview the data, and using the `head()` function to print the first few rows.
 
 ```{r preview-dat}
 # Print summary of variables
@@ -269,7 +269,7 @@ ppt_average3 <- ppt_average2 %>%
 
 ## Combined data processing steps
 
-Today we have learned how to load data, select and rename relevant variables, filter out irrelevant cases, summarise across participants/variables,
+Today we have learned how to load data, select and rename relevant variables, filter out irrelevant cases, and summarise across participants/variables.
 
 As a final exercise, let's create a processed dataset that can show us whether windows of sleep or wake are better for picture naming.
 
@@ -300,10 +300,10 @@ sleep_wake %>%
 
 We've now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don't have to re-run this script each time, and so that we have a shareable data file.
 
-It's good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it's the processed version. We can use the `write.csv()` function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (here specifying how to navigate to the correct folder, and including the file extension). Setting the `row.names` argument to FALSE prevents it from adding a column with the row numbers.
+It's good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it's the processed version. We can use the `write_csv()` function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (here specifying how to navigate to the correct folder, and including the file extension).
 
 ```{r save-dat, eval = FALSE}
-write.csv(sleep_wake, "../data/processed/picName_processed.csv", row.names = FALSE)
+write_csv(sleep_wake, "../data/processed/picName_processed.csv")
 ```
 
 # Other data processing steps
@@ -312,6 +312,6 @@ Today we have learned how to load data, select and rename relevant variables, fi
 
 The *tidyverse* has plenty of useful tools for data wrangling beyond those we've explored today. For example, `pivot_longer()` and `pivot_wider()` are useful tools for transforming your data between wide (one row per participant, with each column representing a different trial) and long (one row per trial per participant) formats. Functions such as `left_join()` allow us to link data from different files based on the participant ID. There are helpful tools for parsing character strings, or processing dates and times. You name it, you can find it!
 
-Check out the [resources page](https://emljames.github.io/introR/resources.html) for links to some more guidance on data processing steps, or try using google (or chatGPT!) to figure out how to do things. Adding "tidyverse" to your search terms will help to identify solutions that are consistent with our data processing approach today.
+Check out the [resources page](https://emljames.github.io/introR/resources.html) for links to some more guidance on data processing steps, or try using Google (or ChatGPT!) to figure out how to do things. Adding "tidyverse" to your search terms will help to identify solutions that are consistent with our data processing approach today.
 
 In the [final section](https://emljames.github.io/introR/reproducibility.html) of this workshop (if there's time!), we'll show how you can turn your new data wrangling skills into an annotated output file.

@@ -97,9 +97,9 @@ library(tidyverse)
 
 If you click the green arrow to run the code in the chunk, you'll see that it sends the line of code to the console, and prints the output. The *tidyverse* package is actually a collection of smaller packages made by the same team, so the message here tells us that these different packages are loaded.
 
-# Working in RMarkdown scripts
+# Working in R Markdown scripts
 
-Congratulations, you've just written your first code chunk! Today we are working in an *RMarkdown* file: this is a version of a script that lets you intermix text with chunks of code. There are several helpful formatting features that help you to make your work readable and shareable.
+Congratulations, you've just written your first code chunk! Today we are working in an *R Markdown* file: this is a version of a script that lets you intermix text with chunks of code. There are several helpful formatting features that help you to make your work readable and shareable.
 
 The white space is like a normal text file. You can type notes as you go to remind yourself what we are doing in today's workshop. The hash key denotes headings/subheadings, and helps you to navigate different sections of a long file (click the Outline button to the top-right of the script window). I've already used this to structure the file for the workshop today.
 
@@ -107,4 +107,4 @@ The grey boxes you can see in your template script are ready for chunks of code 
 
 If we want to make further notes *inside* the code chunks, we can use the #key to write comments. Any text that comes after the \# on a line will be treated as a comment, not code.
 
-There are many jazzy features of RMarkdown that we won't have time to go into today, but we'll touch base on this at the end of the session to discuss why RMarkdown can be useful to structure and share your code. For now, let's use this template file to [wrangle some data](https://emljames.github.io/introR/data_wrangling.html)!
+There are many jazzy features of R Markdown that we won't have time to go into today, but we'll touch base on this at the end of the session to discuss why R Markdown can be useful to structure and share your code. For now, let's use this template file to [wrangle some data](https://emljames.github.io/introR/data_wrangling.html)!

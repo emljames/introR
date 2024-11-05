@@ -277,8 +277,143 @@ $(document).ready(function () {
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#r-is-for-reproducibility"
+id="toc-r-is-for-reproducibility">R is for Reproducibility</a></li>
+<li><a href="#creating-annotated-output-files"
+id="toc-creating-annotated-output-files">Creating annotated output
+files</a></li>
+<li><a href="#good-practices" id="toc-good-practices">Good
+practices</a></li>
+<li><a href="#the-final-word" id="toc-the-final-word">The final
+word</a></li>
+</ul>
+</div>
 
-
+<div id="r-is-for-reproducibility" class="section level1">
+<h1>R is for Reproducibility</h1>
+<p>One of the advantages of conducting your data processing and analysis
+steps in <em>R</em> is that it can be readily shared on platforms such
+as the Open Science Framework. Using <em>R</em> has several benefits in
+this regard:</p>
+<ul>
+<li><p>You can readily strip any information that you don’t want to
+share (e.g., Prolific IDs, IP addresses, etc.). Where appropriate, you
+can easily create more than one version of the dataset for different
+levels of access.</p></li>
+<li><p>All your data cleaning steps are documented in a transparent and
+reproducible way.</p></li>
+<li><p>R is free and widely used, allowing anyone who has access to your
+scripts and data to reproduce the results (in theory!).</p></li>
+<li><p>You can annotate your code to communicate your decisions and
+issues along the way (helpful for others AND future you).</p></li>
+<li><p>You can use R Markdown to create readable output files (see
+below!). These can be helpful for quicker viewing, for making analyses
+transparent when you <em>can’t</em> share the data, and creating
+readable output for those who don’t use R.</p></li>
+</ul>
+</div>
+<div id="creating-annotated-output-files" class="section level1">
+<h1>Creating annotated output files</h1>
+<p>Today we have been working in an R Markdown file (.Rmd). This differs
+from a straight forward R script (.R) in that it integrates regular
+text, code, and output more efficiently, whereas an .R script interprets
+everything as code by default (essentially like the grey sections we’ve
+typing code in today). There are many people who will <em>always</em>
+use R Markdown (or the newer version, <em>Quarto</em>) when they use R.
+Some people even use it to write their entire manuscripts in a
+reproducible way!</p>
+<p>There are many different features of R Markdown that could form a
+whole workshop on its own. However, with very few extra bits, we have
+already created a structured output from today’s work. Here are the
+features that we set up for you in the template file:</p>
+<ul>
+<li><p>We used the # symbol in regular text to denote headings and
+subsections. # marks the level 1 heading, ## level 2, and ### level
+3.</p></li>
+<li><p>We set up code chunks, which have several features:</p>
+<ul>
+<li><p>They start and end with three backticks (```) - located on the
+keyboard above the tab key, to the left of the 1.</p></li>
+<li><p>The first set of backticks are followed by a set of curly
+brackets <code>{}</code> containing chunk information. The first most
+important thing in here is the letter <code>r</code>, to instruct the
+computer to interpret the code as R code.</p></li>
+<li><p>The second thing we included in the curly brackets is a code
+chunk label. These follow the same rules as column names (i.e., no
+spaces!). If we want to create an output file, then every code chunk
+needs a different label.</p></li>
+<li><p>There several other options for setting up your code chunks
+(e.g., whether the file prints the code and output), but we haven’t gone
+into this today.</p></li>
+</ul></li>
+</ul>
+<p>There are several options for formatting your text in different ways.
+You can incorporate these directly in the source code, but nowadays
+there’s a much easier editing option in RStudio. If you click on Visual
+at the top of the script window, it will bring up a text editor with
+Word-like features. You can switch back and forth between these two
+editing styles as needed.</p>
+<p>So how to we turn that into a nice output file? Well, we try clicking
+“Knit” at the top of the window! This might be a big ask after today’s
+short workshop, but let’s try it and see what happens.</p>
+<blockquote>
+<p><strong>Debugging:</strong> A few things that might prevent it
+working:</p>
+<ul>
+<li>Not having the relevant packages installed</li>
+<li>Having unfinished code chunks - if R hits an error along the way, it
+will stop executing the file. If this happens, you could try commenting
+out that code section as a temporary solution.</li>
+<li>Having code chunks with duplicate names</li>
+</ul>
+</blockquote>
+<p>If it’s not working at the end of this workshop but you’d like to get
+it up and running, reach out for us for some support.</p>
+</div>
+<div id="good-practices" class="section level1">
+<h1>Good practices</h1>
+<p>Here are a few key principles:</p>
+<ol style="list-style-type: decimal">
+<li>Code everything! (as much as you can). This is hard when you are a
+beginner. Why take an hour to make the stupid line of code work when you
+could open the file in Excel and delete the column in mere seconds? But
+future you will be grateful when you have to redownload some data and
+start again. You only need to figure it out once (ask for support if you
+need to!), and you’ll be super whizzy in the future.</li>
+<li>Never delete raw data (unless there are GDPR/ethics implications) -
+keep raw and processed data separate.</li>
+<li>Use sensible names for variables and for objects. This will help to
+make your code more readable, and avoid mistakes. For example,
+<code>data_session1</code> is more informative than
+<code>data2</code>.</li>
+<li>Comment everything! Well, not <em>everything.</em> But document your
+key steps along the way so that it’s readable.</li>
+<li>Chunk your data processing and analysis steps for readability -
+either in separate files, and/or using features in R Markdown.</li>
+<li>Try to document package versions. One downside to R’s updating and
+ongoing work is that packages and functions can change, meaning that
+your code is not entirely future proof. There are some elegant ways to
+incorporate version control in your scripts, but a simple way to
+document this you can include a call to <code>sessionInfo()</code> at
+the end of your .Rmd script.</li>
+</ol>
+<p>Remember, a benefit of openness is that you can look to others for
+examples! The Open Science Framework is ideal for this. Of course there
+is a lot of variability in coding practices, but looking at how other
+people go about structuring and reporting their analyses can be a good
+way to learn. There’s no one right way, so you can decide what you think
+works well for your particular situation.</p>
+</div>
+<div id="the-final-word" class="section level1">
+<h1>The final word</h1>
+<p>Finally, <strong>just do the best you can!</strong> It’s all well and
+good to have standards to aim for, but starting out in R can be hard.
+You can guarantee that our early scripts didn’t look anywhere near our
+versions now, and that’s OK! R <em>is</em> hard, but it’s also kind of
+fun.</p>
+</div>
 
 
 
