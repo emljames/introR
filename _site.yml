@@ -1,9 +1,15 @@
 name: "my-website"
 navbar:
-  title: "My Website"
+  title: "Introduction to R"
   left:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Set up"
+      href: setup.html
+    - text: "Navigating R"
+      href: navigating_R.html
+    - text: "Data wrangling"
+      href: data_wrangling.html
+    - text: "Resources"
+      href: resources.html
 output_dir: docs
