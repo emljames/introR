@@ -1,0 +1,83 @@
+---
+title: "Navigating R and RStudio"
+author: "Emma James"
+date: "2024-10-30"
+output: html_document
+---
+
+# Why R and RStudio
+
+# RStudio panes
+
+Let's start with a quick introduction to RStudio. Open the *template.Rmd* file that you have downloaded. It should open in RStudio by default, but if it doesn't you can right click the file \>\> Open with... \>\> RStudio. You should now see 4 different panes in the RStudio window.
+
+In the top left corner are your scripts, now displaying the template script for today. Scripts are like lists of instructions for the computer to follow. You can save them for future reference, and this makes it easy to set up complex analyses without typing them in by hand each time. Today, we will work in an *RMarkdown* file format which allows us to easily integrate this script with notes. We'll come back to the distinction between R and RMarkdown at the end of the session.
+
+Below the script in the bottom left corner is the Console. This is where the magic happens! When you run code from your scripts, it sends it to the console for execution, so you will see the code that you have run followed by the output. You can also type instructions into it directly if you don't want to save them for a later date. For example, try typing `5 + 5` and hitting the return key.
+
+The first tab in the top right hand window is the Environment. This is like R's memory, and shows what information you have stored. We'll come back to this in the next section.
+
+In the bottom right window are several sections that can be navigated around by clicking on the different tabs. ‘Files’ shows the files in the directory we are in, ‘Plots’ will contain any graphs we draw, ‘Packages’ is a list of extensions to R to do different types of statistics, and ‘Help’ gives you the help pages for a particular function if you ask for them.
+
+# Objects
+
+We give each bit of information a name, and can use that name to call upon it as we run our analyses. These pieces of information are called *variables*, although they are often referred to as *objects* to avoid confusion with variables in our experimental design. Variables or objects are like boxes that you can store information in. They can be small (e.g., containing a single number) or very large (e.g., an entire dataset).
+
+Let's create our first object, by typing `a <- 5` in the Console, then hitting the return key. The arrow `<-` is used to assign everything on the right to the name that you provide on the left. So here we are creating the object (or variable) `a` and assigning it the value 5.
+
+You’ll notice that in the top right section, in the ‘Environment’ window, a variable called ‘a’ has now appeared, and it has the value 5. We can treat this variable as though it is a number. So, we can do mathematical operations on it, and we will get an answer out that depends on the value of the variable. So, if we type (in the Console) `a^2`, we get the answer 25 (because this is 5 squared). Try this now.
+
+But why not just type 5\^2? The reason variables are useful is that we can change their values, or include many numbers in them. Let’s make a new variable called ‘b’, by typing `b <- c(1, 2, 3, 4, 5)`. This variable contains a list of numbers (sometimes called a vector) from 1 to 5. If we now type `b^2`, we get a list of the squares of all of the elements of b: 1 4 9 16 25.
+
+This seems pretty arbitrary at the moment, but today we will be using variables to store and manipulate datasets in R.
+
+# Functions and packages
+
+## Functions
+
+Data analysis in R *can* involve typing a lot of instructions. However, most of the time, someone else has created little packages of instructions for us to use called *functions*. Each function has a name to call, followed by some *arguments* that it requires you to enter inside the brackets.
+
+For example, there are many basic statistical functions built into R already. For example, earlier we created a list of 5 numbers called *b*. We can find out some basic statistical properties using the following functions:
+
+```{r basic-functions}
+min(b)
+max(b)
+mean(b)
+median(b)
+```
+
+Each one does pretty much what it says on the tin! You can find out more information about a function by googling it, or by typing `help(function_name)`. For example, if we had missing data in our variable, we might need to explicitly say whether we want it to be ignored.
+
+## Packages
+
+These example functions are very simple, but there are much more advanced functions for different purposes - be they loading and manipulating data, running analyses, or plotting graphs. Because many of these tools are specialised for different purposes, not everything is loaded automatically in *R*. Instead, we can access the functions we need by installing and loading specific *packages*: collections of functions developed for a particular purpose.
+
+Today we we will be using functions from the *tidyverse* package. However, you can usually use Google to find other packages that will be useful for any particular purpose.
+
+If you have followed the set-up instructions for this workshop, you should have already installed the tidyverse package. If not, you can install it now by typing the following line into your console:
+
+```{r install-tidyverse}
+install.packages("tidyverse")
+```
+
+You only need to install packages once, so we can type this directly into the console.
+
+However, you need to load relevant packages into RStudio each time you start a new session. It's good practice to load packages at the top of a script, so that you always start by loading the necessary tools for your analysis. Let's do this now: in the first grey section of the template file, under "Load packages", enter the following line of code:
+
+```{r load-packages}
+library(tidyverse)
+```
+
+If you click the green arrow to run the code in the chunk, you'll see that it sends the line of code to the console, and prints the output. The tidyverse package is actually a collection of smaller packages made by the same team, so the message here tells us that these different packages are loaded.
+
+# Working in RMarkdown scripts 
+
+Congratulations, you've just written your first code chunk! Today we are working in an *RMarkdown* file: this is a version of a script that lets you intermix text with chunks of code. There are several helpful formatting features that help you to make your work readable and shareable.
+
+The white space is like a normal text file. You can type notes as you go to remind yourself what we are doing in today's workshop. The hash key denotes headings/subheadings, and helps you to navigate different sections of a long file (click the Outline button to the top-right of the script window). I've already used this to structure the file for the workshop today.
+
+The grey boxes you can see in your template script are ready for chunks of code (i.e., the instructions for the computer). I have set these up today to specify that we are using R code, and given each chunk a name so we can keep track. When we click the green arrow to the side, R will interpret the text inside this box as code, and send these instructions to the console to run.
+
+If we want to make further notes *inside* the code chunks, we can use the #key to write comments. Any text that comes after the \# on a line will be treated as a comment, not code.
+
+There are many jazzy features of RMarkdown that we won't have time to go into today, but we'll touch base on this at the end of the session to discuss why RMarkdown can be useful to structure and share your code.

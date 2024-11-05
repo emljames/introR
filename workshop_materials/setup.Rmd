@@ -1,0 +1,34 @@
+---
+title: "Before the workshop"
+---
+
+# Software requirements
+
+The majority of the workshop will be "code-along" - i.e., we will be working through the material live using R, and you follow the same steps on your computer. The necessary software is already installed on the computers in the PC Lab, and you might find this option easiest given the large screens. 
+
+If you would prefer to use your own laptop, you will need to ensure you have everything set up before the workshop. We need to install both *R* itself (the programming language), and *RStudio* (an integrated software environment). Please ensure you have complete both Step 1 and Step 2 below, and reach out to Emma (emma.james@york.ac.uk) if you have any difficulties. 
+
+# Step 1: Software installation
+
+## Installation on a university-managed laptop 
+
+If you are working on a university-managed laptop, you can install R and RStudio from the Software Center (Windows) or Self Service (Mac).
+
+## Installation on a personal device
+
+You will need to have R and R Studio to installed to follow along with the workshop. R is the programming language itself, whereas RStudio is the user interface for interacting with R. Please make sure your software is up-to-date to avoid issues.
+
+* To download R: https://cran.r-project.org/  
+* To download RStudio: https://rstudio.com/products/rstudio/download/#download (just the free Desktop version)
+
+Some additional guidance can be found [here](https://datacarpentry.org/r-socialsci/setup.html) if you need it.
+
+# Step 2: Installing relevant packages
+
+We will use the `tidyverse` package during this workshop (don't worry - we'll cover what packages are in more detail later!). To get a headstart with fixing any issues, please install it before the workshop. To do this, open up RStudio and type the following into the console (the main window that opens up, with `>` waiting for you to type).
+
+```{r eval = FALSE}
+install.packages("tidyverse")
+```
+
+Hit the return key and let it do its magic. Don't worry about the red text that flashes up - that's normal! The final messages should say that each package is *"successfully unpacked and MD5 sums checked"*. If you don't get to this point, reach out to Emma via email [emma.james@york.ac.uk](emma.james@york.ac.uk)).

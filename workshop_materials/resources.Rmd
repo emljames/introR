@@ -1,0 +1,44 @@
+---
+title: "Beyond the workshop"
+author: "Emma James"
+date: "2024-10-30"
+output: html_document
+---
+
+# Google is your friend
+
+
+# Data processing in R  
+
+* [DataCamp](www.datacamp.com) - interactive courses for programming in R (free introductory levels, ££ for more advanced)  
+* [CodeAcademy](https://www.codecademy.com/learn/learn-r) - interactive exercises for introductory R  
+* [Data Carpentry]
+* [Software Carpentry](https://swcarpentry.github.io/r-novice-gapminder/) - similar-style materials to those we used in the course, but slightly more content, includes further information on writing your own functions and using R Markdown. 
+* [R for Data Science](https://r4ds.had.co.nz/) - textbook written by the author of the *tidyverse* himself, freely available online  
+* [Gorilla to Tidy Data](https://emljames.github.io/GorillaR) - Emma's tutorial for processing output files from the online experiment platform Gorilla. This is similar in style to the workshop today, but directly applied to processing messy output from Gorilla. Part 2 also extends to some more complex challenges that you might encounter, including reshaping and combining datasets.    
+
+# Cheat sheets
+
+Cheat sheets are handy summaries of key tools. I used to print these and stick them by my desk for easy reference! 
+
+You'll find cheatsheets for `dplyr`, `tidyr`, and `ggplot2` [here](https://rstudio.com/resources/cheatsheets/)
+
+# Basic statistics
+
+
+# Google is your friend
+
+
+
+# Courses at the university
+
+If you want to see more of what R can do, you're welcome to audit the Advanced Research Methods module. You can be added to the VLE, and/or attend the timetabled sessions on Mondays and Tuesdays. 
+
+The remaining topics timetabled for this term are: SEM, Multivariate Pattern Analysis, Fourier Analysis, Bayesian Methods, and Reproducible Research Methods. The main focus of this module is on theoretical application (lectures Mondays 2-3pm), but there is also a practical session on Tuesdays that includes a handout you could work through independently. 
+
+Next year, this module will likely run in Semester 1 (R light), with a more advanced version running in Semester 2 (R heavy!). 
+
+Ask Emma if you would like more information on this. 
+
+
+# 

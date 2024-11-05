@@ -1,0 +1,85 @@
+---
+title: "Introduction to R - Template script"
+output: html_document
+date: "2024-11-06"
+---
+
+# Setting up
+
+[You can write your notes as normal text like this, outside the code chunks]
+
+## Load packages
+
+```{r load-packages}
+
+
+```
+
+## Load and preview data
+
+```{r load-data}
+
+
+```
+
+# Select variables
+
+```{r select-examples}
+
+
+```
+
+EXERCISE 1: Create a new data frame called selected_vars which includes the following variables: ID, learnTime, time, item, acc, RT
+
+```{r select-exercise}
+
+
+```
+
+# Rename variables
+
+```{r rename-examples}
+
+```
+
+EXERCISE 2: Create a new dataframe called renamed_vars, by renaming your selected_vars dataframe from Exercise 1. Edit the column names for the following variables:
+
+-   ID >> ppt_ID
+-   learnTime >> learn_time
+-   time >> test_time
+
+```{r rename-exercise}
+
+
+```
+
+# Filter variables
+
+```{r filter-examples}
+
+
+```
+
+EXERCISE 3: What do you think the following lines of code might do to the data? Talk through your predictions, then run the code and inspect the dataframes to see if you are correct. You can edit the code comments (after the #) to make notes.  
+
+```{r filter-obs2}
+# Example 1
+filter_dat2 <- filter(raw_dat, vocab > 20)
+
+# Example 2
+filter_dat3 <- filter(raw_dat, vocab <= 40)
+
+# Example 3
+filter_dat4 <- filter(raw_dat, !is.na(vocab))
+
+# Example 4 - Character string
+filter_dat4 <- filter(raw_dat, item == "agouti")
+
+# Example 5 - Multiple criteria
+filter_dat5 <- filter(raw_dat, session == 1 & vocab <= 20 )
+
+# Example 6 - Multiple criteria
+filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
+```
+
+

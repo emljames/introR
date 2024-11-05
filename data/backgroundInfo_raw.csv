@@ -1,0 +1,36 @@
+ID,group,groupNote,valid,validData,sex,SWE.std,PDE.std,YARC.version,YARC.acc,YARC.rate,YARC.comp,WASI.nviq.t,WASI.vocab.raw,WASI.vocab.t,AM-time
+AmPm0cde,GC,disc,0,1,m,111,123,Primary,118,114,107,40,33,50,1
+AmPm5cd0,GC,aa,1,1,m,92,98,Secondary,,102,111,67,37,62,1
+AmPm46f8,GC,aa,1,1,f,96,103,Secondary,,114,120,63,36,59,1
+AmPm420f,GC,nd,0,1,m,111,112,Secondary,,105,107,58,37,59,1
+AmPm74aa,GC,aa,0,0,f,94,97,Secondary,,120,109,58,36,58,1
+AmPm96bc,GC,aa,1,1,f,109,121,Secondary,,124,121,55,,,1
+AmPm874d,GC,aa,1,1,f,94,100,Secondary,,115,105,54,41,70,2
+AmPm181c,GC,aa,1,1,f,113,108,Secondary,,105,114,59,37,62,2
+AmPm10e8,GC,aa,1,1,m,90,105,Secondary,,101,109,49,30,48,2
+AmPm361c,GC,disc,0,1,m,111,123,Primary,108,114,110,55,30,54,2
+AmPm5de6,GC,aa,1,1,f,113,103,Secondary,,108,121,58,40,65,2
+AmPme02f,GC,aa,1,1,m,113,107,Primary,109,112,109,56,38,68,2
+AmPmbe42,GC,aa,1,1,m,108,111,Primary,114,115,111,46,29,61,1
+AmPm3d40,GC,"aa, low nv",1,1,f,108,102,Primary,108,112,111,38,27,60,1
+AmPmffd2,GC,aa,1,1,f,109,107,Primary,111,115,111,54,30,63,1
+AmPm7770,GC,aa,1,1,m,110,111,Primary,121,127,111,48,31,65,1
+AmPm82ae,GC,nd,0,1,f,103,117,Primary,113,106,108,55,36,62,2
+AmPm0a7c,GC,aa,1,1,m,117,121,Secondary,,115,121,54,34,54,2
+AmPm02a0,GC,aa,1,1,m,111,107,Secondary,,117,120,59,36,59,2
+AmPm9d45,GC,"aa, low nv",1,1,m,113,110,Primary,116,115,117,38,29,64,2
+AmPm65f3,PC,lax,1,1,f,108,111,Primary,125,115,97,48,28,56,1
+AmPmf8fb,PC,lax,1,1,m,115,124,Primary,108,116,94,46,31,54,1
+AmPm504e,PC,lax,1,1,f,100,107,Secondary,,107,92,48,34,53,1
+AmPm57af,PC,lax,1,1,f,100,110,Secondary,,114,96,53,30,47,1
+AmPme4fc,PC,lax,1,1,f,112,113,Primary,113,115,98,40,36,76,1
+AmPm89aa,PC,strict,1,1,m,77,99,Primary,95,77,89,46,20,42,1
+AmPm7f5f,PC,lax,1,1,m,115,108,Primary,104,105,98,44,26,53,2
+AmPm5fb0,PC,strict,1,1,m,91,102,Primary,95,80,86,45,16,38,2
+AmPm68ca,PC,strict,1,1,m,100,111,Primary,106,105,81,46,30,46,2
+AmPm0a0c,PC,strict,1,1,m,95,117,Primary,112,114,84,45,34,56,2
+AmPmc0a3,PC,lax,1,1,f,108,111,Secondary,,124,95,59,34,56,2
+AmPm8693,PC,lax,1,1,f,110,110,Secondary,,114,99,75,34,54,2
+AmPmfda0,PC,"lax, low nv",1,1,m,107,108,Primary,99,105,96,33,19,38,1
+AmPme381,PC,"strict, low nv",1,1,f,92,101,Primary,93,93,88,38,16,36,1
+AmPm6d4c,PC,lax,1,1,f,103,11,Primary,103,107,97,44,20,44,2
