@@ -11,7 +11,6 @@
 
 <meta name="author" content="Emma James" />
 
-<meta name="date" content="2024-10-30" />
 
 <title>Navigating R and RStudio</title>
 
@@ -258,6 +257,9 @@ $(document).ready(function () {
   <a href="data_wrangling.html">Data wrangling</a>
 </li>
 <li>
+  <a href="reproducibility.html">Reproducibility</a>
+</li>
+<li>
   <a href="resources.html">Resources</a>
 </li>
       </ul>
@@ -274,13 +276,52 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Navigating R and RStudio</h1>
 <h4 class="author">Emma James</h4>
-<h4 class="date">2024-10-30</h4>
 
 </div>
 
 
-<div id="why-r-and-rstudio" class="section level1">
-<h1>Why R and RStudio</h1>
+<div id="introduction-to-working-in-r" class="section level1">
+<h1>Introduction to working in R</h1>
+<div id="why-r" class="section level2">
+<h2>Why <em>R</em>?</h2>
+<p><em>R</em> is a widely used, free software environment geared towards
+running statistical analyses. It’s a programming language, and so is
+often considered to have a steeper learning curve than programs like
+SPSS. It requires you to learn how to type specific instructions to tell
+the computer what to do, rather than navigate through menus in a
+pointy-clicky way. However, this effort is rewarded by greater
+flexibility, efficiency, and reproducibility in your data analysis.</p>
+<p>Obviously we’re here in an <em>R</em> workshop so may be biased, but
+here are a few of the reasons why <em>R</em> is worth your time:</p>
+<ul>
+<li>It’s <strong>free</strong>! This means you can take your snazzy
+analysis skills wherever you want, without requiring someone to pay an
+expensive software licence.</li>
+<li>It has a <strong>strong online community</strong>: there are lots of
+free online resources to help you with all sorts of data tasks, and
+highly productive help forums.</li>
+<li>It’s <strong>highly efficient</strong> and allows you to manipulate
+and analyse large datasets with ease.</li>
+<li>You can more readily make your data processing and analysis
+<strong>reproducible and transparent</strong>. By scripting all of your
+steps, you have a clear record of what you’ve done. This makes it
+readily shareable with collaborators, other researchers, and (perhaps
+most importantly) future you.</li>
+<li>There are many <strong>advanced and powerful</strong> statistical
+tools being developed all the time (supply and demand).</li>
+<li>You’re not restricted to those methods - you can code anything you
+want!</li>
+</ul>
+</div>
+<div id="whats-rstudio" class="section level2">
+<h2>What’s RStudio?</h2>
+<p><em>RStudio</em> is a freeware environment with many helpful features
+for using <em>R</em>. Most people will use <em>R</em> within the RStudio
+environment, but you do need to install both <em>R</em> and
+<em>RStudio</em> separately. In the next section, we’ll introduce the
+core aspects of the RStudio environment in introducing basic
+principles.</p>
+</div>
 </div>
 <div id="rstudio-panes" class="section level1">
 <h1>RStudio panes</h1>
@@ -338,7 +379,8 @@ depends on the value of the variable. So, if we type (in the Console)
 this now.</p>
 <p>But why not just type 5^2? The reason variables are useful is that we
 can change their values, or include many numbers in them. Let’s make a
-new variable called ‘b’, by typing:</p>
+new variable called ‘b’, by typing the following line into the
+Console::</p>
 <pre class="r"><code>b &lt;- c(1, 2, 3, 4, 5)</code></pre>
 <p>This variable contains a list of numbers (sometimes called a vector)
 from 1 to 5. If we now type <code>b^2</code>, we get a list of the
@@ -357,21 +399,17 @@ a name to call, followed by some <em>arguments</em> that it requires you
 to enter inside the brackets.</p>
 <p>For example, there are many basic statistical functions built into R
 already. For example, earlier we created a list of 5 numbers called
-<em>b</em>. We can find out some basic statistical properties using the
-following functions:</p>
-<pre class="r"><code>min(b)</code></pre>
-<pre><code>## [1] 1</code></pre>
-<pre class="r"><code>max(b)</code></pre>
-<pre><code>## [1] 5</code></pre>
-<pre class="r"><code>mean(b)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>median(b)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<p>Each one does pretty much what it says on the tin! You can find out
-more information about a function by googling it, or by typing
-<code>help(function_name)</code>. For example, if we had missing data in
-our variable, we might need to explicitly say whether we want it to be
-ignored.</p>
+<em>b</em>. Let’s try finding out some basic statistical properties
+using the following functions:</p>
+<pre class="r"><code>min(b)
+max(b)
+mean(b)
+median(b)</code></pre>
+<p>You’ll see that each one does pretty much what it says on the tin!
+You can find out more information about a function by googling it, or by
+typing <code>help(function_name)</code>. For example, if we had missing
+data in our variable, we might need to explicitly say whether we want it
+to be ignored.</p>
 </div>
 <div id="packages" class="section level2">
 <h2>Packages</h2>
@@ -382,9 +420,9 @@ these tools are specialised for different purposes, not everything is
 loaded automatically in <em>R</em>. Instead, we can access the functions
 we need by installing and loading specific <em>packages</em>:
 collections of functions developed for a particular purpose.</p>
-<p>Today we we will be using functions from the <em>tidyverse</em>
-package. However, you can usually use Google to find other packages that
-will be useful for any particular purpose.</p>
+<p>Today we will be using functions from the <em>tidyverse</em> package.
+However, you can usually use Google to find other packages that will be
+useful for any particular purpose.</p>
 <p>If you have followed the set-up instructions for this workshop, you
 should have already installed the tidyverse package. If not, you can
 install it now by typing the following line into your console:</p>
@@ -400,9 +438,9 @@ code:</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <p>If you click the green arrow to run the code in the chunk, you’ll see
 that it sends the line of code to the console, and prints the output.
-The tidyverse package is actually a collection of smaller packages made
-by the same team, so the message here tells us that these different
-packages are loaded.</p>
+The <em>tidyverse</em> package is actually a collection of smaller
+packages made by the same team, so the message here tells us that these
+different packages are loaded.</p>
 </div>
 </div>
 <div id="working-in-rmarkdown-scripts" class="section level1">
@@ -429,8 +467,10 @@ can use the #key to write comments. Any text that comes after the # on a
 line will be treated as a comment, not code.</p>
 <p>There are many jazzy features of RMarkdown that we won’t have time to
 go into today, but we’ll touch base on this at the end of the session to
-discuss why RMarkdown can be useful to structure and share your
-code.</p>
+discuss why RMarkdown can be useful to structure and share your code.
+For now, let’s use this template file to <a
+href="https://emljames.github.io/introR/data_wrangling.html">wrangle
+some data</a>!</p>
 </div>
 
 

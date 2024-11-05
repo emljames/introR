@@ -11,7 +11,6 @@
 
 <meta name="author" content="Emma James" />
 
-<meta name="date" content="2024-10-30" />
 
 <title>Data wrangling in R</title>
 
@@ -258,6 +257,9 @@ $(document).ready(function () {
   <a href="data_wrangling.html">Data wrangling</a>
 </li>
 <li>
+  <a href="reproducibility.html">Reproducibility</a>
+</li>
+<li>
   <a href="resources.html">Resources</a>
 </li>
       </ul>
@@ -274,23 +276,55 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Data wrangling in R</h1>
 <h4 class="author">Emma James</h4>
-<h4 class="date">2024-10-30</h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#setting-up" id="toc-setting-up">Setting up</a></li>
+<li><a href="#select-relevant-variables-using-select"
+id="toc-select-relevant-variables-using-select">Select relevant
+variables using <code>select()</code></a></li>
+<li><a href="#rename-variables" id="toc-rename-variables">Rename
+variables</a></li>
+<li><a href="#filter-for-relevant-data-using-filter"
+id="toc-filter-for-relevant-data-using-filter">Filter for relevant data
+using <code>filter()</code></a></li>
+<li><a href="#combining-data-processing-steps-using-the-pipe-operator"
+id="toc-combining-data-processing-steps-using-the-pipe-operator">Combining
+data processing steps using the pipe <code>%&gt;%</code>
+operator</a></li>
+<li><a
+href="#calculate-participant-averages-using-group_by-and-summarise"
+id="toc-calculate-participant-averages-using-group_by-and-summarise">Calculate
+participant averages using <code>group_by()</code> and
+<code>summarise()</code></a></li>
+<li><a href="#create-new-variables" id="toc-create-new-variables">Create
+new variables</a></li>
+<li><a href="#putting-it-all-together"
+id="toc-putting-it-all-together">Putting it all together</a></li>
+<li><a href="#other-data-processing-steps"
+id="toc-other-data-processing-steps">Other data processing
+steps</a></li>
+</ul>
+</div>
 
 <p>In this section of the workshop, we will learn how to manipulate your
 data in R. Being able to process and reformat your data in a fast and
 reproducible way is a major benefit of working in R relative to e.g.,
-Excel and SPSS. We will use a package of functions dedicated to this
+Excel and SPSS. We will use a set of functions dedicated to this
 purpose, known as the <em>tidyverse</em>.</p>
-<p>If you’re following this material directly after the Navigating R
-content, you can skip the setting up section.</p>
+<p>If you’re following this material directly after the <a
+href="https://emljames.github.io/introR/navigating_R.html">Navigating
+R</a> content, you can skip the setting up section.</p>
 <div id="setting-up" class="section level1">
 <h1>Setting up</h1>
 <div id="load-packages" class="section level2">
 <h2>Load packages</h2>
-<p>We need to load a collection of functions from the tidyverse.</p>
+<p>We need to load a collection of functions from the
+<em>tidyverse</em>. If you have not already installed this package, you
+still need to run <code>install.packages("tidyverse")</code> in the
+Console first.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 </div>
 <div id="load-data" class="section level2">
@@ -306,30 +340,25 @@ asked to name pictures of the items as quickly as they could. We will
 focus on data from the first two test sessions only (12-hour period
 containing wake or sleep).</p>
 <p>The folder circulated included folder with the data in it, so we need
-to instruct R to navigate to the correct file. If you look in the files
-pane, you can see that we are currently located in the scripts folder.
-To navigate to the data folder, we need to include “../” in the file
-path to instruct R to go “up one level”, then “data/” to go into the
-data folder, then the file name (including path extension).]</p>
+to instruct R to navigate to the correct file within the raw data
+folder. If you look in the files pane, you should see that we are
+currently located in the scripts folder. To navigate to the data folder,
+we need to include “../” in the file path to instruct R to go “up one
+level”, then “data/” to go into the data folder, “raw/” to go into the
+raw data folder, then the file name (including path extension).</p>
 <p>Let’s read in the picture naming file, and assign it to the object
-“raw_dat”.</p>
-<pre class="r"><code>raw_dat &lt;- read_csv(&quot;./data/picName_raw.csv&quot;)</code></pre>
-<pre><code>## Rows: 6602 Columns: 9
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (5): ID, group, task, learnTime, item
-## dbl (4): week, time, acc, RT
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<p>You should now see an object named ‘raw_dat’ in the environment pane,
-on the top right of your RStudio window. You can see that it has 6602
-observations (rows) for 9 variables (columns). You can inspect this by
-click on the little grid icon next to it.</p>
+“raw_dat”. Remember, the <code>&lt;-</code> means that the action to the
+right is assigned to the “object” name on the left.</p>
+<pre class="r"><code>raw_dat &lt;- read_csv(&quot;../data/raw/picName_raw.csv&quot;)</code></pre>
+<p>You should now see an object named <code>raw_dat</code> in the
+environment pane, on the top right of your RStudio window. You can see
+that it has 6602 observations (rows) for 9 variables (columns). You can
+inspect this by click on the little grid icon next to it.</p>
 <p>We can also inspect the data format by calling <code>summary()</code>
 preview the data using the <code>head()</code> function to print the
 first few rows.</p>
-<pre class="r"><code>summary(raw_dat)</code></pre>
+<pre class="r"><code># Print summary of variables
+summary(raw_dat)</code></pre>
 <pre><code>##       ID               group               task                week        learnTime              time           item          
 ##  Length:6602        Length:6602        Length:6602        Min.   :1.000   Length:6602        Min.   :1.000   Length:6602       
 ##  Class :character   Class :character   Class :character   1st Qu.:1.000   Class :character   1st Qu.:2.000   Class :character  
@@ -346,7 +375,8 @@ first few rows.</p>
 ##  3rd Qu.:1.0000   3rd Qu.: 1950.0  
 ##  Max.   :1.0000   Max.   :17656.5  
 ##                   NA&#39;s   :4563</code></pre>
-<pre class="r"><code>head(raw_dat)</code></pre>
+<pre class="r"><code># Print first rows of dataset 
+head(raw_dat)</code></pre>
 <pre><code>## # A tibble: 6 × 9
 ##   ID       group task   week learnTime  time item       acc    RT
 ##   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -364,30 +394,37 @@ dictionary is described below.</p>
 <div id="data-dictionary" class="section level3">
 <h3>Data dictionary</h3>
 <ul>
-<li><strong>ID</strong> — a unique anonymised code for each
-participant<br />
-</li>
-<li><strong>group</strong> — whether participants were good
-comprehenders (GC) or poor comprehenders (PC)</li>
-<li><strong>task</strong> — which task this data comes from (all
-PNN)</li>
-<li><strong>learnTime</strong> — whether participants learned the items
-in the morning (AM) or evening (PM). This was a repeated measures
+<li><div>
+<blockquote>
+<ul>
+<li><p><strong>ID</strong> — a unique anonymised code for each
+participant</p></li>
+<li><p><strong>group</strong> — whether participants were good
+comprehenders (GC) or poor comprehenders (PC)</p></li>
+<li><p><strong>task</strong> — which task this data comes from (all
+PNN)</p></li>
+<li><p><strong>week</strong> — whether participants completed this
+learnTime condition in the first or second week
+(counterbalanced)</p></li>
+<li><p><strong>learnTime</strong> — whether participants learned the
+items in the morning (AM) or evening (PM). This was a repeated measures
 manipulation—all participants completed both a morning and evening
-condition to compare sleep and wake effects on memory.</li>
-<li><strong>time</strong> — whether the data are from test <em>1</em>
+condition to compare sleep and wake effects on memory.</p></li>
+<li><p><strong>time</strong> — whether the data are from test <em>1</em>
 (immediately after learning), test <em>2</em> (12 hours later), test
 <strong>3</strong> (24 hours later), or test <em>4</em> (one month
-later)<br />
-</li>
-<li><strong>item</strong> — the word trained and tested<br />
-</li>
-<li><strong>acc</strong> — whether the participant successfully recalled
-the word in the picture naming task<br />
-</li>
-<li><strong>RT</strong> — response time (ms), for accurate responses
-only</li>
+later)</p></li>
+<li><p><strong>item</strong> — the word trained and tested</p></li>
+<li><p><strong>acc</strong> — whether the participant successfully
+recalled the word in the picture naming task</p></li>
+<li><p><strong>RT</strong> — response time (ms), for accurate responses
+only</p></li>
 </ul>
+</blockquote>
+</div></li>
+</ul>
+<p>We don’t necessarily need anything here, so let’s start
+wrangling!</p>
 </div>
 </div>
 </div>
@@ -404,15 +441,15 @@ for example that we only need the variables <em>ID, item</em> and
 <pre class="r"><code># Select by name
 select_dat1 &lt;- select(raw_dat, ID, item, acc)</code></pre>
 <p>In this code chunk, we create a new dataframe called
-<em>select_dat1</em>. The <code>select()</code> function takes the name
-of the dataframe you want to select from as the first argument (in this
-case, <em>raw_dat</em>). We then pass it the names of the variables we
-need. You should now see this dataframe in the environment pane - we
-still have all 6602 observations, but only the 3 variables we’ve
-specified.</p>
+<code>select_dat1</code>. The <code>select()</code> function takes the
+name of the dataframe you want to select from as the first argument (in
+this case, <code>raw_dat</code>). We then pass it the names of the
+variables we need. You should now see this dataframe in the environment
+pane - we still have all 6602 observations, but only the 3 variables
+we’ve specified. You can click the grid to see this for yourself.</p>
 <p>If you have lots of variables that you want to keep, you might want a
-quicker way of selecting lots of variables at once.Try running these two
-alternatives:</p>
+quicker way of selecting lots of variables at once. Try running these
+two alternatives:</p>
 <pre class="r"><code># Select sequential columns by name
 select_dat2 &lt;- select(raw_dat, ID, item:RT)
 
@@ -439,17 +476,22 @@ think was relevant. Tidying our data in this way is fast and efficient,
 and avoids problems caused by trying to retrieve data and match it
 across raw and processed datasets.</p>
 <p>Before we move on, let’s use your new column-selecting skills.</p>
-<p>EXERCISE: Create a new data frame called selected_vars which includes
-the following variables: ID, learnTime, time, item, acc, RT</p>
+<blockquote>
+<p><strong>EXERCISE 1:</strong> Create a new data frame called
+<code>selected_vars</code> which includes the following six variables:
+ID, learnTime, time, item, acc, RT</p>
+</blockquote>
 </div>
 <div id="rename-variables" class="section level1">
 <h1>Rename variables</h1>
 <p>Once your dataset is a more manageable size, you might find that you
-want to rename your key variables. You can do this in two ways.</p>
-<p>If you want to rename all the variables in your dataset, you can type
-a list of all the different names in order. If you want to remind
-yourself of the existing names in order, you can use the names()
-function first.</p>
+want to rename your key variables. For example, in our current dataset,
+the difference between “learnTime” and “time” is not intuitive. You can
+do rename variables in two ways.</p>
+<p>If you want to rename all the variables in your dataset, you can
+include a list of all the different names in order. If you want to
+remind yourself of the existing names in order, you can use the
+<code>names()</code> function first.</p>
 <pre class="r"><code># Current names
 names(raw_dat)</code></pre>
 <pre><code>## [1] &quot;ID&quot;        &quot;group&quot;     &quot;task&quot;      &quot;week&quot;      &quot;learnTime&quot; &quot;time&quot;      &quot;item&quot;      &quot;acc&quot;       &quot;RT&quot;</code></pre>
@@ -460,40 +502,59 @@ rename_dat1 &lt;- set_names(raw_dat, c(&quot;ppt_ID&quot;, &quot;read_group&quot
 names(rename_dat1)</code></pre>
 <pre><code>## [1] &quot;ppt_ID&quot;                &quot;read_group&quot;            &quot;exp_task&quot;              &quot;counterbalanced_order&quot; &quot;encode_time&quot;          
 ## [6] &quot;test_time&quot;             &quot;word&quot;                  &quot;correct&quot;               &quot;rt&quot;</code></pre>
+<p>There are a few rules for creating column names! The main one is that
+names cannot include spaces (<em>NB: if your loaded data file
+<strong>does</strong> include spaces in column names, you will need to
+surround them in back-ticks to use them until you rename</em>). They can
+include letters (case sensitive), basic punctuation (dashes,
+underscores, points), and numbers as long as they are not at the start
+of the name. It’s a good idea to adopt a consistent style for tidiness
+and your own memory,</p>
 <p>Sometimes you might want to rename only certain variables. You can do
-this using the rename function, following the format new_name =
-old_name:</p>
+this using the rename function, following the format
+<code>new_name = old_name</code>:</p>
 <pre class="r"><code>rename_dat2 &lt;- rename(raw_dat, encode_time = learnTime, test_time = time)</code></pre>
-<p>If you inspect the new dataframe, you should be able to see that the
-two variables now have different names to before.</p>
-<p>EXERCISE 2: Create a new dataframe called renamed_vars, by renaming
-your selected_vars dataframe from Exercise 1. Edit the column names for
-the following variables: ID &gt;&gt; ppt_ID, learnTime &gt;&gt;
-learn_time, time &gt;&gt; test_time.</p>
+<p>If you inspect the new dataframe (<code>rename_dat2</code>), you
+should be able to see that the two variables now have different names to
+before.</p>
+<blockquote>
+<p><strong>EXERCISE 2:</strong> Create a new dataframe called
+<code>renamed_vars</code>, by renaming your <code>selected_vars</code>
+dataframe from Exercise 1. Edit the column names for the following
+variables:</p>
+<ul>
+<li>ID &gt;&gt; ppt_ID</li>
+<li>learnTime &gt;&gt; learn_time</li>
+<li>time &gt;&gt; test_time</li>
+</ul>
+</blockquote>
 </div>
 <div id="filter-for-relevant-data-using-filter" class="section level1">
 <h1>Filter for relevant data using <code>filter()</code></h1>
 <p>Another typical step in data processing is to filter for the data we
 are interested in. For example, this dataset collected responses across
-two test sessions, but suppose we only want to analyse data from session
-one. We can create a reduced version of dataset for this purpose using
-the <code>filter()</code> function.</p>
+four test sessions, but suppose we only want to analyse data from
+session one. We can create a reduced version of dataset for this purpose
+using the <code>filter()</code> function.</p>
 <pre class="r"><code>filter_dat1 &lt;- filter(raw_dat, time == 1)</code></pre>
 <p>Just as with the earlier functions, the first argument is the name of
-the dataframe that we want to filter (<em>raw_dat</em>). We then specify
-the conditions for retaining data: here that we want the
-<code>session</code> variable to be equal to (==) the value of 1. You
-can see in the environment menu that this <em>filter_dat1</em> dataframe
-should have appeared. We’ve kept all 9 variables as we haven’t
-instructed otherwise, but we have approximately quarter of the number of
-observations now. If you inspect this dataframe by clicking the grid
-icon, you should see that we have dropped all of the trials from
-sessions 2-4.</p>
+the dataframe that we want to filter (<code>raw_dat</code>). We then
+specify the conditions for retaining data: here that we want the
+<code>session</code> variable to be equal to (<code>==</code>) the value
+of 1. You can see in the environment menu that this
+<code>filter_dat1</code> dataframe should have appeared. We’ve kept all
+9 variables as we haven’t instructed otherwise, but we have
+approximately quarter of the number of observations now. If you inspect
+this dataframe by clicking the grid icon, you should see that we have
+dropped all of the trials from sessions 2-4.</p>
 <p>We can use different <a
 href="https://bookdown.org/rwnahhas/IntroToR/logical.html">logical
-operators</a> to specify conditions in different ways. What do you think
-the following lines of code might do to the data? Then try running them
-to see if your predictions are correct.</p>
+operators</a> to specify conditions in different ways.</p>
+<blockquote>
+<p><strong>EXERCISE 3:</strong> What do you think the following lines of
+code might do to the data? Then try running them to see if your
+predictions are correct.</p>
+</blockquote>
 <pre class="r"><code># Example 1
 filter_dat2 &lt;- filter(raw_dat, RT &gt; 500)
 
@@ -515,10 +576,12 @@ filter_dat6 &lt;- filter(raw_dat, item == &quot;banyan&quot; | item == &quot;car
 any way imaginable. Again, the key benefit here is that we haven’t lost
 our original data at any point. Realise you’ve done something wrong?
 Edit and run it again. Need versions of your dataset with and without
-certain participants included? Create two versions. These all came from
-the same stored dataset (no deleting data you might regret!), and you’ve
-documented in code exactly what you’ve done with them. Having these
-steps scripted is a major win for reproducibility.</p>
+certain participants included? Create two versions. Reviewers query the
+impact of your exclusion criteria? Show them a version without. These
+data came from the same stored dataset (no deleting data you might
+regret!), and you’ve documented in code exactly what you’ve done with
+them. Having these steps scripted is a major win for
+reproducibility.</p>
 </div>
 <div id="combining-data-processing-steps-using-the-pipe-operator"
 class="section level1">
@@ -535,12 +598,13 @@ increasingly difficult to name them all something sensible, and it’s
 easy to lose track and make mistakes of which dataframe we are suppose
 to be using.</p>
 <p>To counter this problem, the tidyverse has a handy function called
-the pipe operator. It looks like this: <code>%&gt;%</code>, or
+the <em>pipe</em> operator. It looks like this: <code>%&gt;%</code>, or
 alternatively like this <code>|&gt;</code>. You can read the pipe
 operator as “and then”. It takes the output from the code to the left of
 it, <em>and then</em> sends it to the first argument of your next line
-of code. Remember that the first argument of the select() and filter()
-functions was the dataframe, so this works very nicely.</p>
+of code. Remember that the first argument of the <code>select()</code>,
+<code>rename()</code>, and <code>filter()</code> functions was the data,
+so this works very nicely.</p>
 <p>For example, we can select our variables of interest then filter for
 the observations we want, all in a single step as follows:</p>
 <pre class="r"><code>select_filter_dat &lt;- raw_dat %&gt;%
@@ -548,28 +612,29 @@ the observations we want, all in a single step as follows:</p>
   rename(test_time = time) %&gt;% 
   filter(RT &lt; 3000)</code></pre>
 <p>So you can read the above chunk as follows: create a new dataframe
-called <em>select_filter_dat</em> by taking the <em>raw_dat</em>
-dataframe AND THEN selecting relevant variables (ID, test, item, RT) AND
-THEN renaming test to test_time AND THEN filtering for only those trials
-where the RT was less than 3000 ms. We haven’t needed to rename the
-dataframe at each stage, as the pipe has filled this in for us from the
-previous set.</p>
+called <code>select_filter_dat</code> by taking the <code>raw_dat</code>
+dataframe <strong>AND THEN</strong> selecting relevant variables (ID,
+test, item, RT) <strong>AND THEN</strong> renaming test to test_time
+<strong>AND THEN</strong> filtering for only those trials where the RT
+was less than 3000 ms. We haven’t needed to rename the dataframe at each
+stage, as the pipe has filled this in for us from the previous set.</p>
 </div>
 <div id="calculate-participant-averages-using-group_by-and-summarise"
 class="section level1">
 <h1>Calculate participant averages using <code>group_by()</code> and
 <code>summarise()</code></h1>
 <p>One thing you often want to do with your data is calculate average
-scores for each participant. The tidyverse makes it very easy to do
-this. We make use of the <code>group_by()</code> function to “group” our
-scores by participant ID, then the <code>summarise()</code> function to
-calculate some kind of summary score. For example:</p>
+scores for each participant. The <em>tidyverse</em> makes it very easy
+to do this. We make use of the <code>group_by()</code> function to
+“group” scores by participant ID, then the <code>summarise()</code>
+function to calculate some kind of summary score. Let’s try this
+now:</p>
 <pre class="r"><code>ppt_average1 &lt;- raw_dat %&gt;% 
   group_by(ID) %&gt;% 
   summarise(mean_acc = mean(acc))</code></pre>
 <p>If you inspect the dataframe, you can see that we now have one row
 per participant, and that we have summarised the accuracy scores into a
-mean for each one.We called our new summary variable mean_acc, and
+mean for each one. We called our new summary variable “mean_acc”, and
 specified how it should be calculated using the mean function. We can
 also ask for an average RT at the same time by adding it as another
 argument to the summary function.</p>
@@ -577,11 +642,8 @@ argument to the summary function.</p>
   group_by(ID) %&gt;% 
   summarise(mean_acc = mean(acc),
             mean_RT = mean(RT))</code></pre>
-<p>What do you notice about the averaged RT variable?</p>
-<pre class="r"><code>ppt_average1 &lt;- raw_dat %&gt;% 
-  group_by(ID) %&gt;% 
-  summarise(mean_acc = mean(acc),
-            mean_RT = mean(RT, na.rm = TRUE))</code></pre>
+<p>What do you notice about the averaged RT variable? How can we fix
+this?</p>
 <p>Importantly, we can use more than one variable in the
 <code>group_by()</code> to calculate participant averages for each
 condition. Let’s work out how participants do at each of the four time
@@ -590,10 +652,9 @@ points.</p>
   group_by(ID, time) %&gt;% 
   summarise(mean_acc = mean(acc),
             mean_RT = mean(RT, na.rm = TRUE))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;ID&#39;. You can override using the `.groups` argument.</code></pre>
 <p>You can use the same principles to produce group summary statistics
 at each test point. For example, to calculate the mean and SD for
-accuracy scores:</p>
+accuracy scores, we group only by the time variable:</p>
 <pre class="r"><code>ppt_average2 %&gt;% 
   group_by(time) %&gt;% 
   summarise(ppt_mean_acc = mean(mean_acc),
@@ -605,10 +666,12 @@ accuracy scores:</p>
 ## 2     2        0.334      0.176
 ## 3     3        0.404      0.207
 ## 4     4        0.273      0.178</code></pre>
-<p>EXERCISE: Calculate group summary statistics on mean RT scores at
-each test point. You can use the previous code as a starting point. Work
-out the mean and standard deviation, then if you have time you can also
-add the minimum and maximum response times.</p>
+<blockquote>
+<p><strong>EXERCISE 4</strong>: Calculate group summary statistics on
+mean RT scores at each test point. You can use the previous code as a
+starting point. Work out the mean and standard deviation, then if you
+have time you can also add the minimum and maximum response times.</p>
+</blockquote>
 </div>
 <div id="create-new-variables" class="section level1">
 <h1>Create new variables</h1>
@@ -620,11 +683,12 @@ value by 100. We can do this using the <code>mutate()</code>
 function.</p>
 <pre class="r"><code>ppt_average3 &lt;- ppt_average2 %&gt;% 
   mutate(percent_correct = mean_acc*100)</code></pre>
-<p>We’ve taken our data frame of participant averages, and used mutate
-to create a new variable called percent_correct. Again, we have the new
-name on the left, with details on how to produce it on the right. We
-specify that the variable percent_correct should be calculated by
-multiplying mean_acc by 100. We can see that the new data frame now has
+<p>We’ve taken our data frame of participant averages, and used
+<code>mutate()</code> to create a new variable called percent_correct.
+Again, we have the new name on the left, with details on how to produce
+it on the right. We specify that the variable
+<code>percent_correct</code> should be calculated by multiplying
+<code>mean_acc</code> by 100. We can see that the new data frame now has
 one more variable, and can check that it’s doing as we expect.</p>
 <p>Let’s try adding another example. Reaction time data are often
 skewed, and require some kind of transformation to aid analysis. One
@@ -643,65 +707,68 @@ variables, filter out irrelevant cases, summarise across
 participants/variables,</p>
 <p>As a final exercise, let’s create a processed dataset that can show
 us whether windows of sleep or wake are better for picture naming.</p>
-<p>EXERCISE: Create a dataset called sleep_wake by chaining the
-following steps together: (1) take the raw data; (2) include only ID,
-learnTime, time, acc, and RT (renaming if you choose); (3) subset the
-data to include the first two test times only; (4) create a
-log-transformed RT variable (log_RT), by using the log() function on RT;
-and (5) group by participant in calculating average accuracies, raw RTs
-and log-RTs for each participant.</p>
+<blockquote>
+<p><strong>EXERCISE 5:</strong> Create a dataset called
+<code>sleep_wake</code> by chaining the following steps together:</p>
+<ol style="list-style-type: decimal">
+<li>Take the raw data</li>
+<li>Include only ID, learnTime, time, acc, and RT (renaming if you
+choose)</li>
+<li>Subset the data to include the first two test times only</li>
+<li>Create a log-transformed RT variable (log_RT), by using the log()
+function on RT</li>
+<li>Group by participant in calculating average accuracies, raw RTs and
+log-RTs for each participant</li>
+</ol>
 <p>Once you have done this, print the whole group summaries by learnTime
 and time. How does performance change between time 1 and 2 when
 participants learn in the PM versus the AM?</p>
-<pre class="r"><code>sleep_wake &lt;- raw_dat %&gt;% 
-  select(ID, learnTime, time, acc, RT) %&gt;% 
-  filter(time == 1 | time == 2) %&gt;% 
-  mutate(log_RT = log(RT)) %&gt;% 
-  group_by(ID, learnTime, time) %&gt;% 
-  summarise(acc = mean(acc), RT = mean(RT, na.rm = TRUE), log_RT = mean(log_RT, na.rm = TRUE))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;ID&#39;, &#39;learnTime&#39;. You can override using the `.groups` argument.</code></pre>
-<pre class="r"><code>sleep_wake %&gt;% 
-  group_by(learnTime, time) %&gt;% 
-  summarise(mean_acc = mean(acc), mean_RT = mean(RT, na.rm = TRUE), mean_logRT = mean(log_RT, na.rm = TRUE))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;learnTime&#39;. You can override using the `.groups` argument.</code></pre>
-<pre><code>## # A tibble: 4 × 5
-## # Groups:   learnTime [2]
-##   learnTime  time mean_acc mean_RT mean_logRT
-##   &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
-## 1 AM            1    0.316   2019.       7.46
-## 2 AM            2    0.291   2071.       7.46
-## 3 PM            1    0.241   2100.       7.48
-## 4 PM            2    0.376   1537.       7.22</code></pre>
+</blockquote>
 </div>
 <div id="saving-datasets" class="section level2">
 <h2>Saving datasets</h2>
 <p>We’ve now created a tidied dataset of participant averages for the
 variables of interest. In some cases, it might make sense to save this
-processed dataset so that we don’t have to re-run this script each time.
-Let’s save it back to the data folder, giving it a new name to clarify
-that it’s the processed version.</p>
-<pre class="r"><code>write.csv(sleep_wake, &quot;./data/picName_processed.csv&quot;, row.names = FALSE)</code></pre>
+processed dataset so that we don’t have to re-run this script each time,
+and so that we have a shareable data file.</p>
+<p>It’s good practice to save your raw and processed data in separate
+folders, and choosing a file name that clarifies that it’s the processed
+version. We can use the <code>write.csv()</code> function to do this,
+which requires the name of the dataframe you want to save and the file
+path you want to save it to (here specifying how to navigate to the
+correct folder, and including the file extension). Setting the
+<code>row.names</code> argument to FALSE prevents it from adding a
+column with the row numbers.</p>
+<pre class="r"><code>write.csv(sleep_wake, &quot;../data/processed/picName_processed.csv&quot;, row.names = FALSE)</code></pre>
 </div>
-<div id="saving-annotated-analysis-files" class="section level2">
-<h2>Saving annotated analysis files</h2>
 </div>
-</div>
-<div id="beyond-today" class="section level1">
-<h1>Beyond today</h1>
+<div id="other-data-processing-steps" class="section level1">
+<h1>Other data processing steps</h1>
 <p>Today we have learned how to load data, select and rename relevant
 variables, filter for relevant observations, create new variables,
 summarise across them, and save processed datasets for future use
 (phew!). In the end, we saw how efficiently you can run and re-run this
 with just a few lines of code chained together.</p>
-<p>The tidyverse has plenty of useful tools for data wrangling beyond
-those we’ve explored today. For example, <code>pivot_longer()</code> and
-<code>pivot_wider()</code> are useful tools for transforming your data
-between wide (one row per participant, with each column representing a
-different trial) and long (one row per trial per participant) formats.
-Functions such as <code>left_join()</code> allow us to link data between
-different dataframes based on the participant ID. There are helpful
-tools for parsing character strings, or processing dates and times. You
-name it!</p>
+<p>The <em>tidyverse</em> has plenty of useful tools for data wrangling
+beyond those we’ve explored today. For example,
+<code>pivot_longer()</code> and <code>pivot_wider()</code> are useful
+tools for transforming your data between wide (one row per participant,
+with each column representing a different trial) and long (one row per
+trial per participant) formats. Functions such as
+<code>left_join()</code> allow us to link data from different files
+based on the participant ID. There are helpful tools for parsing
+character strings, or processing dates and times. You name it, you can
+find it!</p>
+<p>Check out the <a
+href="https://emljames.github.io/introR/resources.html">resources
+page</a> for links to some more guidance on data processing steps, or
+try using google (or chatGPT!) to figure out how to do things. Adding
+“tidyverse” to your search terms will help to identify solutions that
+are consistent with our data processing approach today.</p>
+<p>In the <a
+href="https://emljames.github.io/introR/reproducibility.html">final
+section</a> of this workshop (if there’s time!), we’ll show how you can
+turn your new data wrangling skills into an annotated output file.</p>
 </div>
 
 

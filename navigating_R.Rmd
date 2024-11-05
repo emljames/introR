@@ -1,11 +1,27 @@
 ---
 title: "Navigating R and RStudio"
 author: "Emma James"
-date: "2024-10-30"
 output: html_document
 ---
 
-# Why R and RStudio
+# Introduction to working in R
+
+## Why *R*?
+
+*R* is a widely used, free software environment geared towards running statistical analyses. It's a programming language, and so is often considered to have a steeper learning curve than programs like SPSS. It requires you to learn how to type specific instructions to tell the computer what to do, rather than navigate through menus in a pointy-clicky way. However, this effort is rewarded by greater flexibility, efficiency, and reproducibility in your data analysis.
+
+Obviously we're here in an *R* workshop so may be biased, but here are a few of the reasons why *R* is worth your time:
+
+-   It's **free**! This means you can take your snazzy analysis skills wherever you want, without requiring someone to pay an expensive software licence.
+-   It has a **strong online community**: there are lots of free online resources to help you with all sorts of data tasks, and highly productive help forums.
+-   It's **highly efficient** and allows you to manipulate and analyse large datasets with ease.
+-   You can more readily make your data processing and analysis **reproducible and transparent**. By scripting all of your steps, you have a clear record of what you've done. This makes it readily shareable with collaborators, other researchers, and (perhaps most importantly) future you.
+-   There are many **advanced and powerful** statistical tools being developed all the time (supply and demand).
+-   You're not restricted to those methods - you can code anything you want!
+
+## What's RStudio?
+
+*RStudio* is a freeware environment with many helpful features for using *R*. Most people will use *R* within the RStudio environment, but you do need to install both *R* and *RStudio* separately. In the next section, we'll introduce the core aspects of the RStudio environment in introducing basic principles.
 
 # RStudio panes
 
@@ -33,7 +49,7 @@ The arrow `<-` is used to assign everything on the right to the name that you pr
 
 You’ll notice that in the top right section, in the ‘Environment’ window, a variable called ‘a’ has now appeared, and it has the value 5. We can treat this variable as though it is a number. So, we can do mathematical operations on it, and we will get an answer out that depends on the value of the variable. So, if we type (in the Console) `a^2`, we get the answer 25 (because this is 5 squared). Try this now.
 
-But why not just type 5\^2? The reason variables are useful is that we can change their values, or include many numbers in them. Let’s make a new variable called ‘b’, by typing:
+But why not just type 5\^2? The reason variables are useful is that we can change their values, or include many numbers in them. Let’s make a new variable called ‘b’, by typing the following line into the Console::
 
 ```{r second-object}
 b <- c(1, 2, 3, 4, 5)
@@ -49,22 +65,22 @@ This seems pretty arbitrary at the moment, but today we will be using variables 
 
 Data analysis in R *can* involve typing a lot of instructions. However, most of the time, someone else has created little packages of instructions for us to use called *functions*. Each function has a name to call, followed by some *arguments* that it requires you to enter inside the brackets.
 
-For example, there are many basic statistical functions built into R already. For example, earlier we created a list of 5 numbers called *b*. We can find out some basic statistical properties using the following functions:
+For example, there are many basic statistical functions built into R already. For example, earlier we created a list of 5 numbers called *b*. Let's try finding out some basic statistical properties using the following functions:
 
-```{r basic-functions}
+```{r basic-functions, eval = FALSE}
 min(b)
 max(b)
 mean(b)
 median(b)
 ```
 
-Each one does pretty much what it says on the tin! You can find out more information about a function by googling it, or by typing `help(function_name)`. For example, if we had missing data in our variable, we might need to explicitly say whether we want it to be ignored.
+You'll see that each one does pretty much what it says on the tin! You can find out more information about a function by googling it, or by typing `help(function_name)`. For example, if we had missing data in our variable, we might need to explicitly say whether we want it to be ignored.
 
 ## Packages
 
 These example functions are very simple, but there are much more advanced functions for different purposes - be they loading and manipulating data, running analyses, or plotting graphs. Because many of these tools are specialised for different purposes, not everything is loaded automatically in *R*. Instead, we can access the functions we need by installing and loading specific *packages*: collections of functions developed for a particular purpose.
 
-Today we we will be using functions from the *tidyverse* package. However, you can usually use Google to find other packages that will be useful for any particular purpose.
+Today we will be using functions from the *tidyverse* package. However, you can usually use Google to find other packages that will be useful for any particular purpose.
 
 If you have followed the set-up instructions for this workshop, you should have already installed the tidyverse package. If not, you can install it now by typing the following line into your console:
 
@@ -76,13 +92,13 @@ You only need to install packages once, so we can type this directly into the co
 
 However, you need to load relevant packages into RStudio each time you start a new session. It's good practice to load packages at the top of a script, so that you always start by loading the necessary tools for your analysis. Let's do this now: in the first grey section of the template file, under "Load packages", enter the following line of code:
 
-```{r load-packages}
+```{r load-packages, message = FALSE, warning = FALSE}
 library(tidyverse)
 ```
 
-If you click the green arrow to run the code in the chunk, you'll see that it sends the line of code to the console, and prints the output. The tidyverse package is actually a collection of smaller packages made by the same team, so the message here tells us that these different packages are loaded.
+If you click the green arrow to run the code in the chunk, you'll see that it sends the line of code to the console, and prints the output. The *tidyverse* package is actually a collection of smaller packages made by the same team, so the message here tells us that these different packages are loaded.
 
-# Working in RMarkdown scripts 
+# Working in RMarkdown scripts
 
 Congratulations, you've just written your first code chunk! Today we are working in an *RMarkdown* file: this is a version of a script that lets you intermix text with chunks of code. There are several helpful formatting features that help you to make your work readable and shareable.
 
@@ -92,4 +108,4 @@ The grey boxes you can see in your template script are ready for chunks of code 
 
 If we want to make further notes *inside* the code chunks, we can use the #key to write comments. Any text that comes after the \# on a line will be treated as a comment, not code.
 
-There are many jazzy features of RMarkdown that we won't have time to go into today, but we'll touch base on this at the end of the session to discuss why RMarkdown can be useful to structure and share your code.
+There are many jazzy features of RMarkdown that we won't have time to go into today, but we'll touch base on this at the end of the session to discuss why RMarkdown can be useful to structure and share your code. For now, let's use this template file to [wrangle some data](https://emljames.github.io/introR/data_wrangling.html)!

@@ -10,6 +10,8 @@ navbar:
       href: navigating_R.html
     - text: "Data wrangling"
       href: data_wrangling.html
+    - text: "Reproducibility"
+      href: reproducibility.html
     - text: "Resources"
       href: resources.html
 output_dir: docs
