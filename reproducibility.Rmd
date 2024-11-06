@@ -39,11 +39,12 @@ There are several options for formatting your text in different ways. You can in
 
 So how to we turn that into a nice output file? Well, we try clicking "Knit" at the top of the window! This might be a big ask after today's short workshop, but let's try it and see what happens.
 
-> **Debugging:** A few things that might prevent it working:
->
-> -   Not having the relevant packages installed
-> -   Having unfinished code chunks - if R hits an error along the way, it will stop executing the file. If this happens, you could try commenting out that code section as a temporary solution.
-> -   Having code chunks with duplicate names
+***Debugging:** A few things that might prevent it working:*
+
+-   *Not having the relevant packages installed*
+-   *Not having everything scripted - e.g., if you have loaded data in a different way, then R won't be able to find it again when it runs your code from scratch.*
+-   *Having unfinished code chunks - if R hits an error along the way, it will stop executing the file. If this happens, you could try commenting out that code section as a temporary solution.*
+-   *Having code chunks with duplicate names*
 
 If it's not working at the end of this workshop but you'd like to get it up and running, reach out for us for some support.
 
@@ -51,12 +52,12 @@ If it's not working at the end of this workshop but you'd like to get it up and 
 
 Here are a few key principles:
 
-1.  Code everything! (as much as you can). This is hard when you are a beginner. Why take an hour to make the stupid line of code work when you could open the file in Excel and delete the column in mere seconds? But future you will be grateful when you have to redownload some data and start again. You only need to figure it out once (ask for support if you need to!), and you'll be super whizzy in the future.
-2.  Never delete raw data (unless there are GDPR/ethics implications) - keep raw and processed data separate.
-3.  Use sensible names for variables and for objects. This will help to make your code more readable, and avoid mistakes. For example, `data_session1` is more informative than `data2`.
-4.  Comment everything! Well, not *everything.* But document your key steps along the way so that it's readable.
-5.  Chunk your data processing and analysis steps for readability - either in separate files, and/or using features in R Markdown.
-6.  Try to document package versions. One downside to R's updating and ongoing work is that packages and functions can change, meaning that your code is not entirely future proof. There are some elegant ways to incorporate version control in your scripts, but a simple way to document this you can include a call to `sessionInfo()` at the end of your .Rmd script.
+1.  **Code everything!** (as much as you can). This is hard when you are a beginner. Why take an hour to make the stupid line of code work when you could open the file in Excel and delete the column in mere seconds? But future you will be grateful when you have to redownload some data and start again. You only need to figure it out once (ask for support if you need to!), and you'll be super whizzy in the future.
+2.  **Never delete raw data** (unless there are GDPR/ethics implications) - keep raw and processed data separate.
+3.  **Use sensible names** for variables and for objects. This will help to make your code more readable, and avoid mistakes. For example, `data_session1` is more informative than `data2`.
+4.  **Comment everything!** Well, not *everything.* But document your key steps along the way so that it's readable.
+5.  **Chunk** your data processing and analysis steps for readability - either in separate files, and/or using features in R Markdown.
+6.  Try to **document package versions.** One downside to R's updating and ongoing work is that packages and functions can change, meaning that your code is not entirely future proof. There are some elegant ways to incorporate version control in your scripts, but a simple way to document this you can include a call to `sessionInfo()` at the end of your .Rmd script.
 
 Remember, a benefit of openness is that you can look to others for examples! The Open Science Framework is ideal for this. Of course there is a lot of variability in coding practices, but looking at how other people go about structuring and reporting their analyses can be a good way to learn. There's no one right way, so you can decide what you think works well for your particular situation.
 

@@ -421,17 +421,18 @@ editing styles as needed.</p>
 <p>So how to we turn that into a nice output file? Well, we try clicking
 “Knit” at the top of the window! This might be a big ask after today’s
 short workshop, but let’s try it and see what happens.</p>
-<blockquote>
-<p><strong>Debugging:</strong> A few things that might prevent it
-working:</p>
+<p><em><strong>Debugging:</strong> A few things that might prevent it
+working:</em></p>
 <ul>
-<li>Not having the relevant packages installed</li>
-<li>Having unfinished code chunks - if R hits an error along the way, it
-will stop executing the file. If this happens, you could try commenting
-out that code section as a temporary solution.</li>
-<li>Having code chunks with duplicate names</li>
+<li><em>Not having the relevant packages installed</em></li>
+<li><em>Not having everything scripted - e.g., if you have loaded data
+in a different way, then R won’t be able to find it again when it runs
+your code from scratch.</em></li>
+<li><em>Having unfinished code chunks - if R hits an error along the
+way, it will stop executing the file. If this happens, you could try
+commenting out that code section as a temporary solution.</em></li>
+<li><em>Having code chunks with duplicate names</em></li>
 </ul>
-</blockquote>
 <p>If it’s not working at the end of this workshop but you’d like to get
 it up and running, reach out for us for some support.</p>
 </div>
@@ -439,28 +440,30 @@ it up and running, reach out for us for some support.</p>
 <h1>Good practices</h1>
 <p>Here are a few key principles:</p>
 <ol style="list-style-type: decimal">
-<li>Code everything! (as much as you can). This is hard when you are a
-beginner. Why take an hour to make the stupid line of code work when you
-could open the file in Excel and delete the column in mere seconds? But
-future you will be grateful when you have to redownload some data and
-start again. You only need to figure it out once (ask for support if you
-need to!), and you’ll be super whizzy in the future.</li>
-<li>Never delete raw data (unless there are GDPR/ethics implications) -
-keep raw and processed data separate.</li>
-<li>Use sensible names for variables and for objects. This will help to
-make your code more readable, and avoid mistakes. For example,
-<code>data_session1</code> is more informative than
+<li><strong>Code everything!</strong> (as much as you can). This is hard
+when you are a beginner. Why take an hour to make the stupid line of
+code work when you could open the file in Excel and delete the column in
+mere seconds? But future you will be grateful when you have to
+redownload some data and start again. You only need to figure it out
+once (ask for support if you need to!), and you’ll be super whizzy in
+the future.</li>
+<li><strong>Never delete raw data</strong> (unless there are GDPR/ethics
+implications) - keep raw and processed data separate.</li>
+<li><strong>Use sensible names</strong> for variables and for objects.
+This will help to make your code more readable, and avoid mistakes. For
+example, <code>data_session1</code> is more informative than
 <code>data2</code>.</li>
-<li>Comment everything! Well, not <em>everything.</em> But document your
-key steps along the way so that it’s readable.</li>
-<li>Chunk your data processing and analysis steps for readability -
-either in separate files, and/or using features in R Markdown.</li>
-<li>Try to document package versions. One downside to R’s updating and
-ongoing work is that packages and functions can change, meaning that
-your code is not entirely future proof. There are some elegant ways to
-incorporate version control in your scripts, but a simple way to
-document this you can include a call to <code>sessionInfo()</code> at
-the end of your .Rmd script.</li>
+<li><strong>Comment everything!</strong> Well, not <em>everything.</em>
+But document your key steps along the way so that it’s readable.</li>
+<li><strong>Chunk</strong> your data processing and analysis steps for
+readability - either in separate files, and/or using features in R
+Markdown.</li>
+<li>Try to <strong>document package versions.</strong> One downside to
+R’s updating and ongoing work is that packages and functions can change,
+meaning that your code is not entirely future proof. There are some
+elegant ways to incorporate version control in your scripts, but a
+simple way to document this you can include a call to
+<code>sessionInfo()</code> at the end of your .Rmd script.</li>
 </ol>
 <p>Remember, a benefit of openness is that you can look to others for
 examples! The Open Science Framework is ideal for this. Of course there
