@@ -2,19 +2,23 @@
 title: "Before the workshop"
 ---
 
+# Workshop materials
+
+The folder including the data and template script for the workshop can be [downloaded from github](https://github.com/emljames/introR/blob/main/workshop_files.zip). Please place this folder somewhere in your directory, and unzip the contents. Do not change any of the file structures (i.e., keep the data in the data folder, and the scripts in the script folder!). 
+
 # Software requirements
 
 The majority of the workshop will be "code-along" - i.e., we will be working through the material live using R, and you follow the same steps on your computer. The necessary software is already installed on the computers in the PC Lab, and you might find this option easiest given the large screens. 
 
 If you would prefer to use your own laptop, you will need to ensure you have everything set up before the workshop. We need to install both *R* itself (the programming language), and *RStudio* (an integrated software environment). Please ensure you have complete both Step 1 and Step 2 below, and reach out to Emma (emma.james@york.ac.uk) if you have any difficulties. 
 
-# Step 1: Software installation
+## Step 1: Software installation
 
-## Installation on a university-managed laptop 
+### Installation on a university-managed laptop 
 
-If you are working on a university-managed laptop, you can install R and RStudio from the Software Center (Windows) or Self Service (Mac).
+If you are working on a university-managed laptop, you can install R and RStudio from the Software Center (Windows) or Self Service (Mac). The current versions on university managed devices are R 4.4.2 and RStudio 2024.9.0. 
 
-## Installation on a personal device
+#### Installation on a personal device
 
 You will need to have R and R Studio to installed to follow along with the workshop. R is the programming language itself, whereas RStudio is the user interface for interacting with R. Please make sure your software is up-to-date to avoid issues.
 
@@ -23,7 +27,7 @@ You will need to have R and R Studio to installed to follow along with the works
 
 Some additional guidance can be found [here](https://datacarpentry.org/r-socialsci/setup.html) if you need it.
 
-# Step 2: Installing relevant packages
+## Step 2: Installing relevant packages
 
 We will use the `tidyverse` package during this workshop (don't worry - we'll cover what packages are in more detail later!). To get a headstart with fixing any issues, please install it before the workshop. To do this, open up RStudio and type the following into the console (the main window that opens up, with `>` waiting for you to type).
 

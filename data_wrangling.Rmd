@@ -8,11 +8,12 @@ output:
 
 In this section of the workshop, we will learn how to manipulate your data in R. Being able to process and reformat your data in a fast and reproducible way is a major benefit of working in R relative to e.g., Excel and SPSS. We will use a set of functions dedicated to this purpose, known as the *tidyverse*.
 
-If you're following this material directly after the [Navigating R](https://emljames.github.io/introR/navigating_R.html) content, you can skip the setting up section.
 
 # Setting up
 
 ## Load packages
+
+*(If you're following this material directly after the [Navigating R](https://emljames.github.io/introR/navigating_R.html) content, then you've already done this first step!)*
 
 We need to load a collection of functions from the *tidyverse*. If you have not already installed this package, you still need to run `install.packages("tidyverse")` in the Console first.
 
@@ -167,13 +168,13 @@ filter_dat3 <- filter(raw_dat, RT <= 2000)
 # Example 3
 filter_dat4 <- filter(raw_dat, !is.na(RT))
 
-# Example 4 - Character string
+# Example 4
 filter_dat4 <- filter(raw_dat, item == "agouti")
 
-# Example 5 - Multiple criteria
+# Example 5 
 filter_dat5 <- filter(raw_dat, time == 1 & RT <= 2000 )
 
-# Example 6 - Multiple criteria
+# Example 6
 filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 ```
 

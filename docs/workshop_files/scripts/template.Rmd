@@ -29,7 +29,7 @@ date: "2024-11-06"
 
 ```
 
-EXERCISE 1: Create a new data frame called selected_vars which includes the following variables: ID, learnTime, time, item, acc, RT
+**EXERCISE 1:** Create a new data frame called `selected_vars` which includes the following six variables: ID, learnTime, time, item, acc, RT
 
 ```{r select-exercise}
 
@@ -42,7 +42,7 @@ EXERCISE 1: Create a new data frame called selected_vars which includes the foll
 
 ```
 
-EXERCISE 2: Create a new dataframe called renamed_vars, by renaming your selected_vars dataframe from Exercise 1. Edit the column names for the following variables:
+**EXERCISE 2:** Create a new dataframe called `renamed_vars`, by renaming your `selected_vars` dataframe from Exercise 1. Edit the column names for the following variables:
 
 -   ID >> ppt_ID
 -   learnTime >> learn_time
@@ -60,26 +60,86 @@ EXERCISE 2: Create a new dataframe called renamed_vars, by renaming your selecte
 
 ```
 
-EXERCISE 3: What do you think the following lines of code might do to the data? Talk through your predictions, then run the code and inspect the dataframes to see if you are correct. You can edit the code comments (after the #) to make notes.  
+**EXERCISE 3:** What do you think the following lines of code might do to the data? Talk through your predictions, then run the code and inspect the dataframes to see if you are correct. You can edit the code comments (after the #) to make notes.  
 
-```{r filter-obs2}
+```{r filter-exercise}
 # Example 1
-filter_dat2 <- filter(raw_dat, vocab > 20)
+filter_dat2 <- filter(raw_dat, RT > 500)
 
 # Example 2
-filter_dat3 <- filter(raw_dat, vocab <= 40)
+filter_dat3 <- filter(raw_dat, RT <= 2000)
 
 # Example 3
-filter_dat4 <- filter(raw_dat, !is.na(vocab))
+filter_dat4 <- filter(raw_dat, !is.na(RT))
 
-# Example 4 - Character string
+# Example 4
 filter_dat4 <- filter(raw_dat, item == "agouti")
 
-# Example 5 - Multiple criteria
-filter_dat5 <- filter(raw_dat, session == 1 & vocab <= 20 )
+# Example 5
+filter_dat5 <- filter(raw_dat, time == 1 & RT <= 2000 )
 
-# Example 6 - Multiple criteria
+# Example 6
 filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 ```
 
+# Combining processing steps using the pipe
+
+```{r pipe example}
+
+
+
+```
+
+# Calculate participant averages 
+
+```{r summarise-examples}
+
+
+
+```
+
+**EXERCISE 4**: Calculate group summary statistics on mean RT scores at each test point. You can use the previous code as a starting point. Work out the mean and standard deviation, then if you have time you can also add the minimum and maximum response times.
+
+```{r summarise-exercise}
+
+
+```
+
+# Create new variables
+
+```{r new-var-examples}
+
+
+
+```
+
+
+# Putting it all together
+
+**EXERCISE 5:** Create a dataset called `sleep_wake` by chaining the following steps together:
+
+1.  Take the raw data
+2.  Include only ID, learnTime, time, acc, and RT (renaming if you choose)
+3.  Subset the data to include the first two test times only
+4.  Create a log-transformed RT variable (log_RT), by using the log() function on RT
+5.  Group by participant in calculating average accuracies, raw RTs and log-RTs for each participant
+
+```{r final-exercise-ppt}
+
+
+```
+
+Once you have done this, print the whole group summaries by learnTime and time. How does performance change between time 1 and 2 when participants learn in the PM versus the AM?
+
+```{r final-exercise-group}
+
+
+```
+
+## Save data
+
+```{r save-data}
+
+
+```
 

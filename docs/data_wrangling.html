@@ -359,13 +359,13 @@ data in R. Being able to process and reformat your data in a fast and
 reproducible way is a major benefit of working in R relative to e.g.,
 Excel and SPSS. We will use a set of functions dedicated to this
 purpose, known as the <em>tidyverse</em>.</p>
-<p>If you’re following this material directly after the <a
-href="https://emljames.github.io/introR/navigating_R.html">Navigating
-R</a> content, you can skip the setting up section.</p>
 <div id="setting-up" class="section level1">
 <h1>Setting up</h1>
 <div id="load-packages" class="section level2">
 <h2>Load packages</h2>
+<p><em>(If you’re following this material directly after the <a
+href="https://emljames.github.io/introR/navigating_R.html">Navigating
+R</a> content, then you’ve already done this first step!)</em></p>
 <p>We need to load a collection of functions from the
 <em>tidyverse</em>. If you have not already installed this package, you
 still need to run <code>install.packages("tidyverse")</code> in the
@@ -404,22 +404,14 @@ to preview the data, and using the <code>head()</code> function to print
 the first few rows.</p>
 <pre class="r"><code># Print summary of variables
 summary(raw_dat)</code></pre>
-<pre><code>##       ID               group               task                week        learnTime              time           item          
-##  Length:6602        Length:6602        Length:6602        Min.   :1.000   Length:6602        Min.   :1.000   Length:6602       
-##  Class :character   Class :character   Class :character   1st Qu.:1.000   Class :character   1st Qu.:2.000   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character   Median :1.000   Mode  :character   Median :3.000   Mode  :character  
-##                                                           Mean   :1.498                      Mean   :2.504                     
-##                                                           3rd Qu.:2.000                      3rd Qu.:4.000                     
-##                                                           Max.   :2.000                      Max.   :4.000                     
-##                                                                                                                                
-##       acc               RT         
-##  Min.   :0.0000   Min.   :  481.3  
-##  1st Qu.:0.0000   1st Qu.:  986.0  
-##  Median :0.0000   Median : 1326.7  
-##  Mean   :0.3211   Mean   : 1758.0  
-##  3rd Qu.:1.0000   3rd Qu.: 1950.0  
-##  Max.   :1.0000   Max.   :17656.5  
-##                   NA&#39;s   :4563</code></pre>
+<pre><code>##       ID               group               task                week        learnTime              time           item                acc               RT         
+##  Length:6602        Length:6602        Length:6602        Min.   :1.000   Length:6602        Min.   :1.000   Length:6602        Min.   :0.0000   Min.   :  481.3  
+##  Class :character   Class :character   Class :character   1st Qu.:1.000   Class :character   1st Qu.:2.000   Class :character   1st Qu.:0.0000   1st Qu.:  986.0  
+##  Mode  :character   Mode  :character   Mode  :character   Median :1.000   Mode  :character   Median :3.000   Mode  :character   Median :0.0000   Median : 1326.7  
+##                                                           Mean   :1.498                      Mean   :2.504                      Mean   :0.3211   Mean   : 1758.0  
+##                                                           3rd Qu.:2.000                      3rd Qu.:4.000                      3rd Qu.:1.0000   3rd Qu.: 1950.0  
+##                                                           Max.   :2.000                      Max.   :4.000                      Max.   :1.0000   Max.   :17656.5  
+##                                                                                                                                                  NA&#39;s   :4563</code></pre>
 <pre class="r"><code># Print first rows of dataset 
 head(raw_dat)</code></pre>
 <pre><code>## # A tibble: 6 × 9
@@ -537,8 +529,8 @@ rename_dat1 &lt;- set_names(raw_dat, c(&quot;ppt_ID&quot;, &quot;read_group&quot
 
 # Check 
 names(rename_dat1)</code></pre>
-<pre><code>## [1] &quot;ppt_ID&quot;                &quot;read_group&quot;            &quot;exp_task&quot;              &quot;counterbalanced_order&quot; &quot;encode_time&quot;          
-## [6] &quot;test_time&quot;             &quot;word&quot;                  &quot;correct&quot;               &quot;rt&quot;</code></pre>
+<pre><code>## [1] &quot;ppt_ID&quot;                &quot;read_group&quot;            &quot;exp_task&quot;              &quot;counterbalanced_order&quot; &quot;encode_time&quot;           &quot;test_time&quot;             &quot;word&quot;                 
+## [8] &quot;correct&quot;               &quot;rt&quot;</code></pre>
 <p>There are a few rules for creating column names! The main one is that
 names cannot include spaces (<em>NB: if your loaded data file
 <strong>does</strong> include spaces in column names, you will need to
@@ -601,13 +593,13 @@ filter_dat3 &lt;- filter(raw_dat, RT &lt;= 2000)
 # Example 3
 filter_dat4 &lt;- filter(raw_dat, !is.na(RT))
 
-# Example 4 - Character string
+# Example 4
 filter_dat4 &lt;- filter(raw_dat, item == &quot;agouti&quot;)
 
-# Example 5 - Multiple criteria
+# Example 5 
 filter_dat5 &lt;- filter(raw_dat, time == 1 &amp; RT &lt;= 2000 )
 
-# Example 6 - Multiple criteria
+# Example 6
 filter_dat6 &lt;- filter(raw_dat, item == &quot;banyan&quot; | item == &quot;caracal&quot;)</code></pre>
 <p>You can specify and combine your selection criteria in pretty much
 any way imaginable. Again, the key benefit here is that we haven’t lost
