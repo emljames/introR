@@ -280,7 +280,7 @@ As a final exercise, let's create a processed dataset that can show us whether w
 > 2.  Include only ID, learnTime, time, acc, and RT (renaming if you choose)
 > 3.  Subset the data to include the first two test times only
 > 4.  Create a log-transformed RT variable (log_RT), by using the log() function on RT
-> 5.  Group by participant in calculating average accuracies, raw RTs and log-RTs for each participant
+> 5.  Group by ID, learnTime and time to calculate average accuracies, raw RTs and log-RTs (i.e., for each participant for each condition)
 >
 > Once you have done this, print the whole group summaries by learnTime and time. How does performance change between time 1 and 2 when participants learn in the PM versus the AM?
 

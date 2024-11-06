@@ -38,6 +38,8 @@ date: "2024-11-06"
 
 # Rename variables
 
+Here's a list of alternative column names: "ppt_ID", "read_group", "exp_task", "counterbalanced_order", "encode_time", "test_time", "word", "correct", "rt"
+
 ```{r rename-examples}
 
 ```
@@ -84,7 +86,7 @@ filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 
 # Combining processing steps using the pipe
 
-```{r pipe example}
+```{r pipe-example}
 
 
 
@@ -122,7 +124,7 @@ filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 2.  Include only ID, learnTime, time, acc, and RT (renaming if you choose)
 3.  Subset the data to include the first two test times only
 4.  Create a log-transformed RT variable (log_RT), by using the log() function on RT
-5.  Group by participant in calculating average accuracies, raw RTs and log-RTs for each participant
+5.  Group by ID, learnTime and time to calculate average accuracies, raw RTs and log-RTs (i.e., for each participant for each condition)
 
 ```{r final-exercise-ppt}
 

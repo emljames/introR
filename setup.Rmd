@@ -29,10 +29,11 @@ Some additional guidance can be found [here](https://datacarpentry.org/r-socials
 
 ## Step 2: Installing relevant packages
 
-We will use the `tidyverse` package during this workshop (don't worry - we'll cover what packages are in more detail later!). To get a headstart with fixing any issues, please install it before the workshop. To do this, open up RStudio and type the following into the console (the main window that opens up, with `>` waiting for you to type).
+We will use the `tidyverse` and `rmarkdown` packages during this workshop (don't worry - we'll cover what packages are in more detail later!). To get a headstart with fixing any issues, please install it before the workshop. To do this, open up RStudio and type the following into the console (the main window that opens up, with `>` waiting for you to type).
 
 ```{r eval = FALSE}
 install.packages("tidyverse")
+install.packages("rmarkdown")
 ```
 
 Hit the return key and let it do its magic. Don't worry about the red text that flashes up - that's normal! The final messages should say that each package is *"successfully unpacked and MD5 sums checked"*. If you don't get to this point, reach out to Emma via email [emma.james@york.ac.uk](emma.james@york.ac.uk)).
