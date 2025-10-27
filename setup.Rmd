@@ -8,32 +8,40 @@ The folder including the data and template script for the workshop can be [downl
 
 # Software requirements
 
-The majority of the workshop will be "code-along" - i.e., we will be working through the material live using R, and you follow the same steps on your computer. The necessary software is already installed on the computers in the PC Lab, and you might find this option easiest given the large screens. 
+The majority of the workshop will be "code-along" - i.e., we will be working through the material live using R, and you follow the same steps on your computer. The necessary software is already installed on the computers in the PC Lab, and you might find this option easiest given the large screens.
 
-If you would prefer to use your own laptop, you will need to ensure you have everything set up before the workshop. We need to install both *R* itself (the programming language), and *RStudio* (an integrated software environment). Please ensure you have complete both Step 1 and Step 2 below, and reach out to Emma (emma.james@york.ac.uk) if you have any difficulties. 
+If you would prefer to use your own laptop, you will need to ensure you have everything set up before the workshop. We need to install both *R* itself (the programming language), and *RStudio* (an integrated software environment). Please ensure you have complete both Step 1 and Step 2 below, and reach out to Emma ([emma.james\@york.ac.uk](mailto:emma.james@york.ac.uk){.email}) if you have any difficulties.
 
-## Step 1: Software installation
+# Step 1: Software installation
 
-### Installation on a university-managed laptop 
+## Installation on a university-managed laptop
 
-If you are working on a university-managed laptop, you can install R and RStudio from the Software Center (Windows) or Self Service (Mac). The current versions on university managed devices are R 4.4.2 and RStudio 2024.9.0. 
+If you are working on a university-managed laptop, you can install R and RStudio from the Software Center (Windows) or Self Service (Mac).
 
-#### Installation on a personal device
+## Installation on a personal device
 
-You will need to have R and R Studio to installed to follow along with the workshop. R is the programming language itself, whereas RStudio is the user interface for interacting with R. Please make sure your software is up-to-date to avoid issues.
+You will need to have R and RStudio to installed to follow along with the workshop. R is the programming language itself, whereas RStudio is the user interface for interacting with R. Please make sure your software is up-to-date to avoid issues.
 
-* To download R: https://cran.r-project.org/  
-* To download RStudio: https://rstudio.com/products/rstudio/download/#download (just the free Desktop version)
+**To download R:**
 
-Some additional guidance can be found [here](https://datacarpentry.org/r-socialsci/setup.html) if you need it.
+-   Visit <https://cran.r-project.org/> and click Download R for [Windows/macOS], depending on your operating system
+-   Click to install the “base” distribution, described as what you want for installing R for the first time
+-   Then click to download the current version (4.5.1)
+-   Once the file has downloaded, click to open it.
+-   Work through the installation, sticking with all the default options
+-   At some point, you might get asked to select a CRAN Mirror, which presents you with a couple of options from the UK. I’m not sure it matters which one you choose, but I always select Bristol!
 
-## Step 2: Installing relevant packages
+**To download RStudio:**
 
-We will use the `tidyverse` and `rmarkdown` packages during this workshop (don't worry - we'll cover what packages are in more detail later!). To get a headstart with fixing any issues, please install it before the workshop. To do this, open up RStudio and type the following into the console (the main window that opens up, with `>` waiting for you to type).
+-   Download RStudio Desktop via this link: <https://posit.co/download/rstudio-desktop/>
+-   Open the file once it has downloaded, and again walk through the installer using the default options.
+
+# Step 2: Installing relevant packages
+
+We will use the `tidyverse` package during this workshop (don't worry - we'll cover what packages are in more detail later!). To get a head start with fixing any issues, please install it before the workshop. To do this, open up RStudio and type the following into the console (the main window that opens up, with `>` waiting for you to type).
 
 ```{r eval = FALSE}
 install.packages("tidyverse")
-install.packages("rmarkdown")
 ```
 
-Hit the return key and let it do its magic. Don't worry about the red text that flashes up - that's normal! The final messages should say that each package is *"successfully unpacked and MD5 sums checked"*. If you don't get to this point, reach out to Emma via email ([emma.james@york.ac.uk](emma.james@york.ac.uk)).
+Hit the return key and let it do its magic. Don't worry about the red text that flashes up - that's normal! The final messages should say that each package is *"successfully unpacked and MD5 sums checked"*. If you don't get to this point, reach out to Emma via email ([emma.james\@york.ac.uk](emma.james@york.ac.uk)).

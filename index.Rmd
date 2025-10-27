@@ -7,47 +7,54 @@ output: html_document
 
 # Overview
 
-This introductory R workshop has been put together for York Psychology ECR Forum. The workshop will take place in the Psychology PC Lab (PS/A/203), 1pm-3pm on Wednesday 6th November 2024.
+This introductory R workshop has been put together for York Psychology ECR Forum. The 2025 workshop will take place in the PC Lab (PS/A/203), 2pm-4pm on Wednesday 29th October.
 
-The session will provide you with the basic skills for getting started in using R your own research. We will prioritise skills for data wrangling using a set of tools referred to as the *tidyverse*. The course is aimed at complete beginners -- **no programming experience or prior knowledge of R is required.**
+The session will provide an introduction to R, providing you with the basic skills for getting started in using R for your own research. We will prioritise skills for data wrangling using a set of tools referred to as the *tidyverse*. The course is aimed at complete beginners in R -- **no programming experience or prior knowledge of R is required.**
 
-The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockcroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie have experience in using R for psychological research, and supporting beginners without programming backgrounds.
+The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and have experience in supporting beginning learners without programming backgrounds.
 
 # Before the workshop
 
 If you intend to use your own laptop for the workshop, please ensure that you have followed all the installation steps on the [set-up page](https://emljames.github.io/introR/setup.html).
 
+# Before the workshop
+
+Before the workshop, please follow all the set-up steps on the [set-up page](https://emljames.github.io/introR/setup.html).
+
 # Workshop content
 
-The main aim of this workshop is to introduce you to some key tools that showcase why R can be an excellent choice for your data analysis. In doing so, we hope to given you the motivation to invest time in developing your skills in R, and confidence to do so.
+The main aim of this workshop is to introduce you to some key data processing tools that showcase why R can be an excellent choice for your data analysis. In doing so, we hope to give you the motivation to invest time in developing your skills in R, and the confidence to do so.
 
-This workshop consists of three key sections, with the following objectives:
+This workshop consists of three key sections:
 
-1.  [**Navigating R and R Studio**](https://emljames.github.io/introR/navigating_R.html)
+1.  **Navigating R and R Studio**
     -   Why *R* and *RStudio*
     -   RStudio panes
     -   Objects
     -   Functions and packages
-2.  [**Data wrangling in R**](https://emljames.github.io/introR/data_wrangling.html)
-    -   Load data
+2.  **Data wrangling in R**
     -   Select relevant variables
     -   Rename variables
     -   Filter relevant data
     -   Calculate participant averages
     -   Create new variables
-    -   Save your processed data
-3.  [**Reproducible research practices**](https://emljames.github.io/introR/reproducibility.html)
+    -   Saving datasets
+3.  **Reproducible research practices**
     -   The benefits of coding
     -   Always comment your code!
-    -   Using R Markdown for readable outputs
+    -   Using Rmarkdown for readable outputs
 
-This is quite an ambitious amount to achieve in two hours! It's hard to gauge how far we will get, but these materials are written so that you should be able to work through them independently at a later stage. You can also find some suggested resources for further learning [here](https://emljames.github.io/introR/resources.html).
+This is quite an ambitious amount to achieve in two hours! It's fairly likely that we will not get through everything, but we have deliberately left it flexible to adapt to attendees on the day. The materials are written so that you should be able to work through them independently at a later stage. You can also find some suggested resources for further learning [here](https://emljames.github.io/introR/resources.html).
 
 # During the workshop
 
 ### Ask for help when you need it
 
-This is an informal setting. Emma is leading the workshop and is very not scary, so please interrupt whenever you have questions or need something explaining differently. It's very likely that we'll make mistakes and skip over things that are not obvious, so don't be afraid to ask! If you have fallen behind or something isn't working as expected, wave at Jamie who will come to your rescue!
+This is a "live coding" style workshop: Emma will walk through the content step-by-step for attendees to follow along on their own computers. Independent exercises provide opportunities to apply this knowledge, and allow us to re-group if people have fallen behind.
+
+This is an informal setting, so please raise your hand whenever you have questions or need something explaining differently. Many aspects of working in R are not obvious when you encounter them for the first time, so no question is too silly to ask!
+
+Jamie will come to your rescue if you fall behind or something isn't working as expected, and we will pause to get everyone back on track as needed.
 
 ### Sticky notes
 
@@ -55,4 +62,4 @@ You should have two coloured sticky notes. Please use these as instructed to ind
 
 ### Code of conduct
 
-We are all learners at this workshop. Please respect that others might require a slower pace to you (you can always multi-task a little if you're ahead of the game!). We expect all instructors and attendees to be welcoming and inclusive, and respect each others' progress at all times. If you believe someone is violating this code of conduct, please let us know so that we can take the appropriate action to address the situation.
+We are all learners at this workshop. Please respect that others might require a slower pace to you (you can always multi-task a little if you're ahead of the game!). We expect all instructors and attendees to be welcoming and inclusive, and respect each other's progress at all times. If you believe someone is violating this code of conduct, please let us know so that we can take the appropriate action to address the situation.

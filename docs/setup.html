@@ -13,7 +13,7 @@
 
 <title>Before the workshop</title>
 
-<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -379,52 +379,61 @@ Step 1 and Step 2 below, and reach out to Emma (<a
 href="mailto:emma.james@york.ac.uk"
 class="email">emma.james@york.ac.uk</a>) if you have any
 difficulties.</p>
-<div id="step-1-software-installation" class="section level2">
-<h2>Step 1: Software installation</h2>
+</div>
+<div id="step-1-software-installation" class="section level1">
+<h1>Step 1: Software installation</h1>
 <div id="installation-on-a-university-managed-laptop"
-class="section level3">
-<h3>Installation on a university-managed laptop</h3>
+class="section level2">
+<h2>Installation on a university-managed laptop</h2>
 <p>If you are working on a university-managed laptop, you can install R
-and RStudio from the Software Center (Windows) or Self Service (Mac).
-The current versions on university managed devices are R 4.4.2 and
-RStudio 2024.9.0.</p>
-<div id="installation-on-a-personal-device" class="section level4">
-<h4>Installation on a personal device</h4>
-<p>You will need to have R and R Studio to installed to follow along
-with the workshop. R is the programming language itself, whereas RStudio
-is the user interface for interacting with R. Please make sure your
+and RStudio from the Software Center (Windows) or Self Service
+(Mac).</p>
+</div>
+<div id="installation-on-a-personal-device" class="section level2">
+<h2>Installation on a personal device</h2>
+<p>You will need to have R and RStudio to installed to follow along with
+the workshop. R is the programming language itself, whereas RStudio is
+the user interface for interacting with R. Please make sure your
 software is up-to-date to avoid issues.</p>
+<p><strong>To download R:</strong></p>
 <ul>
-<li>To download R: <a href="https://cran.r-project.org/"
-class="uri">https://cran.r-project.org/</a><br />
-</li>
-<li>To download RStudio: <a
-href="https://rstudio.com/products/rstudio/download/#download"
-class="uri">https://rstudio.com/products/rstudio/download/#download</a>
-(just the free Desktop version)</li>
+<li>Visit <a href="https://cran.r-project.org/"
+class="uri">https://cran.r-project.org/</a> and click Download R for
+[Windows/macOS], depending on your operating system</li>
+<li>Click to install the “base” distribution, described as what you want
+for installing R for the first time</li>
+<li>Then click to download the current version (4.5.1)</li>
+<li>Once the file has downloaded, click to open it.</li>
+<li>Work through the installation, sticking with all the default
+options</li>
+<li>At some point, you might get asked to select a CRAN Mirror, which
+presents you with a couple of options from the UK. I’m not sure it
+matters which one you choose, but I always select Bristol!</li>
 </ul>
-<p>Some additional guidance can be found <a
-href="https://datacarpentry.org/r-socialsci/setup.html">here</a> if you
-need it.</p>
+<p><strong>To download RStudio:</strong></p>
+<ul>
+<li>Download RStudio Desktop via this link: <a
+href="https://posit.co/download/rstudio-desktop/"
+class="uri">https://posit.co/download/rstudio-desktop/</a></li>
+<li>Open the file once it has downloaded, and again walk through the
+installer using the default options.</li>
+</ul>
 </div>
 </div>
-</div>
-<div id="step-2-installing-relevant-packages" class="section level2">
-<h2>Step 2: Installing relevant packages</h2>
-<p>We will use the <code>tidyverse</code> and <code>rmarkdown</code>
-packages during this workshop (don’t worry - we’ll cover what packages
-are in more detail later!). To get a headstart with fixing any issues,
-please install it before the workshop. To do this, open up RStudio and
-type the following into the console (the main window that opens up, with
-<code>&gt;</code> waiting for you to type).</p>
-<pre class="r"><code>install.packages(&quot;tidyverse&quot;)
-install.packages(&quot;rmarkdown&quot;)</code></pre>
+<div id="step-2-installing-relevant-packages" class="section level1">
+<h1>Step 2: Installing relevant packages</h1>
+<p>We will use the <code>tidyverse</code> package during this workshop
+(don’t worry - we’ll cover what packages are in more detail later!). To
+get a head start with fixing any issues, please install it before the
+workshop. To do this, open up RStudio and type the following into the
+console (the main window that opens up, with <code>&gt;</code> waiting
+for you to type).</p>
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
 <p>Hit the return key and let it do its magic. Don’t worry about the red
 text that flashes up - that’s normal! The final messages should say that
 each package is <em>“successfully unpacked and MD5 sums checked”</em>.
 If you don’t get to this point, reach out to Emma via email (<a
 href="emma.james@york.ac.uk">emma.james@york.ac.uk</a>).</p>
-</div>
 </div>
 
 
