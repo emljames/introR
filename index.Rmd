@@ -1,17 +1,17 @@
 ---
 title: "York Psychology ECR Workshop: Introduction to R"
 author: "Emma James"
-date: "November 2024"
+date: "`r format(Sys.time(), '%B, %Y')`"
 output: html_document
 ---
 
 # Overview
 
-This introductory R workshop has been put together for York Psychology ECR Forum. The 2025 workshop will take place in the PC Lab (PS/A/203), 2pm-4pm on Wednesday 29th October.
+This introductory R workshop has been put together for the York Psychology ECR Forum. The 2025 workshop will take place in the PC Lab (PS/A/203), 2pm-4pm on Wednesday 29th October.
 
 The session will provide an introduction to R, providing you with the basic skills for getting started in using R for your own research. We will prioritise skills for data wrangling using a set of tools referred to as the *tidyverse*. The course is aimed at complete beginners in R -- **no programming experience or prior knowledge of R is required.**
 
-The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and have experience in supporting beginning learners without programming backgrounds.
+The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and have experience in supporting beginners without any programming backgrounds.
 
 # Before the workshop
 

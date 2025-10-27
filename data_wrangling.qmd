@@ -1,0 +1,159 @@
+---
+title: "Data wrangling in R"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 1
+---
+
+So far, we've learned how to extract the data that we want to work with in a reproducible and efficient way. But what if we don't yet have the variables that we want to analyse? The *tidyverse* has solutions for us there too, where the benefits of the pipe operator (`|>`) really come into their own. Here we'll cover how to calculate average participant scores from your raw trial-level data, and how to create new variables based on existing ones.
+
+::: {.callout-warning title="Setting up"}
+These instructions assume you have just followed the Data Cleaning content. If you have arrived here separately and wish to run the examples yourself, make sure you load the *tidyverse* package and the data as per the set up instructions there.
+:::
+
+```{r set-up, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+raw_dat <- read_csv("./workshop_files/data/raw/picName_raw.csv")
+```
+
+# Calculate participant averages using `group_by()` and `summarise()`
+
+One thing you often want to do with your data is calculate average scores for each participant. The *tidyverse* makes it very easy to do this. We make use of the `group_by()` function to "group" scores by participant ID, then the `summarise()` function to calculate some kind of summary score. Let's try this now:
+
+```{r ppt-avg1, message = FALSE}
+ppt_average1 <- raw_dat |>
+  group_by(ID) |>
+  summarise(mean_acc = mean(acc))
+```
+
+If you inspect the dataframe, you can see that we now have one row per participant, and that we have summarised the accuracy scores into a mean for each one. We called our new summary variable "mean_acc", and specified how it should be calculated using the mean function. We can also ask for an average RT at the same time by adding it as another argument to the summary function.
+
+```{r ppt-avg2, message = FALSE}
+ppt_average1 <- raw_dat |> 
+  group_by(ID) |> 
+  summarise(mean_acc = mean(acc),
+            mean_RT = mean(RT))
+```
+
+What do you notice about the averaged RT variable? How can we fix this?
+
+```{r ppt-avg3, message=FALSE, include=FALSE}
+ppt_average1 <- raw_dat |> 
+  group_by(ID) |> 
+  summarise(mean_acc = mean(acc),
+            mean_RT = mean(RT, na.rm = TRUE))
+```
+
+Importantly, we can use more than one variable in the `group_by()` to calculate participant averages for each condition. Let's work out how participants do at each of the four time points.
+
+```{r ppt-avg4, message = FALSE}
+ppt_average2 <- raw_dat |> 
+  group_by(ID, time) |> 
+  summarise(mean_acc = mean(acc),
+            mean_RT = mean(RT, na.rm = TRUE))
+```
+
+You can use the same principles to produce group summary statistics at each test point. For example, to calculate the mean and SD for accuracy scores, we group only by the time variable:
+
+```{r ppt-time}
+ppt_average2 |> 
+  group_by(time) |> 
+  summarise(ppt_mean_acc = mean(mean_acc),
+            ppt_sd_acc = sd(mean_acc))
+```
+
+::: {.callout-tip title="EXERCISE 4"}
+Calculate group summary statistics on mean RT scores at each test point. You can use the previous code as a starting point. Work out the mean and standard deviation, then if you have time you can also add the minimum and maximum response times.
+:::
+
+```{r exercise4-solution}
+#| code-fold: true
+#| code-summary: "Show solution"
+
+ppt_average2 |> 
+  group_by(time) |> 
+  summarise(ppt_mean_RT = mean(mean_RT, na.rm = TRUE),
+            ppt_sd_RT = sd(mean_RT, na.rm = TRUE),
+            ppt_min_RT = min(mean_RT, na.rm = TRUE),
+            ppt_max_RT = max(mean_RT, na.rm = TRUE))
+```
+
+# Create new variables
+
+Our final function today showcases how we can create new variables based on our existing data. As a simple example, let's say we want to summarise our participant averages as percentages rather than proportions. To do this, we would need to multiple the mean accuracy value by 100. We can do this using the `mutate()` function.
+
+```{r new-var1}
+ppt_average3 <- ppt_average2 |> 
+  mutate(percent_correct = mean_acc*100)
+```
+
+We've taken our data frame of participant averages, and used `mutate()` to create a new variable called percent_correct. Again, we have the new name on the left, with details on how to produce it on the right. We specify that the variable `percent_correct` should be calculated by multiplying `mean_acc` by 100. We can see that the new data frame now has one more variable, and can check that it's doing as we expect.
+
+Let's try adding another example. Reaction time data are often skewed, and require some kind of transformation to aid analysis. One such transformation is the inverse, which we calculate using 1/RT value. Let's add this to the above example.
+
+```{r new-var2}
+ppt_average3 <- ppt_average2 |> 
+  mutate(percent_correct = mean_acc*100,
+         inv_RT = 1/mean_RT)
+```
+
+# Putting it all together
+
+## Combined data processing steps
+
+Today we have learned how to load data, select and rename relevant variables, filter out irrelevant cases, and summarise across participants/variables.
+
+As a final exercise, let's create a processed dataset that can show us whether windows of sleep or wake are better for picture naming.
+
+::: {.callout-tip title="EXERCISE 5"}
+Create a dataset called sleep_wake by chaining the following steps together:
+
+1.  Take the raw data
+2.  Include only ID, learnTime, time, acc, and RT (renaming if you choose)
+3.  Subset the data to include the first two test times only
+4.  Create a log-transformed RT variable (log_RT), by using the log() function on RT
+5.  Group by ID, learnTime and time to calculate average accuracies, raw RTs and log-RTs (i.e., for each participant for each condition)
+
+Once you have done this, print the whole group summaries by learnTime and time. How does performance change between time 1 and 2 when participants learn in the PM versus the AM?
+:::
+
+```{r exercise5-solution, eval = FALSE}
+#| code-fold: true
+#| code-summary: "Show solution"
+
+# Create dataset of participant means 
+sleep_wake <- raw_dat |> 
+  select(ID, learnTime, time, acc, RT) |> 
+  filter(time == 1 | time == 2) |> 
+  mutate(log_RT = log(RT)) |> 
+  group_by(ID, learnTime, time) |> 
+  summarise(acc = mean(acc), RT = mean(RT, na.rm = TRUE), 
+            log_RT = mean(log_RT, na.rm = TRUE))
+
+# Group summary statistics
+sleep_wake |> 
+  group_by(learnTime, time) |> 
+  summarise(mean_acc = mean(acc), mean_RT = mean(RT, na.rm = TRUE), 
+            mean_logRT = mean(log_RT, na.rm = TRUE))
+```
+
+## Saving datasets
+
+We've now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don't have to re-run this script each time, and so that we have a shareable data file.
+
+It's good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it's the processed version. We can use the `write_csv()` function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (here specifying how to navigate to the correct folder, and including the file extension).
+
+```{r save-dat, eval = FALSE}
+write_csv(sleep_wake, "../data/processed/picName_processed.csv")
+```
+
+# Other data processing steps
+
+Today we have learned how to load data, select and rename relevant variables, filter for relevant observations, create new variables, summarise across them, and save processed datasets for future use (phew!). In the end, we saw how efficiently you can run and re-run this with just a few lines of code chained together.
+
+The *tidyverse* has plenty of useful tools for data wrangling beyond those we've explored today. For example, `pivot_longer()` and `pivot_wider()` are useful tools for transforming your data between wide (one row per participant, with each column representing a different trial) and long (one row per trial per participant) formats. Functions such as `left_join()` allow us to link data from different files based on the participant ID. There are helpful tools for parsing character strings, or processing dates and times. You name it, you can find it!
+
+Check out the [resources page](https://emljames.github.io/introR/resources.html) for links to some more guidance on data processing steps, or try using Google to find tutorials on how to do things. Adding "tidyverse" to your search terms will help to identify solutions that are consistent with our data processing approach today.
+
+In the [final section](https://emljames.github.io/introR/reproducibility.html) of this workshop (if there's time!), we'll show how you can turn your new data wrangling skills into an annotated output file.

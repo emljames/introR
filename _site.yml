@@ -8,6 +8,8 @@ navbar:
       href: setup.html
     - text: "Navigating R"
       href: navigating_R.html
+    - text: "Data cleaning"
+      href: data_cleaning.html
     - text: "Data wrangling"
       href: data_wrangling.html
     - text: "Reproducibility"

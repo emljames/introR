@@ -1,0 +1,201 @@
+---
+title: "Introduction to R - Completed script with exercise solutions "
+output: html_document
+date: "2024-11-06"
+---
+
+# Setting up
+
+Remember that you can write notes *outside* the code chunks like this (or *inside* the code chunks using the # key).
+
+## Load packages
+
+If you haven't installed the tidyverse package, you will need to do so first by running `install.packages("tidyverse")`. 
+
+```{r load-packages}
+library(tidyverse)
+```
+
+## Load and preview data
+
+This example uses a *relative* file path - it assumes that you have the data in a neighbouring folder (the structure that was sent to you initially). Make sure you unzip the downloaded file before trying to open the script. 
+
+```{r load-data}
+# Load data file
+raw_dat <- read_csv("../data/raw/picName_raw.csv")
+
+# Inspect summary
+summary(raw_dat)
+
+# Preview first few rows
+head(raw_dat)
+```
+
+# Select variables
+
+```{r select-examples}
+# Select by name
+select_dat1 <- select(raw_dat, ID, item, acc)
+
+# Select sequential columns by name
+select_dat2 <- select(raw_dat, ID, item:RT)
+
+# Select columns by column number
+select_dat3 <- select(raw_dat, 1, 5:7, 9)
+```
+
+**EXERCISE 1:** Create a new data frame called `selected_vars` which includes the following six variables: ID, learnTime, time, item, acc, RT
+
+```{r select-exercise}
+selected_vars <- select(raw_dat, ID, learnTime, time, item, acc, RT)
+```
+
+# Rename variables
+
+Here's a list of alternative column names: "ppt_ID", "read_group", "exp_task", "counterbalanced_order", "encode_time", "test_time", "word", "correct", "rt"
+
+```{r rename-examples}
+# Rename all variables using set_names
+rename_dat1 <- set_names(raw_dat, c("ppt_ID", "read_group", "exp_task", "counterbalanced_order", "encode_time", "test_time", "word", "correct", "rt"))
+
+# Rename selected variables using rename (new_name = old_name)
+rename_dat2 <- rename(raw_dat, encode_time = learnTime, test_time = time)
+
+```
+
+**EXERCISE 2:** Create a new dataframe called `renamed_vars`, by renaming your `selected_vars` dataframe from Exercise 1. Edit the column names for the following variables:
+
+-   ID >> ppt_ID
+-   learnTime >> learn_time
+-   time >> test_time
+
+```{r rename-exercise}
+renamed_vars <- rename(selected_vars, ppt_ID = ID, learn_time = learnTime, test_time = time)
+```
+
+# Filter variables
+
+```{r filter-examples}
+# Filter for one time point 
+filter_dat <- filter(raw_dat, time == 1)
+```
+
+**EXERCISE 3:** What do you think the following lines of code might do to the data? Talk through your predictions, then run the code and inspect the dataframes to see if you are correct. You can edit the code comments (after the #) to make notes.  
+
+```{r filter-exercise}
+# Example 1 - RT greater than 500
+filter_dat2 <- filter(raw_dat, RT > 500)
+
+# Example 2 - RT less than or equal to 2000
+filter_dat3 <- filter(raw_dat, RT <= 2000)
+
+# Example 3 - select cases where RT is not NA (missing data)
+filter_dat4 <- filter(raw_dat, !is.na(RT))
+
+# Example 4 - item/trial is agouti
+filter_dat4 <- filter(raw_dat, item == "agouti")
+ 
+# Example 5 - first time point AND RT less than or equal to 2000
+filter_dat5 <- filter(raw_dat, time == 1 & RT <= 2000 )
+
+# Example 6 - item/trial is banyan OR caracal 
+filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
+```
+
+# Combining processing steps using the pipe
+
+```{r pipe-example}
+select_filter_dat <- raw_dat %>%  # take the raw data frame, AND THEN
+  select(ID, time, item, RT) %>%  # select variables, AND THEN
+  rename(test_time = time) %>%    # rename test time variable AND THEN
+  filter(RT < 3000)               # filter for observations less than 3000 RT
+```
+
+# Calculate participant averages 
+
+```{r summarise-examples}
+# Average accuracy and RT for each participant
+ppt_average1 <- raw_dat %>% 
+  group_by(ID) %>% 
+  summarise(mean_acc = mean(acc),
+            mean_RT = mean(RT, na.rm = TRUE)) # need to tell mean function to exclude missing data points 
+
+# Average accuracy and RT for each participant for each time point 
+ppt_average2 <- raw_dat %>% 
+  group_by(ID, time) %>% 
+  summarise(mean_acc = mean(acc),
+            mean_RT = mean(RT, na.rm = TRUE))
+
+# Create group summary statistics for accuracy at each time point 
+ppt_average2 %>%                               # take the participant means
+  group_by(time) %>%                           # group by the time variable
+  summarise(ppt_mean_acc = mean(mean_acc),     # mean accuracy scores
+            ppt_sd_acc = sd(mean_acc))         # SD accuracy scores 
+```
+
+**EXERCISE 4**: Calculate group summary statistics on mean RT scores at each test point. You can use the previous code as a starting point. Work out the mean and standard deviation, then if you have time you can also add the minimum and maximum response times.
+
+```{r summarise-exercise}
+# Create group summary statistics for RT at each time point 
+ppt_average2 %>%                               # take the participant means
+  group_by(time) %>%                           # group by the time variable
+  summarise(ppt_mean_RT = mean(mean_RT, na.rm = TRUE),     # mean RT - ignoring missing data
+            ppt_sd_RT = sd(mean_RT, na.rm = TRUE),         # SD RT - ignoring missing data 
+            ppt_min_RT = min(mean_RT, na.rm = TRUE),       # RT of quickest person 
+            ppt_max_RT = max(mean_RT, na.rm = TRUE))       # RT of slowest person
+
+```
+
+# Create new variables
+
+```{r new-var-examples}
+# Create new variables based on existing ones
+ppt_average3 <- ppt_average2 %>% 
+  mutate(percent_correct = mean_acc*100,  # percent_correct variable based on participants' proportion correct
+         inv_RT = 1/mean_RT)              # transform RT variable into inverse 
+```
+
+
+# Putting it all together
+
+**EXERCISE 5:** Create a dataset called `sleep_wake` by chaining the following steps together:
+
+1.  Take the raw data
+2.  Include only ID, learnTime, time, acc, and RT (renaming if you choose)
+3.  Subset the data to include the first two test times only
+4.  Create a log-transformed RT variable (log_RT), by using the log() function on RT
+5.  Group by ID, learnTime and time to calculate average accuracies, raw RTs and log-RTs (i.e., for each participant for each condition)
+
+```{r final-exercise-ppt}
+sleep_wake <- raw_dat %>% 
+  select(ID, learnTime, time, acc, RT) %>% 
+  # rename(learn_time = learnTime, test_time = time) %>% (You could have renamed here, and used different names in the remaining code)
+  filter(time == 1 | time == 2) %>% 
+  mutate(log_RT = log(RT)) %>% 
+  group_by(ID, learnTime, time) %>% 
+  summarise(mean_acc = mean(acc, na.rm = TRUE), 
+            mean_RT = mean(RT, na.rm = TRUE),
+            mean_logRT = mean(log_RT, na.rm = TRUE))
+```
+
+Once you have done this, print the whole group summaries by learnTime and time. How does performance change between time 1 and 2 when participants learn in the PM versus the AM?
+
+```{r final-exercise-group}
+sleep_wake %>% 
+  group_by(learnTime, time) %>% 
+  summarise(acc = mean(mean_acc, na.rm = TRUE),
+            RT = mean(mean_RT, na.rm = TRUE),
+            logRT = mean(mean_logRT, na.rm = TRUE))
+```
+
+You can see that between the two AM test points, accuracy drops and people get slower. That is, performance goes down after a 12-hour period awake. 
+Between the two PM test points, accuracy improves and people get faster. Picture naming performance gets better over a 12-hour period containing sleep. 
+
+## Save data
+
+Save processed data back out to a different folder (i.e., a processed folder within your data folder).
+
+```{r save-data}
+write_csv(sleep_wake, "../data/processed/picName_processed.csv")
+```
+
