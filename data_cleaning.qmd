@@ -137,8 +137,7 @@ Create a new dataframe called renamed_vars, by renaming your selected_vars dataf
 ```{r exercise2-solution}
 #| code-fold: true 
 #| code-summary: "Show solution"  
-renamed_vars <- selected_vars |> 
-  rename(ppt_ID = ID, learn_time = learnTime, test_time = time)
+renamed_vars <- rename(.data = selected_vars, ppt_ID = ID, learn_time = learnTime, test_time = time)
 ```
 
 # `filter()` for relevant cases
@@ -223,3 +222,5 @@ select_filter_dat <- raw_dat |>
 ```
 
 So you can read the above chunk as follows: create a new dataframe called `select_filter_dat` by taking the `raw_dat` dataframe **AND THEN** selecting relevant variables (ID, test, item, RT) **AND THEN** renaming test to test_time **AND THEN** filtering for only those trials where the RT was less than 3000 ms. We haven't needed to rename the dataframe at each stage, as the pipe has filled this in for us from the previous set.
+
+In this section we've learnt how to refine a dataset ready for use. But what if the variables we actually need for analysis don't yet exist in the data? [In the next section, we'll learn how to transform the data](https://emljames.github.io/introR/data_transformation.html) into different formats.
