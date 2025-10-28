@@ -21,21 +21,31 @@ Obviously we're here in an *R* workshop so may be biased, but here are a few of 
 
 *RStudio* is a freeware environment with many helpful features for using *R*. Most people will use *R* within the RStudio environment, but you do need to install both *R* and *RStudio* separately. In the next section, we'll introduce the core aspects of the RStudio environment in introducing basic principles.
 
-# RStudio panes
+# Navigating RStudio
 
 Let's start with a quick introduction to RStudio. Open the *template.Rmd* file that you have downloaded. It should open in RStudio by default, but if it doesn't you can right click the file \>\> Open with... \>\> RStudio. You should now see 4 different panes in the RStudio window.
 
+![Default RStudio layout](images/RStudio_window.PNG){fig-alt="RStudio consists of four panels, for scripts, the console, the environment, and viewing." fig-align="center"}
+
+## Top left: Scripts
+
 In the top left corner are your scripts, now displaying the template script for today. Scripts are like lists of instructions for the computer to follow. You can save them for future reference, and this makes it easy to set up complex analyses without typing them in by hand each time. Today, we will work in an *RMarkdown* file format which allows us to easily integrate this script with notes. We'll come back to the distinction between R and RMarkdown at the end of the session.
+
+## Bottom left: Console
 
 Below the script in the bottom left corner is the Console. This is where the magic happens! When you run code from your scripts, it sends it to the console for execution, so you will see the code that you have run followed by the output. You can also type instructions into it directly if you don't want to save them for a later date. For example, try typing `5 + 5` and hitting the return key.
 
+## Top right: Environment
+
 The first tab in the top right hand window is the Environment. This is like R's memory, and shows what information you have stored. We'll come back to this in the next section.
 
-In the bottom right window are several sections that can be navigated around by clicking on the different tabs. ‘Files’ shows the files in the directory we are in, ‘Plots’ will contain any graphs we draw, ‘Packages’ is a list of extensions to R to do different types of statistics, and ‘Help’ gives you the help pages for a particular function if you ask for them.
+## Bottom right: Other things!
+
+The bottom right window has several sections that can be navigated by clicking on the tabs at the top. *Files* shows the files in the directory that we are working from, *Plots* will contain any figures that we create, *Packages* contains a list of extensions that will enable us to do different types of statistics, and the *Help* table will show the help pages for a particular function if we ask for them (we'll do this a lot!).
 
 # Objects
 
-We give each bit of information a name, and can use that name to call upon it as we run our analyses. These pieces of information are called *variables*, although they are often referred to as *objects* to avoid confusion with variables in our experimental design. Variables or objects are like boxes that you can store information in. They can be small (e.g., containing a single number) or very large (e.g., an entire dataset).
+When working in R, we give each bit of information a name that we can use to call upon it as we run our analyses. These pieces of information are called *variables*, although they are often referred to as *objects* to avoid confusion with variables in our experimental design. Variables or objects are like boxes that you can store information in. They can be small (e.g., containing a single number) or very large (e.g., an entire dataset).
 
 Let's create our first object, by typing the following into the Console, then hitting the return key:
 
@@ -106,4 +116,4 @@ The grey boxes you can see in your template script are ready for chunks of code 
 
 If we want to make further notes *inside* the code chunks, we can use the #key to write comments. Any text that comes after the \# on a line will be treated as a comment, not code.
 
-There are many jazzy features of R Markdown that we won't have time to go into today, but we'll touch base on this at the end of the session to discuss why R Markdown can be useful to structure and share your code. For now, let's use this template file to [wrangle some data](https://emljames.github.io/introR/data_wrangling.html)!
+There are many jazzy features of R Markdown that we won't have time to go into today, but we'll touch base on this at the end of the session to discuss why R Markdown can be useful to structure and share your code. For now, let's use this template file to [begin wrangling some data](https://emljames.github.io/introR/data_cleaning.html)!
