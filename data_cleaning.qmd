@@ -1,9 +1,5 @@
 ---
 title: "Data cleaning in R"
-output: 
-  html_document:
-    toc: true
-    toc_depth: 1
 ---
 
 In this section of the workshop, we will learn how to manipulate your data in R. Being able to process and reformat your data in a fast and reproducible way is a major benefit of working in R relative to e.g., Excel and SPSS. We will use a set of functions dedicated to this purpose, known as the *tidyverse*. In this section, we will refine our dataset based on the variables and observations that we actually need.
@@ -128,7 +124,7 @@ There are a few rules for creating column names! The main one is that names cann
 If your loaded data file \*does\* include spaces in column names, you will need to surround them in back-ticks to use them until you rename them.
 :::
 
-![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/common_cases.png){fig-alt="Cartoon representations of common cases in coding. A snake screams \"SCREAMING_SNAKE_CASE\" into the face of a camel (wearing ear muffs) with \"camelCase\" written along its back. Vegetables on a skewer spell out \"kebab-case\" (words on a skewer). A mellow, happy looking snake has text \"snake_case\" along it."}
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/common_cases.png){fig-alt="Cartoon representations of common cases in coding. A snake screams \"SCREAMING_SNAKE_CASE\" into the face of a camel (wearing ear muffs) with \"camelCase\" written along its back. Vegetables on a skewer spell out \"kebab-case\" (words on a skewer). A mellow, happy looking snake has text \"snake_case\" along it." fig-align="center" width="725"}
 
 ::: {.callout-tip title="EXERCISE 2"}
 Create a new dataframe called renamed_vars, by renaming your selected_vars dataframe from Exercise 1. Edit the column names for the following variables:
@@ -157,7 +153,7 @@ Just as with the earlier functions, the first argument is the name of the datafr
 
 We can use different [logical operators](https://bookdown.org/rwnahhas/IntroToR/logical.html) to specify conditions in different ways.
 
-![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/filter.png){fig-alt="Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”"}
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/filter.png){fig-alt="Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”" fig-align="center" width="904"}
 
 ::: {.callout-tip title="EXERCISE 3"}
 What do you think the following lines of code might do to the data? Then try running them to see if your predictions are correct.

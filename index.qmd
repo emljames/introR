@@ -3,7 +3,6 @@ title: "York Psychology ECR Workshop: Introduction to R"
 author: "Emma James"
 date: today
 date-format: "MMMM YYYY"
-output: html_document
 ---
 
 # Overview

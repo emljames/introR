@@ -1,6 +1,5 @@
 ---
 title: "Navigating R and RStudio"
-output: html_document
 ---
 
 # Introduction to working in R

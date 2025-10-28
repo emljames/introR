@@ -174,13 +174,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="creating-annotated-output-files" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Creating annotated output files</h1>
-<p>Today we have been working in an R Markdown file (.Rmd). This differs from a straight forward R script (.R) in that it integrates regular text, code, and output more efficiently, whereas an .R script interprets everything as code by default (essentially like the grey sections we’ve typing code in today). There are many people who will <em>always</em> use R Markdown (or the newer version, <em>Quarto</em>) when they use R. Some people even use it to write their entire manuscripts in a reproducible way![</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/r_markdown.png" class="img-fluid figure-img" alt="Two fuzzy round monsters dressed as wizards, working together to brew different things together from a pantry (code, text, figures, etc.) in a cauldron labeled “R Markdown”. The monster wizard at the cauldron is reading a recipe that includes steps “1. Add text. 2. Add code. 3. Knit. 4. (magic) 5. Celebrate perceived wizardry.” The R Markdown potion then travels through a tube, and is converted to markdown by a monster on a broom with a magic wand, and eventually converted to an output by pandoc. Stylized text (in a font similar to Harry Potter) reads “R Markdown. Text. Code. Output. Get it together, people.”"></p>
 <figcaption><a href="https://x.com/allison_horst">Artwork by @allison_horst</a></figcaption>
 </figure>
 </div>
+<p>Today we have been working in an R Markdown file (.Rmd). This differs from a straight forward R script (.R) in that it integrates regular text, code, and output more efficiently, whereas an .R script interprets everything as code by default — essentially like the grey sections we’ve been typing code in today. There are many people who will <em>always</em> use R Markdown (or the newer version, <em>Quarto</em>) when they use R. Some people even use it to write their entire manuscripts in a reproducible way!</p>
 <p>There are many different features of R Markdown that could form a whole workshop on its own. However, with very few extra bits, we have already created a structured output from today’s work. Here are the features that we set up for you in the template file:</p>
 <ul>
 <li><p>We used the # symbol in regular text to denote headings and subsections. # marks the level 1 heading, ## level 2, and ### level 3.</p></li>
@@ -201,16 +201,16 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Having unfinished code chunks - if R hits an error along the way, it will stop executing the file. If this happens, you could try commenting out that code section as a temporary solution.</em></li>
 <li><em>Having code chunks with duplicate names</em></li>
 </ul>
-<p>If it’s not working at the end of this workshop but you’d like to get it up and running, reach out for us for some support.</p>
+<p>If it’s not working at the end of this workshop but you’d like to get it up and running, reach out to us for some support.</p>
 </section>
 <section id="good-practices" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Good practices</h1>
-<p>Here are a few key principles:</p>
+<p>Here are a few key principles for working in R:</p>
 <ol type="1">
 <li><strong>Code everything!</strong> (as much as you can). This is hard when you are a beginner. Why take an hour to make the stupid line of code work when you could open the file in Excel and delete the column in mere seconds? But future you will be grateful when you have to redownload some data and start again. You only need to figure it out once (ask for support if you need to!), and you’ll be super whizzy in the future.</li>
-<li><strong>Never delete raw data</strong> (unless there are GDPR/ethics implications) - keep raw and processed data separate.</li>
+<li><strong>Never delete raw data</strong> (unless there are GDPR/ethics implications) — keep raw and processed data separate.</li>
 <li><strong>Use sensible names</strong> for variables and for objects. This will help to make your code more readable, and avoid mistakes. For example, <code>data_session1</code> is more informative than <code>data2</code>.</li>
-<li><strong>Comment everything!</strong> Well, not <em>everything.</em> But document your key steps along the way so that it’s readable.</li>
+<li><strong>Comment everything!</strong> Well, not <em>everything.</em> But document your key steps along the way so that it’s readable. This will help other people to understand your code, and will make it easier for future-you to return to.</li>
 <li><strong>Chunk</strong> your data processing and analysis steps for readability - either in separate files, and/or using features in R Markdown.</li>
 <li>Try to <strong>document package versions.</strong> One downside to R’s updating and ongoing work is that packages and functions can change, meaning that your code is not entirely future proof. There are some elegant ways to incorporate version control in your scripts, but a simple way to document this you can include a call to <code>sessionInfo()</code> at the end of your .Rmd script.</li>
 </ol>
@@ -219,6 +219,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-final-word" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> The final word</h1>
 <p>Finally, <strong>just do the best you can!</strong> It’s all well and good to have standards to aim for, but starting out in R can be hard. You can guarantee that our early scripts didn’t look anywhere near our versions now, and that’s OK! R <em>is</em> hard, but it’s also kind of fun.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/r_change.png" class="img-fluid figure-img" alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says “at first I was like…” The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads “but now it’s like…”" width="456"></p>
+<figcaption><a href="https://x.com/allison_horst">Artwork by @allison_horst</a></figcaption>
+</figure>
+</div>
 
 
 </section>
