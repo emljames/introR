@@ -159,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -175,13 +175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#select-relevant-variables" id="toc-select-relevant-variables" class="nav-link" data-scroll-target="#select-relevant-variables"><span class="header-section-number">2</span> <code>select()</code> relevant variables</a></li>
   <li><a href="#rename-variables" id="toc-rename-variables" class="nav-link" data-scroll-target="#rename-variables"><span class="header-section-number">3</span> <code>rename() variables</code></a></li>
-  <li><a href="#filter-for-relevant-data" id="toc-filter-for-relevant-data" class="nav-link" data-scroll-target="#filter-for-relevant-data"><span class="header-section-number">4</span> <code>filter()</code> for relevant data</a></li>
+  <li><a href="#filter-for-relevant-cases" id="toc-filter-for-relevant-cases" class="nav-link" data-scroll-target="#filter-for-relevant-cases"><span class="header-section-number">4</span> <code>filter()</code> for relevant cases</a></li>
   <li><a href="#combining-data-cleaning-steps-using-the-pipe-operator" id="toc-combining-data-cleaning-steps-using-the-pipe-operator" class="nav-link" data-scroll-target="#combining-data-cleaning-steps-using-the-pipe-operator"><span class="header-section-number">5</span> Combining data cleaning steps using the pipe <code>|&gt;</code> operator</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -190,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -347,8 +347,8 @@ EXERCISE 2
 </details>
 </div>
 </section>
-<section id="filter-for-relevant-data" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> <code>filter()</code> for relevant data</h1>
+<section id="filter-for-relevant-cases" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <code>filter()</code> for relevant cases</h1>
 <p>Another typical step in data processing is to filter for the data we are interested in. For example, this dataset collected responses across four test sessions, but suppose we only want to analyse data from session one. We can create a reduced version of dataset for this purpose using the <code>filter()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>filter_dat <span class="ot">&lt;-</span> <span class="fu">filter</span>(raw_dat, time <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

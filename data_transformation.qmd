@@ -1,15 +1,11 @@
 ---
 title: "Data transformation in R"
-output: 
-  html_document:
-    toc: true
-    toc_depth: 1
 ---
 
 So far, we've learned how to extract the data that we want to work with in a reproducible and efficient way. But what if we don't yet have the variables that we want to analyse? The *tidyverse* has solutions for us there too, where the benefits of the pipe operator (`|>`) really come into their own. Here we'll cover how to calculate average participant scores from your raw trial-level data, and how to create new variables based on existing ones.
 
 ::: {.callout-warning title="Setting up"}
-These instructions assume you have just followed the Data Cleaning content. If you have arrived here separately and wish to run the examples yourself, make sure you load the *tidyverse* package and the data as per the set up instructions there.
+These instructions assume you have just followed the [Data cleaning](https://emljames.github.io/introR/data_cleaning.html) content. If you have arrived here separately and wish to run the examples yourself, make sure you [load the *tidyverse* package](https://emljames.github.io/introR/data_cleaning.html#load-packages) and [load the data](https://emljames.github.io/introR/data_cleaning.html#load-data) first.
 :::
 
 ```{r set-up, echo = FALSE, message = FALSE, warning = FALSE}
@@ -67,7 +63,7 @@ ppt_average2 |>
 Calculate group summary statistics on mean RT scores at each test point. You can use the previous code as a starting point. Work out the mean and standard deviation, then if you have time you can also add the minimum and maximum response times.
 :::
 
-```{r exercise4-solution}
+```{r exercise4-solution, eval = FALSE}
 #| code-fold: true
 #| code-summary: "Show solution"
 
@@ -98,11 +94,11 @@ ppt_average3 <- ppt_average2 |>
          inv_RT = 1/mean_RT)
 ```
 
-![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/mutate.png){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.”"}
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/mutate.png){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.”" fig-align="center" width="492"}
 
 # Putting it all together
 
-## Combined data processing steps
+## Combining data processing steps
 
 Today we have learned how to load data, select and rename relevant variables, filter out irrelevant cases, and summarise across participants/variables.
 

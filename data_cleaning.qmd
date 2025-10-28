@@ -141,7 +141,7 @@ renamed_vars <- selected_vars |>
   rename(ppt_ID = ID, learn_time = learnTime, test_time = time)
 ```
 
-# `filter()` for relevant data
+# `filter()` for relevant cases
 
 Another typical step in data processing is to filter for the data we are interested in. For example, this dataset collected responses across four test sessions, but suppose we only want to analyse data from session one. We can create a reduced version of dataset for this purpose using the `filter()` function.
 

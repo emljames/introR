@@ -2,6 +2,9 @@ name: "IntroR"
 project: 
   type: website
   output-dir: docs
+  render: 
+    - "*.qmd"
+    - "!workshop_files/"
   
 website: 
   navbar:
@@ -24,6 +27,7 @@ website:
         
 format: 
   html:
+    page-layout: full
     theme: zephyr 
     toc: true
     toc-depth: 2

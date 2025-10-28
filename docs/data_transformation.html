@@ -159,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#create-new-variables" id="toc-create-new-variables" class="nav-link" data-scroll-target="#create-new-variables"><span class="header-section-number">2</span> Create new variables</a></li>
   <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">3</span> Putting it all together</a>
   <ul class="collapse">
-  <li><a href="#combined-data-processing-steps" id="toc-combined-data-processing-steps" class="nav-link" data-scroll-target="#combined-data-processing-steps"><span class="header-section-number">3.1</span> Combined data processing steps</a></li>
+  <li><a href="#combining-data-processing-steps" id="toc-combining-data-processing-steps" class="nav-link" data-scroll-target="#combining-data-processing-steps"><span class="header-section-number">3.1</span> Combining data processing steps</a></li>
   <li><a href="#saving-datasets" id="toc-saving-datasets" class="nav-link" data-scroll-target="#saving-datasets"><span class="header-section-number">3.2</span> Saving datasets</a></li>
   </ul></li>
   <li><a href="#other-data-processing-steps" id="toc-other-data-processing-steps" class="nav-link" data-scroll-target="#other-data-processing-steps"><span class="header-section-number">4</span> Other data processing steps</a></li>
@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -188,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -211,7 +211,7 @@ Setting up
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These instructions assume you have just followed the Data Cleaning content. If you have arrived here separately and wish to run the examples yourself, make sure you load the <em>tidyverse</em> package and the data as per the set up instructions there.</p>
+<p>These instructions assume you have just followed the <a href="https://emljames.github.io/introR/data_cleaning.html">Data cleaning</a> content. If you have arrived here separately and wish to run the examples yourself, make sure you <a href="https://emljames.github.io/introR/data_cleaning.html#load-packages">load the <em>tidyverse</em> package</a> and <a href="https://emljames.github.io/introR/data_cleaning.html#load-data">load the data</a> first.</p>
 </div>
 </div>
 <section id="calculate-participant-averages-using-group_by-and-summarise" class="level1" data-number="1">
@@ -276,42 +276,33 @@ EXERCISE 4
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">ppt_min_RT =</span> <span class="fu">min</span>(mean_RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">ppt_max_RT =</span> <span class="fu">max</span>(mean_RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 5
-   time ppt_mean_RT ppt_sd_RT ppt_min_RT ppt_max_RT
-  &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
-1     1       2093.      731.      1242.      4825.
-2     2       1759.      461.      1147.      2909.
-3     3       1551.      350.       981.      2397.
-4     4       1910.      707.       975.      3973.</code></pre>
-</div>
 </div>
 </section>
 <section id="create-new-variables" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Create new variables</h1>
 <p>Our final function today showcases how we can create new variables based on our existing data. As a simple example, let’s say we want to summarise our participant averages as percentages rather than proportions. To do this, we would need to multiple the mean accuracy value by 100. We can do this using the <code>mutate()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_correct =</span> mean_acc<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_correct =</span> mean_acc<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We’ve taken our data frame of participant averages, and used <code>mutate()</code> to create a new variable called percent_correct. Again, we have the new name on the left, with details on how to produce it on the right. We specify that the variable <code>percent_correct</code> should be calculated by multiplying <code>mean_acc</code> by 100. We can see that the new data frame now has one more variable, and can check that it’s doing as we expect.</p>
 <p>Let’s try adding another example. Reaction time data are often skewed, and require some kind of transformation to aid analysis. One such transformation is the inverse, which we calculate using 1/RT value. Let’s add this to the above example.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_correct =</span> mean_acc<span class="sc">*</span><span class="dv">100</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">inv_RT =</span> <span class="dv">1</span><span class="sc">/</span>mean_RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_correct =</span> mean_acc<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">inv_RT =</span> <span class="dv">1</span><span class="sc">/</span>mean_RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/mutate.png" class="img-fluid figure-img" alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.”"></p>
+<p><img src="images/mutate.png" class="img-fluid figure-img" alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.”" width="492"></p>
 <figcaption><a href="https://x.com/allison_horst">Artwork by @allison_horst</a></figcaption>
 </figure>
 </div>
 </section>
 <section id="putting-it-all-together" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Putting it all together</h1>
-<section id="combined-data-processing-steps" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="combined-data-processing-steps"><span class="header-section-number">3.1</span> Combined data processing steps</h2>
+<section id="combining-data-processing-steps" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="combining-data-processing-steps"><span class="header-section-number">3.1</span> Combining data processing steps</h2>
 <p>Today we have learned how to load data, select and rename relevant variables, filter out irrelevant cases, and summarise across participants/variables.</p>
 <p>As a final exercise, let’s create a processed dataset that can show us whether windows of sleep or wake are better for picture naming.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="EXERCISE 5">
@@ -338,20 +329,20 @@ EXERCISE 5
 <div class="cell">
 <details class="code-fold">
 <summary>Show solution</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataset of participant means </span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sleep_wake <span class="ot">&lt;-</span> raw_dat <span class="sc">|&gt;</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, learnTime, time, acc, RT) <span class="sc">|&gt;</span> </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> time <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_RT =</span> <span class="fu">log</span>(RT)) <span class="sc">|&gt;</span> </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID, learnTime, time) <span class="sc">|&gt;</span> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">acc =</span> <span class="fu">mean</span>(acc), <span class="at">RT =</span> <span class="fu">mean</span>(RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_RT =</span> <span class="fu">mean</span>(log_RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Group summary statistics</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>sleep_wake <span class="sc">|&gt;</span> </span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(learnTime, time) <span class="sc">|&gt;</span> </span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_acc =</span> <span class="fu">mean</span>(acc), <span class="at">mean_RT =</span> <span class="fu">mean</span>(RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_logRT =</span> <span class="fu">mean</span>(log_RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dataset of participant means </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sleep_wake <span class="ot">&lt;-</span> raw_dat <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, learnTime, time, acc, RT) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> time <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_RT =</span> <span class="fu">log</span>(RT)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID, learnTime, time) <span class="sc">|&gt;</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">acc =</span> <span class="fu">mean</span>(acc), <span class="at">RT =</span> <span class="fu">mean</span>(RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_RT =</span> <span class="fu">mean</span>(log_RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Group summary statistics</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>sleep_wake <span class="sc">|&gt;</span> </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(learnTime, time) <span class="sc">|&gt;</span> </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_acc =</span> <span class="fu">mean</span>(acc), <span class="at">mean_RT =</span> <span class="fu">mean</span>(RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_logRT =</span> <span class="fu">mean</span>(log_RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -360,7 +351,7 @@ EXERCISE 5
 <p>We’ve now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don’t have to re-run this script each time, and so that we have a shareable data file.</p>
 <p>It’s good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it’s the processed version. We can use the <code>write_csv()</code> function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (here specifying how to navigate to the correct folder, and including the file extension).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(sleep_wake, <span class="st">"../data/processed/picName_processed.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(sleep_wake, <span class="st">"../data/processed/picName_processed.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

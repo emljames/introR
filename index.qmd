@@ -1,5 +1,5 @@
 ---
-title: "York Psychology ECR Workshop: Introduction to R"
+title: "York Psychology ECR Workshop:\nIntroduction to R"
 author: "Emma James"
 date: today
 date-format: "MMMM YYYY"
@@ -7,13 +7,17 @@ date-format: "MMMM YYYY"
 
 # Overview
 
-This introductory R workshop has been put together for the York Psychology ECR Forum. The 2025 workshop will take place in the **PC Lab** (PS/A/203), **2pm-4pm** on **Wednesday 29th October**.
+This introductory R workshop has been put together for the York Psychology ECR Forum. The 2025 workshop will take place as follows:
+
+-   **Time and date:** 2pm-4pm, Wednesday 29th October
+-   **Location:** Psychology PC Lab (PS/A/203)
+-   ***All welcome***
 
 The session will provide an introduction to R, providing you with the basic skills for getting started in using R for your own research. We will prioritise skills for data wrangling using a set of tools referred to as the *tidyverse*. The course is aimed at complete beginners in R -- **no programming experience or prior knowledge of R is required.**
 
 The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and are experienced in supporting learners without any programming backgrounds.
 
-![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/halloween_r.png){fig-alt="Two smiling green monsters in matching blue dresses (like the scary twins in The Shining), standing in a hallway with hex wallpaper. Behind them is spraypaint-style text reading \"come play with us\" with \"forevR\" in a hex logo behind them" fig-align="center" width="446"}
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/halloween_r.png){fig-alt="Two smiling green monsters in matching blue dresses (like the scary twins in The Shining), standing in a hallway with hex wallpaper. Behind them is spraypaint-style text reading \"come play with us\" with \"forevR\" in a hex logo behind them" fig-align="center" width="669"}
 
 # Before the workshop
 
@@ -25,23 +29,23 @@ The main aim of this workshop is to introduce you to some key data processing to
 
 In this workshop, we will walk through four main sections:
 
-1.  **Navigating R and R Studio**
+1.  [**Navigating R**](https://emljames.github.io/introR/navigating_R.html)
     -   Why *R* and *RStudio*
     -   RStudio panes
     -   Objects
     -   Functions and packages
-2.  **Data cleaning in R**
+2.  [**Cleaning data in R**](https://emljames.github.io/introR/data_cleaning.html)
     -   Select relevant variables
     -   Rename variables
     -   Filter for relevant data
-3.  **Data transformation in R**
+3.  [**Transforming data in R**](https://emljames.github.io/introR/data_transformation.html)
     -   Calculate participant averages
     -   Create new variables
     -   Saving datasets
-4.  **Reproducible research practices**
+4.  [**Reproducible research practices**](https://emljames.github.io/introR/reproducibility.html)
     -   The benefits of coding
     -   Always comment your code!
-    -   Using Rmarkdown for readable outputs
+    -   Using R Markdown for readable outputs
 
 This is quite an ambitious amount to achieve in two hours! It's fairly likely that we will not get through everything, but we have deliberately left it flexible to adapt to attendees on the day. The materials are written so that you should be able to work through them independently at a later stage. You can also find some [suggested resources](https://emljames.github.io/introR/resources.html) for further learning.
 

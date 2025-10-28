@@ -1,28 +1,30 @@
 ---
 title: "Introduction to R - Template script"
 output: html_document
-date: "2024-11-06"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
 ---
 
-# Setting up
+# DATA CLEANING
+
+## 1. Setting up
 
 [You can write your notes as normal text like this, outside the code chunks]
 
-## Load packages
+### 1.1. Load packages
 
 ```{r load-packages}
 
 
 ```
 
-## Load and preview data
+### 1.2. Load and preview data
 
 ```{r load-data}
 
 
 ```
 
-# Select variables
+## 2. Select variables
 
 ```{r select-examples}
 
@@ -36,9 +38,7 @@ date: "2024-11-06"
 
 ```
 
-# Rename variables
-
-Here's a list of alternative column names: "ppt_ID", "read_group", "exp_task", "counterbalanced_order", "encode_time", "test_time", "word", "correct", "rt"
+## 3. Rename variables
 
 ```{r rename-examples}
 
@@ -55,7 +55,7 @@ Here's a list of alternative column names: "ppt_ID", "read_group", "exp_task", "
 
 ```
 
-# Filter variables
+## 4. Filter for relevant cases
 
 ```{r filter-examples}
 
@@ -84,7 +84,7 @@ filter_dat5 <- filter(raw_dat, time == 1 & RT <= 2000 )
 filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 ```
 
-# Combining processing steps using the pipe
+## 5. Combining processing steps using the pipe
 
 ```{r pipe-example}
 
@@ -92,7 +92,9 @@ filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 
 ```
 
-# Calculate participant averages 
+# DATA TRANSFORMATION 
+
+## 1. Calculate participant averages 
 
 ```{r summarise-examples}
 
@@ -107,7 +109,7 @@ filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 
 ```
 
-# Create new variables
+## 2. Create new variables
 
 ```{r new-var-examples}
 
@@ -116,7 +118,9 @@ filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 ```
 
 
-# Putting it all together
+## 3. Putting it all together
+
+### 3.1 Combining data processing steps
 
 **EXERCISE 5:** Create a dataset called `sleep_wake` by chaining the following steps together:
 
@@ -138,7 +142,7 @@ Once you have done this, print the whole group summaries by learnTime and time. 
 
 ```
 
-## Save data
+### 3.2 Save your processed data 
 
 ```{r save-data}
 
