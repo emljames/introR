@@ -1,5 +1,7 @@
 ---
-title: "York Psychology ECR Workshop:\nIntroduction to R"
+title: |
+  York Psychology ECR Workshop \
+  --- Introduction to R \
 author: "Emma James"
 date: today
 date-format: "MMMM YYYY"
