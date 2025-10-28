@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -163,7 +163,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#setting-up" id="toc-setting-up" class="nav-link active" data-scroll-target="#setting-up"><span class="header-section-number">1</span> Setting up</a>
+  <ul class="collapse">
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages"><span class="header-section-number">1.1</span> Load packages</a></li>
+  <li><a href="#load-and-preview-data" id="toc-load-and-preview-data" class="nav-link" data-scroll-target="#load-and-preview-data"><span class="header-section-number">1.2</span> Load and preview data</a></li>
+  </ul></li>
+  <li><a href="#select-variables" id="toc-select-variables" class="nav-link" data-scroll-target="#select-variables"><span class="header-section-number">2</span> Select variables</a></li>
+  <li><a href="#rename-variables" id="toc-rename-variables" class="nav-link" data-scroll-target="#rename-variables"><span class="header-section-number">3</span> Rename variables</a></li>
+  <li><a href="#filter-variables" id="toc-filter-variables" class="nav-link" data-scroll-target="#filter-variables"><span class="header-section-number">4</span> Filter variables</a></li>
+  <li><a href="#combining-processing-steps-using-the-pipe" id="toc-combining-processing-steps-using-the-pipe" class="nav-link" data-scroll-target="#combining-processing-steps-using-the-pipe"><span class="header-section-number">5</span> Combining processing steps using the pipe</a></li>
+  <li><a href="#calculate-participant-averages" id="toc-calculate-participant-averages" class="nav-link" data-scroll-target="#calculate-participant-averages"><span class="header-section-number">6</span> Calculate participant averages</a></li>
+  <li><a href="#create-new-variables" id="toc-create-new-variables" class="nav-link" data-scroll-target="#create-new-variables"><span class="header-section-number">7</span> Create new variables</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">8</span> Putting it all together</a>
+  <ul class="collapse">
+  <li><a href="#save-data" id="toc-save-data" class="nav-link" data-scroll-target="#save-data"><span class="header-section-number">8.1</span> Save data</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -192,11 +214,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="setting-up" class="level1">
-<h1>Setting up</h1>
+<section id="setting-up" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Setting up</h1>
 <p>Remember that you can write notes <em>outside</em> the code chunks like this (or <em>inside</em> the code chunks using the # key).</p>
-<section id="load-packages" class="level2">
-<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<section id="load-packages" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="load-packages"><span class="header-section-number">1.1</span> Load packages</h2>
 <p>If you haven’t installed the tidyverse package, you will need to do so first by running <code>install.packages("tidyverse")</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -214,8 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="load-and-preview-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-and-preview-data">Load and preview data</h2>
+<section id="load-and-preview-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="load-and-preview-data"><span class="header-section-number">1.2</span> Load and preview data</h2>
 <p>This example uses a <em>relative</em> file path - it assumes that you have the data in a neighbouring folder (the structure that was sent to you initially). Make sure you unzip the downloaded file before trying to open the script.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data file</span></span>
@@ -274,8 +296,8 @@ dbl (4): week, time, acc, RT
 </div>
 </section>
 </section>
-<section id="select-variables" class="level1">
-<h1>Select variables</h1>
+<section id="select-variables" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Select variables</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select by name</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>select_dat1 <span class="ot">&lt;-</span> <span class="fu">select</span>(raw_dat, ID, item, acc)</span>
@@ -291,8 +313,8 @@ dbl (4): week, time, acc, RT
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>selected_vars <span class="ot">&lt;-</span> <span class="fu">select</span>(raw_dat, ID, learnTime, time, item, acc, RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="rename-variables" class="level1">
-<h1>Rename variables</h1>
+<section id="rename-variables" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Rename variables</h1>
 <p>Here’s a list of alternative column names: “ppt_ID”, “read_group”, “exp_task”, “counterbalanced_order”, “encode_time”, “test_time”, “word”, “correct”, “rt”</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename all variables using set_names</span></span>
@@ -311,8 +333,8 @@ dbl (4): week, time, acc, RT
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>renamed_vars <span class="ot">&lt;-</span> <span class="fu">rename</span>(selected_vars, <span class="at">ppt_ID =</span> ID, <span class="at">learn_time =</span> learnTime, <span class="at">test_time =</span> time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="filter-variables" class="level1">
-<h1>Filter variables</h1>
+<section id="filter-variables" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Filter variables</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for one time point </span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>filter_dat <span class="ot">&lt;-</span> <span class="fu">filter</span>(raw_dat, time <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -338,8 +360,8 @@ dbl (4): week, time, acc, RT
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>filter_dat6 <span class="ot">&lt;-</span> <span class="fu">filter</span>(raw_dat, item <span class="sc">==</span> <span class="st">"banyan"</span> <span class="sc">|</span> item <span class="sc">==</span> <span class="st">"caracal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="combining-processing-steps-using-the-pipe" class="level1">
-<h1>Combining processing steps using the pipe</h1>
+<section id="combining-processing-steps-using-the-pipe" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Combining processing steps using the pipe</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>select_filter_dat <span class="ot">&lt;-</span> raw_dat <span class="sc">%&gt;%</span>  <span class="co"># take the raw data frame, AND THEN</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, time, item, RT) <span class="sc">%&gt;%</span>  <span class="co"># select variables, AND THEN</span></span>
@@ -347,8 +369,8 @@ dbl (4): week, time, acc, RT
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&lt;</span> <span class="dv">3000</span>)               <span class="co"># filter for observations less than 3000 RT</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="calculate-participant-averages" class="level1">
-<h1>Calculate participant averages</h1>
+<section id="calculate-participant-averages" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Calculate participant averages</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average accuracy and RT for each participant</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ppt_average1 <span class="ot">&lt;-</span> raw_dat <span class="sc">%&gt;%</span> </span>
@@ -400,8 +422,8 @@ argument.</code></pre>
 </div>
 </div>
 </section>
-<section id="create-new-variables" class="level1">
-<h1>Create new variables</h1>
+<section id="create-new-variables" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Create new variables</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new variables based on existing ones</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">%&gt;%</span> </span>
@@ -409,8 +431,8 @@ argument.</code></pre>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">inv_RT =</span> <span class="dv">1</span><span class="sc">/</span>mean_RT)              <span class="co"># transform RT variable into inverse </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="putting-it-all-together" class="level1">
-<h1>Putting it all together</h1>
+<section id="putting-it-all-together" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Putting it all together</h1>
 <p><strong>EXERCISE 5:</strong> Create a dataset called <code>sleep_wake</code> by chaining the following steps together:</p>
 <ol type="1">
 <li>Take the raw data</li>
@@ -457,8 +479,8 @@ the `.groups` argument.</code></pre>
 </div>
 </div>
 <p>You can see that between the two AM test points, accuracy drops and people get slower. That is, performance goes down after a 12-hour period awake. Between the two PM test points, accuracy improves and people get faster. Picture naming performance gets better over a 12-hour period containing sleep.</p>
-<section id="save-data" class="level2">
-<h2 class="anchored" data-anchor-id="save-data">Save data</h2>
+<section id="save-data" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="save-data"><span class="header-section-number">8.1</span> Save data</h2>
 <p>Save processed data back out to a different folder (i.e., a processed folder within your data folder).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(sleep_wake, <span class="st">"../data/processed/picName_processed.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

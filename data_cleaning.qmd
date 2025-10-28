@@ -157,6 +157,8 @@ Just as with the earlier functions, the first argument is the name of the datafr
 
 We can use different [logical operators](https://bookdown.org/rwnahhas/IntroToR/logical.html) to specify conditions in different ways.
 
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/filter.png){fig-alt="Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”"}
+
 ::: {.callout-tip title="EXERCISE 3"}
 What do you think the following lines of code might do to the data? Then try running them to see if your predictions are correct.
 :::

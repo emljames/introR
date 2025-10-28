@@ -19,7 +19,9 @@ One of the advantages of conducting your data processing and analysis steps in *
 
 # Creating annotated output files
 
-Today we have been working in an R Markdown file (.Rmd). This differs from a straight forward R script (.R) in that it integrates regular text, code, and output more efficiently, whereas an .R script interprets everything as code by default (essentially like the grey sections we've typing code in today). There are many people who will *always* use R Markdown (or the newer version, *Quarto*) when they use R. Some people even use it to write their entire manuscripts in a reproducible way!
+Today we have been working in an R Markdown file (.Rmd). This differs from a straight forward R script (.R) in that it integrates regular text, code, and output more efficiently, whereas an .R script interprets everything as code by default (essentially like the grey sections we've typing code in today). There are many people who will *always* use R Markdown (or the newer version, *Quarto*) when they use R. Some people even use it to write their entire manuscripts in a reproducible way\![
+
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/r_markdown.png){fig-alt="Two fuzzy round monsters dressed as wizards, working together to brew different things together from a pantry (code, text, figures, etc.) in a cauldron labeled “R Markdown”. The monster wizard at the cauldron is reading a recipe that includes steps “1. Add text. 2. Add code. 3. Knit. 4. (magic) 5. Celebrate perceived wizardry.” The R Markdown potion then travels through a tube, and is converted to markdown by a monster on a broom with a magic wand, and eventually converted to an output by pandoc. Stylized text (in a font similar to Harry Potter) reads “R Markdown. Text. Code. Output. Get it together, people.”"}
 
 There are many different features of R Markdown that could form a whole workshop on its own. However, with very few extra bits, we have already created a structured output from today's work. Here are the features that we set up for you in the template file:
 

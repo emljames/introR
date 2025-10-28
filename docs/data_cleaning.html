@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -162,7 +162,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#setting-up" id="toc-setting-up" class="nav-link active" data-scroll-target="#setting-up"><span class="header-section-number">1</span> Setting up</a>
+  <ul class="collapse">
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages"><span class="header-section-number">1.1</span> Load packages</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data"><span class="header-section-number">1.2</span> Load data</a></li>
+  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary"><span class="header-section-number">1.3</span> Data dictionary</a></li>
+  </ul></li>
+  <li><a href="#select-relevant-variables" id="toc-select-relevant-variables" class="nav-link" data-scroll-target="#select-relevant-variables"><span class="header-section-number">2</span> <code>select()</code> relevant variables</a></li>
+  <li><a href="#rename-variables" id="toc-rename-variables" class="nav-link" data-scroll-target="#rename-variables"><span class="header-section-number">3</span> <code>rename() variables</code></a></li>
+  <li><a href="#filter-for-relevant-data" id="toc-filter-for-relevant-data" class="nav-link" data-scroll-target="#filter-for-relevant-data"><span class="header-section-number">4</span> <code>filter()</code> for relevant data</a></li>
+  <li><a href="#combining-data-cleaning-steps-using-the-pipe-operator" id="toc-combining-data-cleaning-steps-using-the-pipe-operator" class="nav-link" data-scroll-target="#combining-data-cleaning-steps-using-the-pipe-operator"><span class="header-section-number">5</span> Combining data cleaning steps using the pipe <code>|&gt;</code> operator</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -186,18 +203,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>In this section of the workshop, we will learn how to manipulate your data in R. Being able to process and reformat your data in a fast and reproducible way is a major benefit of working in R relative to e.g., Excel and SPSS. We will use a set of functions dedicated to this purpose, known as the <em>tidyverse</em>. In this section, we will refine our dataset based on the variables and observations that we actually need.</p>
-<section id="setting-up" class="level1">
-<h1>Setting up</h1>
-<section id="load-packages" class="level2">
-<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<section id="setting-up" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Setting up</h1>
+<section id="load-packages" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="load-packages"><span class="header-section-number">1.1</span> Load packages</h2>
 <p><em>(If you’re following this material directly after the <a href="https://emljames.github.io/introR/navigating_R.html">Navigating R</a> content, then you’ve already done this first step!)</em></p>
 <p>We need to load a collection of functions from the <em>tidyverse</em>. If you have not already installed this package, you still need to run <code>install.packages("tidyverse")</code> in the Console first.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="load-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-data">Load data</h2>
+<section id="load-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="load-data"><span class="header-section-number">1.2</span> Load data</h2>
 <p>We will be working with data collected from a study of sleep and word learning in children (<a href="https://acamh.onlinelibrary.wiley.com/doi/full/10.1111/jcpp.13253">James, Gaskell, &amp; Henderson, 2020</a>). The experiment involved teaching children the names of unusual plants/animals, and testing their memory for them after periods of wake and sleep. For this lesson, we will analyse the data from the picture naming task, in which children were asked to name pictures of the items as quickly as they could. We will focus on data from the first two test sessions only (12-hour period containing wake or sleep).</p>
 <p>The folder circulated included folder with the data in it, so we need to instruct R to navigate to the correct file within the raw data folder. If you look in the files pane, you should see that we are currently located in the scripts folder. To navigate to the data folder, we need to include “../” in the file path to instruct R to go “up one level”, then “data/” to go into the data folder, “raw/” to go into the raw data folder, then the file name (including path extension).</p>
 <p>Let’s read in the picture naming file, and assign it to the object “raw_dat”. Remember, the <code>&lt;-</code> means that the action to the right is assigned to the “object” name on the left.</p>
@@ -215,8 +232,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>You don’t need to worry too much about what these different variables mean for the purposes of this workshop, but you can see here that this is trial level data. The dependent variables are accuracy and RT, and we have these across several items for each participant. A full data dictionary is described below.</p>
 </section>
-<section id="data-dictionary" class="level2">
-<h2 class="anchored" data-anchor-id="data-dictionary">Data dictionary</h2>
+<section id="data-dictionary" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="data-dictionary"><span class="header-section-number">1.3</span> Data dictionary</h2>
 <ul>
 <li><strong>ID</strong> — a unique anonymised code for each participant</li>
 <li><strong>group</strong> — whether participants were good comprehenders (GC) or poor comprehenders (PC)</li>
@@ -231,8 +248,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We don’t necessarily need everything here, so let’s start wrangling!</p>
 </section>
 </section>
-<section id="select-relevant-variables" class="level1">
-<h1><code>select()</code> relevant variables</h1>
+<section id="select-relevant-variables" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> <code>select()</code> relevant variables</h1>
 <p>Often our means of collecting data give us more information than we really care about. For example, Gorilla outputs all sorts of columns for screen size, browser etc. that won’t be helpful for our analysis. We likely want to create a refined version of the dataset that includes on the variables of interest.</p>
 <p>To do this, we can use the <code>select()</code> function. Let’s say for example that we only need the variables <em>ID, item</em> and <em>acc</em>. We can do this as follows:</p>
 <div class="cell">
@@ -276,8 +293,8 @@ EXERCISE 1
 </details>
 </div>
 </section>
-<section id="rename-variables" class="level1">
-<h1><code>rename() variables</code></h1>
+<section id="rename-variables" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <code>rename() variables</code></h1>
 <p>Once your dataset is a more manageable size, you might find that you want to rename your key variables. For example, in our current dataset, the difference between “learnTime” and “time” is not intuitive. Let’s rename these variables to make the difference clearer (and thereby reduce the risk of making mistakes in our code!).</p>
 <p>You can do this using the <code>rename()</code> function, following the format <code>new_name = old_name</code>. Let’s do this with our raw dataset, renaming just the learnTime and time columns to better distinguish them:</p>
 <div class="cell">
@@ -330,14 +347,20 @@ EXERCISE 2
 </details>
 </div>
 </section>
-<section id="filter-for-relevant-data" class="level1">
-<h1><code>filter()</code> for relevant data</h1>
+<section id="filter-for-relevant-data" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <code>filter()</code> for relevant data</h1>
 <p>Another typical step in data processing is to filter for the data we are interested in. For example, this dataset collected responses across four test sessions, but suppose we only want to analyse data from session one. We can create a reduced version of dataset for this purpose using the <code>filter()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>filter_dat <span class="ot">&lt;-</span> <span class="fu">filter</span>(raw_dat, time <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Just as with the earlier functions, the first argument is the name of the dataframe that we want to filter (<code>raw_dat</code>). We then specify the conditions for retaining data: here that we want the <code>session</code> variable to be equal to (<code>==</code>) the value of 1. You can see in the environment menu that this <code>filter_dat</code> dataframe should have appeared. We’ve kept all 9 variables as we haven’t instructed otherwise, but we have approximately quarter of the number of observations now. If you inspect this dataframe by clicking the grid icon, you should see that we have dropped all of the trials from sessions 2-4.</p>
 <p>We can use different <a href="https://bookdown.org/rwnahhas/IntroToR/logical.html">logical operators</a> to specify conditions in different ways.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/filter.png" class="img-fluid figure-img" alt="Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”"></p>
+<figcaption><a href="https://x.com/allison_horst">Artwork by @allison_horst</a></figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="EXERCISE 3">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -394,8 +417,8 @@ EXERCISE 3
 </div>
 <p>You can specify and combine your selection criteria in pretty much any way imaginable. Again, the key benefit here is that we haven’t lost our original data at any point. Realise you’ve done something wrong? Edit and run it again. Need versions of your dataset with and without certain participants included? Create two versions. Reviewers query the impact of your exclusion criteria? Show them a version without. These data came from the same stored dataset (no deleting data you might regret!), and you’ve documented in code exactly what you’ve done with them. Having these steps scripted is a major win for reproducibility.</p>
 </section>
-<section id="combining-data-cleaning-steps-using-the-pipe-operator" class="level1">
-<h1>Combining data cleaning steps using the pipe <code>|&gt;</code> operator</h1>
+<section id="combining-data-cleaning-steps-using-the-pipe-operator" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Combining data cleaning steps using the pipe <code>|&gt;</code> operator</h1>
 <p>So far, we’ve selected, renamed, and filtered our data in separate steps, reassigning the result to a new dataframe each time. This is fine, and very helpful when you are first developing your code as it allows you to inspect/test each step as you go and check things are running as expected.</p>
 <p>However, in the long run, this can get a bit messy as we end up with lots of different dataframes in the environment. It also becomes increasingly difficult to name them all something sensible, and it’s easy to lose track and make mistakes of which dataframe we are suppose to be using.</p>
 <p>To counter this problem, the <em>tidyverse</em> has a handy function called the <em>pipe</em> operator. It looks like this: <code>|&gt;</code> , or alternatively like this <code>%&gt;%</code> (older version). You can read the pipe operator as “<em>and then</em>”. It takes the output from the code to the left of it, <em>and then</em> sends it to the first argument of your next line of code. Remember that the first argument of the <code>select()</code>, <code>rename()</code>, and <code>filter()</code> functions was the data, so this works very nicely.</p>

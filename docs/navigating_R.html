@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -162,7 +162,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction-to-working-in-r" id="toc-introduction-to-working-in-r" class="nav-link active" data-scroll-target="#introduction-to-working-in-r"><span class="header-section-number">1</span> Introduction to working in R</a>
+  <ul class="collapse">
+  <li><a href="#why-r" id="toc-why-r" class="nav-link" data-scroll-target="#why-r"><span class="header-section-number">1.1</span> Why <em>R</em>?</a></li>
+  <li><a href="#whats-rstudio" id="toc-whats-rstudio" class="nav-link" data-scroll-target="#whats-rstudio"><span class="header-section-number">1.2</span> What’s RStudio?</a></li>
+  </ul></li>
+  <li><a href="#rstudio-panes" id="toc-rstudio-panes" class="nav-link" data-scroll-target="#rstudio-panes"><span class="header-section-number">2</span> RStudio panes</a></li>
+  <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects"><span class="header-section-number">3</span> Objects</a></li>
+  <li><a href="#functions-and-packages" id="toc-functions-and-packages" class="nav-link" data-scroll-target="#functions-and-packages"><span class="header-section-number">4</span> Functions and packages</a>
+  <ul class="collapse">
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">4.1</span> Functions</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages"><span class="header-section-number">4.2</span> Packages</a></li>
+  </ul></li>
+  <li><a href="#working-in-r-markdown-scripts" id="toc-working-in-r-markdown-scripts" class="nav-link" data-scroll-target="#working-in-r-markdown-scripts"><span class="header-section-number">5</span> Working in R Markdown scripts</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -185,10 +205,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction-to-working-in-r" class="level1">
-<h1>Introduction to working in R</h1>
-<section id="why-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-r">Why <em>R</em>?</h2>
+<section id="introduction-to-working-in-r" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction to working in R</h1>
+<section id="why-r" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="why-r"><span class="header-section-number">1.1</span> Why <em>R</em>?</h2>
 <p><em>R</em> is a widely used, free software environment geared towards running statistical analyses. It’s a programming language, and so is often considered to have a steeper learning curve than programs like SPSS. It requires you to learn how to type specific instructions to tell the computer what to do, rather than navigate through menus in a pointy-clicky way. However, this effort is rewarded by greater flexibility, efficiency, and reproducibility in your data analysis.</p>
 <p>Obviously we’re here in an <em>R</em> workshop so may be biased, but here are a few of the reasons why <em>R</em> is worth your time:</p>
 <ul>
@@ -200,21 +220,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You’re not restricted to those methods - you can code anything you want!</li>
 </ul>
 </section>
-<section id="whats-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="whats-rstudio">What’s RStudio?</h2>
+<section id="whats-rstudio" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="whats-rstudio"><span class="header-section-number">1.2</span> What’s RStudio?</h2>
 <p><em>RStudio</em> is a freeware environment with many helpful features for using <em>R</em>. Most people will use <em>R</em> within the RStudio environment, but you do need to install both <em>R</em> and <em>RStudio</em> separately. In the next section, we’ll introduce the core aspects of the RStudio environment in introducing basic principles.</p>
 </section>
 </section>
-<section id="rstudio-panes" class="level1">
-<h1>RStudio panes</h1>
+<section id="rstudio-panes" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> RStudio panes</h1>
 <p>Let’s start with a quick introduction to RStudio. Open the <em>template.Rmd</em> file that you have downloaded. It should open in RStudio by default, but if it doesn’t you can right click the file &gt;&gt; Open with… &gt;&gt; RStudio. You should now see 4 different panes in the RStudio window.</p>
 <p>In the top left corner are your scripts, now displaying the template script for today. Scripts are like lists of instructions for the computer to follow. You can save them for future reference, and this makes it easy to set up complex analyses without typing them in by hand each time. Today, we will work in an <em>RMarkdown</em> file format which allows us to easily integrate this script with notes. We’ll come back to the distinction between R and RMarkdown at the end of the session.</p>
 <p>Below the script in the bottom left corner is the Console. This is where the magic happens! When you run code from your scripts, it sends it to the console for execution, so you will see the code that you have run followed by the output. You can also type instructions into it directly if you don’t want to save them for a later date. For example, try typing <code>5 + 5</code> and hitting the return key.</p>
 <p>The first tab in the top right hand window is the Environment. This is like R’s memory, and shows what information you have stored. We’ll come back to this in the next section.</p>
 <p>In the bottom right window are several sections that can be navigated around by clicking on the different tabs. ‘Files’ shows the files in the directory we are in, ‘Plots’ will contain any graphs we draw, ‘Packages’ is a list of extensions to R to do different types of statistics, and ‘Help’ gives you the help pages for a particular function if you ask for them.</p>
 </section>
-<section id="objects" class="level1">
-<h1>Objects</h1>
+<section id="objects" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Objects</h1>
 <p>We give each bit of information a name, and can use that name to call upon it as we run our analyses. These pieces of information are called <em>variables</em>, although they are often referred to as <em>objects</em> to avoid confusion with variables in our experimental design. Variables or objects are like boxes that you can store information in. They can be small (e.g., containing a single number) or very large (e.g., an entire dataset).</p>
 <p>Let’s create our first object, by typing the following into the Console, then hitting the return key:</p>
 <div class="cell">
@@ -229,10 +249,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This variable contains a list of numbers (sometimes called a vector) from 1 to 5. If we now type <code>b^2</code>, we get a list of the squares of all of the elements of b: 1 4 9 16 25.</p>
 <p>This seems pretty arbitrary at the moment, but today we will be using variables to store and manipulate datasets in R.</p>
 </section>
-<section id="functions-and-packages" class="level1">
-<h1>Functions and packages</h1>
-<section id="functions" class="level2">
-<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<section id="functions-and-packages" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Functions and packages</h1>
+<section id="functions" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="functions"><span class="header-section-number">4.1</span> Functions</h2>
 <p>Data analysis in R <em>can</em> involve typing a lot of instructions. However, most of the time, someone else has created little packages of instructions for us to use called <em>functions</em>. Each function has a name to call, followed by some <em>arguments</em> that it requires you to enter inside the brackets.</p>
 <p>For example, there are many basic statistical functions built into R already. For example, earlier we created a list of 5 numbers called <em>b</em>. Let’s try finding out some basic statistical properties using the following functions:</p>
 <div class="cell">
@@ -243,8 +263,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>You’ll see that each one does pretty much what it says on the tin! You can find out more information about a function by googling it, or by typing <code>help(function_name)</code>. For example, if we had missing data in our variable, we might need to explicitly say whether we want it to be ignored.</p>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<section id="packages" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="packages"><span class="header-section-number">4.2</span> Packages</h2>
 <p>These example functions are very simple, but there are much more advanced functions for different purposes - be they loading and manipulating data, running analyses, or plotting graphs. Because many of these tools are specialised for different purposes, not everything is loaded automatically in <em>R</em>. Instead, we can access the functions we need by installing and loading specific <em>packages</em>: collections of functions developed for a particular purpose.</p>
 <p>Today we will be using functions from the <em>tidyverse</em> package. However, you can usually use Google to find other packages that will be useful for any particular purpose.</p>
 <p>If you have followed the set-up instructions for this workshop, you should have already installed the tidyverse package. If not, you can install it now by typing the following line into your console:</p>
@@ -259,8 +279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you click the green arrow to run the code in the chunk, you’ll see that it sends the line of code to the console, and prints the output. The <em>tidyverse</em> package is actually a collection of smaller packages made by the same team, so the message here tells us that these different packages are loaded.</p>
 </section>
 </section>
-<section id="working-in-r-markdown-scripts" class="level1">
-<h1>Working in R Markdown scripts</h1>
+<section id="working-in-r-markdown-scripts" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Working in R Markdown scripts</h1>
 <p>Congratulations, you’ve just written your first code chunk! Today we are working in an <em>R Markdown</em> file: this is a version of a script that lets you intermix text with chunks of code. There are several helpful formatting features that help you to make your work readable and shareable.</p>
 <p>The white space is like a normal text file. You can type notes as you go to remind yourself what we are doing in today’s workshop. The hash key denotes headings/subheadings, and helps you to navigate different sections of a long file (click the Outline button to the top-right of the script window). I’ve already used this to structure the file for the workshop today.</p>
 <p>The grey boxes you can see in your template script are ready for chunks of code (i.e., the instructions for the computer). I have set these up today to specify that we are using R code, and given each chunk a name so we can keep track. When we click the green arrow to the side, R will interpret the text inside this box as code, and send these instructions to the console to run.</p>

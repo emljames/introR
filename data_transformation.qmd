@@ -98,6 +98,8 @@ ppt_average3 <- ppt_average2 |>
          inv_RT = 1/mean_RT)
 ```
 
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/mutate.png){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.”"}
+
 # Putting it all together
 
 ## Combined data processing steps

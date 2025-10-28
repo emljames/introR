@@ -21,10 +21,10 @@ website:
         href: reproducibility.html
       - text: "Resources"
         href: resources.html
-
-output: 
-  html_document:
+        
+format: 
+  html:
+    theme: zephr 
     toc: true
-    toc_float: true
-    toc_depth: 2
-    theme: zephyr
+    toc-depth: 2
+    number-sections: true

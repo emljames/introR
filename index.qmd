@@ -14,6 +14,8 @@ The session will provide an introduction to R, providing you with the basic skil
 
 The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and are experienced in supporting learners without any programming backgrounds.
 
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/halloween_r.png){fig-alt="Two smiling green monsters in matching blue dresses (like the scary twins in The Shining), standing in a hallway with hex wallpaper. Behind them is spraypaint-style text reading \"come play with us\" with \"forevR\" in a hex logo behind them"}
+
 # Before the workshop
 
 Before the workshop, please follow all the set-up steps on the [set-up page](https://emljames.github.io/introR/setup.html).

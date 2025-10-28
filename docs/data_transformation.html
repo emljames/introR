@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -162,7 +162,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#calculate-participant-averages-using-group_by-and-summarise" id="toc-calculate-participant-averages-using-group_by-and-summarise" class="nav-link active" data-scroll-target="#calculate-participant-averages-using-group_by-and-summarise"><span class="header-section-number">1</span> Calculate participant averages using <code>group_by()</code> and <code>summarise()</code></a></li>
+  <li><a href="#create-new-variables" id="toc-create-new-variables" class="nav-link" data-scroll-target="#create-new-variables"><span class="header-section-number">2</span> Create new variables</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">3</span> Putting it all together</a>
+  <ul class="collapse">
+  <li><a href="#combined-data-processing-steps" id="toc-combined-data-processing-steps" class="nav-link" data-scroll-target="#combined-data-processing-steps"><span class="header-section-number">3.1</span> Combined data processing steps</a></li>
+  <li><a href="#saving-datasets" id="toc-saving-datasets" class="nav-link" data-scroll-target="#saving-datasets"><span class="header-section-number">3.2</span> Saving datasets</a></li>
+  </ul></li>
+  <li><a href="#other-data-processing-steps" id="toc-other-data-processing-steps" class="nav-link" data-scroll-target="#other-data-processing-steps"><span class="header-section-number">4</span> Other data processing steps</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -199,8 +214,8 @@ Setting up
 <p>These instructions assume you have just followed the Data Cleaning content. If you have arrived here separately and wish to run the examples yourself, make sure you load the <em>tidyverse</em> package and the data as per the set up instructions there.</p>
 </div>
 </div>
-<section id="calculate-participant-averages-using-group_by-and-summarise" class="level1">
-<h1>Calculate participant averages using <code>group_by()</code> and <code>summarise()</code></h1>
+<section id="calculate-participant-averages-using-group_by-and-summarise" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Calculate participant averages using <code>group_by()</code> and <code>summarise()</code></h1>
 <p>One thing you often want to do with your data is calculate average scores for each participant. The <em>tidyverse</em> makes it very easy to do this. We make use of the <code>group_by()</code> function to “group” scores by participant ID, then the <code>summarise()</code> function to calculate some kind of summary score. Let’s try this now:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ppt_average1 <span class="ot">&lt;-</span> raw_dat <span class="sc">|&gt;</span></span>
@@ -272,8 +287,8 @@ EXERCISE 4
 </div>
 </div>
 </section>
-<section id="create-new-variables" class="level1">
-<h1>Create new variables</h1>
+<section id="create-new-variables" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Create new variables</h1>
 <p>Our final function today showcases how we can create new variables based on our existing data. As a simple example, let’s say we want to summarise our participant averages as percentages rather than proportions. To do this, we would need to multiple the mean accuracy value by 100. We can do this using the <code>mutate()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">|&gt;</span> </span>
@@ -286,11 +301,17 @@ EXERCISE 4
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_correct =</span> mean_acc<span class="sc">*</span><span class="dv">100</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">inv_RT =</span> <span class="dv">1</span><span class="sc">/</span>mean_RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/mutate.png" class="img-fluid figure-img" alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.”"></p>
+<figcaption><a href="https://x.com/allison_horst">Artwork by @allison_horst</a></figcaption>
+</figure>
+</div>
 </section>
-<section id="putting-it-all-together" class="level1">
-<h1>Putting it all together</h1>
-<section id="combined-data-processing-steps" class="level2">
-<h2 class="anchored" data-anchor-id="combined-data-processing-steps">Combined data processing steps</h2>
+<section id="putting-it-all-together" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Putting it all together</h1>
+<section id="combined-data-processing-steps" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="combined-data-processing-steps"><span class="header-section-number">3.1</span> Combined data processing steps</h2>
 <p>Today we have learned how to load data, select and rename relevant variables, filter out irrelevant cases, and summarise across participants/variables.</p>
 <p>As a final exercise, let’s create a processed dataset that can show us whether windows of sleep or wake are better for picture naming.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="EXERCISE 5">
@@ -334,8 +355,8 @@ EXERCISE 5
 </details>
 </div>
 </section>
-<section id="saving-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="saving-datasets">Saving datasets</h2>
+<section id="saving-datasets" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="saving-datasets"><span class="header-section-number">3.2</span> Saving datasets</h2>
 <p>We’ve now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don’t have to re-run this script each time, and so that we have a shareable data file.</p>
 <p>It’s good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it’s the processed version. We can use the <code>write_csv()</code> function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (here specifying how to navigate to the correct folder, and including the file extension).</p>
 <div class="cell">
@@ -343,8 +364,8 @@ EXERCISE 5
 </div>
 </section>
 </section>
-<section id="other-data-processing-steps" class="level1">
-<h1>Other data processing steps</h1>
+<section id="other-data-processing-steps" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Other data processing steps</h1>
 <p>Today we have learned how to load data, select and rename relevant variables, filter for relevant observations, create new variables, summarise across them, and save processed datasets for future use (phew!). In the end, we saw how efficiently you can run and re-run this with just a few lines of code chained together.</p>
 <p>The <em>tidyverse</em> has plenty of useful tools for data wrangling beyond those we’ve explored today. For example, <code>pivot_longer()</code> and <code>pivot_wider()</code> are useful tools for transforming your data between wide (one row per participant, with each column representing a different trial) and long (one row per trial per participant) formats. Functions such as <code>left_join()</code> allow us to link data from different files based on the participant ID. There are helpful tools for parsing character strings, or processing dates and times. You name it, you can find it!</p>
 <p>Check out the <a href="https://emljames.github.io/introR/resources.html">resources page</a> for links to some more guidance on data processing steps, or try using Google to find tutorials on how to do things. Adding “tidyverse” to your search terms will help to identify solutions that are consistent with our data processing approach today.</p>
