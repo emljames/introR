@@ -13,10 +13,10 @@ website:
         href: setup.html
       - text: "Navigating R"
         href: navigating_R.html
-      - text: "Data cleaning"
+      - text: "Cleaning data"
         href: data_cleaning.html
-      - text: "Data wrangling"
-        href: data_wrangling.html
+      - text: "Transforming data"
+        href: data_transformation.html
       - text: "Reproducibility"
         href: reproducibility.html
       - text: "Resources"
@@ -27,5 +27,4 @@ output:
     toc: true
     toc_float: true
     toc_depth: 2
-    theme: readable
-    css: style.css
+    theme: zephyr

@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling in R"
+title: "Data transformation in R"
 output: 
   html_document:
     toc: true

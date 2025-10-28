@@ -1,7 +1,8 @@
 ---
 title: "York Psychology ECR Workshop: Introduction to R"
 author: "Emma James"
-date: "`r format(Sys.time(), '%B, %Y')`"
+date: today
+date-format: "MMMM YYYY"
 output: html_document
 ---
 
@@ -11,11 +12,7 @@ This introductory R workshop has been put together for the York Psychology ECR F
 
 The session will provide an introduction to R, providing you with the basic skills for getting started in using R for your own research. We will prioritise skills for data wrangling using a set of tools referred to as the *tidyverse*. The course is aimed at complete beginners in R -- **no programming experience or prior knowledge of R is required.**
 
-The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and have experience in supporting beginners without any programming backgrounds.
-
-# Before the workshop
-
-If you intend to use your own laptop for the workshop, please ensure that you have followed all the installation steps on the [set-up page](https://emljames.github.io/introR/setup.html).
+The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and are experienced in supporting learners without any programming backgrounds.
 
 # Before the workshop
 
@@ -25,21 +22,22 @@ Before the workshop, please follow all the set-up steps on the [set-up page](htt
 
 The main aim of this workshop is to introduce you to some key data processing tools that showcase why R can be an excellent choice for your data analysis. In doing so, we hope to give you the motivation to invest time in developing your skills in R, and the confidence to do so.
 
-This workshop consists of three key sections:
+In this workshop, we will walk through four main sections:
 
 1.  **Navigating R and R Studio**
     -   Why *R* and *RStudio*
     -   RStudio panes
     -   Objects
     -   Functions and packages
-2.  **Data wrangling in R**
+2.  **Data cleaning in R**
     -   Select relevant variables
     -   Rename variables
     -   Filter relevant data
+3.  **Data transformation in R**
     -   Calculate participant averages
     -   Create new variables
     -   Saving datasets
-3.  **Reproducible research practices**
+4.  **Reproducible research practices**
     -   The benefits of coding
     -   Always comment your code!
     -   Using Rmarkdown for readable outputs
@@ -48,9 +46,11 @@ This is quite an ambitious amount to achieve in two hours! It's fairly likely th
 
 # During the workshop
 
-### Ask for help when you need it
+### Workshop format
 
 This is a "live coding" style workshop: Emma will walk through the content step-by-step for attendees to follow along on their own computers. Independent exercises provide opportunities to apply this knowledge, and allow us to re-group if people have fallen behind.
+
+### Ask for help when you need it
 
 This is an informal setting, so please raise your hand whenever you have questions or need something explaining differently. Many aspects of working in R are not obvious when you encounter them for the first time, so no question is too silly to ask!
 
