@@ -7,13 +7,13 @@ date-format: "MMMM YYYY"
 
 # Overview
 
-This introductory R workshop has been put together for the York Psychology ECR Forum. The 2025 workshop will take place in the PC Lab (PS/A/203), 2pm-4pm on Wednesday 29th October.
+This introductory R workshop has been put together for the York Psychology ECR Forum. The 2025 workshop will take place in the **PC Lab** (PS/A/203), **2pm-4pm** on **Wednesday 29th October**.
 
 The session will provide an introduction to R, providing you with the basic skills for getting started in using R for your own research. We will prioritise skills for data wrangling using a set of tools referred to as the *tidyverse*. The course is aimed at complete beginners in R -- **no programming experience or prior knowledge of R is required.**
 
 The workshop will be led by [Emma James](https://www.york.ac.uk/psychology/staff/academicstaff/james,-emma/), with support from [Jamie Cockroft](https://www.york.ac.uk/psychology/staff/postdocs/cockcroft,-jamie/). Both Emma and Jamie use R regularly in their research, and are experienced in supporting learners without any programming backgrounds.
 
-![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/halloween_r.png){fig-alt="Two smiling green monsters in matching blue dresses (like the scary twins in The Shining), standing in a hallway with hex wallpaper. Behind them is spraypaint-style text reading \"come play with us\" with \"forevR\" in a hex logo behind them"}
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/halloween_r.png){fig-alt="Two smiling green monsters in matching blue dresses (like the scary twins in The Shining), standing in a hallway with hex wallpaper. Behind them is spraypaint-style text reading \"come play with us\" with \"forevR\" in a hex logo behind them" fig-align="center" width="446"}
 
 # Before the workshop
 
@@ -33,7 +33,7 @@ In this workshop, we will walk through four main sections:
 2.  **Data cleaning in R**
     -   Select relevant variables
     -   Rename variables
-    -   Filter relevant data
+    -   Filter for relevant data
 3.  **Data transformation in R**
     -   Calculate participant averages
     -   Create new variables
@@ -43,7 +43,7 @@ In this workshop, we will walk through four main sections:
     -   Always comment your code!
     -   Using Rmarkdown for readable outputs
 
-This is quite an ambitious amount to achieve in two hours! It's fairly likely that we will not get through everything, but we have deliberately left it flexible to adapt to attendees on the day. The materials are written so that you should be able to work through them independently at a later stage. You can also find some suggested resources for further learning [here](https://emljames.github.io/introR/resources.html).
+This is quite an ambitious amount to achieve in two hours! It's fairly likely that we will not get through everything, but we have deliberately left it flexible to adapt to attendees on the day. The materials are written so that you should be able to work through them independently at a later stage. You can also find some [suggested resources](https://emljames.github.io/introR/resources.html) for further learning.
 
 # During the workshop
 
@@ -63,4 +63,6 @@ You should have two coloured sticky notes. Please use these as instructed to ind
 
 ### Code of conduct
 
-We are all learners at this workshop. Please respect that others might require a slower pace to you (you can always multi-task a little if you're ahead of the game!). We expect all instructors and attendees to be welcoming and inclusive, and respect each other's progress at all times. If you believe someone is violating this code of conduct, please let us know so that we can take the appropriate action to address the situation.
+We are all learners at this workshop. Please respect that others might require a slower pace to you (you can always multi-task a little if you're ahead of the game!). We expect all instructors and attendees to be welcoming and inclusive, and respect each other's progress at all times. If you believe someone is violating this code of conduct, please let us know so that we can take the appropriate action to address the situation.\[
+
+![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/r_learners.png){fig-alt="Header text \"R learners\" above five friendly monsters holding up signs that together read “we believe in you.”" fig-align="center" width="537"}

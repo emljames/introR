@@ -24,7 +24,7 @@ website:
         
 format: 
   html:
-    theme: zephr 
+    theme: zephyr 
     toc: true
     toc-depth: 2
     number-sections: true
