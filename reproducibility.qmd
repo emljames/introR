@@ -6,15 +6,15 @@ title: "Reproducible practices"
 
 One of the advantages of conducting your data processing and analysis steps in R is that it can be readily shared on platforms such as the Open Science Framework. Using R has several benefits in this regard:
 
--   You can readily strip any information that you don't want to share (e.g., Prolific IDs, IP addresses, etc.). Where appropriate, you can easily create more than one version of the dataset for different levels of access.
+- You can readily strip any information that you don't want to share (e.g., Prolific IDs, IP addresses, etc.). Where appropriate, you can easily create more than one version of the dataset for different levels of access.
 
--   All your data cleaning steps are documented in a transparent and reproducible way.
+- All your data cleaning steps are documented in a transparent and reproducible way.
 
--   R is free and widely used, allowing anyone who has access to your scripts and data to reproduce the results (in theory!).
+- R is free and widely used, allowing anyone who has access to your scripts and data to reproduce the results (in theory!).
 
--   You can annotate your code to communicate your decisions and issues along the way (helpful for others AND future you).
+- You can annotate your code to communicate your decisions and issues along the way (helpful for others AND future you).
 
--   You can use R Markdown to create readable output files (see below!). These can be helpful for quicker viewing, for making analyses transparent when you *can't* share the data, and creating readable output for those who don't use R.
+- You can use R Markdown to create readable output files (see below!). These can be helpful for quicker viewing, for making analyses transparent when you *can't* share the data, and creating readable output for those who don't use R.
 
 # Creating annotated output files
 
@@ -24,27 +24,27 @@ Today we have been working in an R Markdown file (.Rmd). This differs from a str
 
 There are many different features of R Markdown that could form a whole workshop on its own. However, with very few extra bits, we have already created a structured output from today's work. Here are the features that we set up for you in the template file:
 
--   We used the \# symbol in regular text to denote headings and subsections. \# marks the level 1 heading, \## level 2, and \### level 3.
+- We used the \# symbol in regular text to denote headings and subsections. \# marks the level 1 heading, \## level 2, and \### level 3.
 
--   We set up code chunks, which have several features:
+- We set up code chunks, which have several features:
 
-    -   They start and end with three backticks (\`\`\`) - located on the keyboard above the tab key, to the left of the 1.
+  - They start and end with three backticks (\`\`\`) - located on the keyboard above the tab key, to the left of the 1.
 
-    -   The first set of backticks are followed by a set of curly brackets `{}` containing chunk information. The first most important thing in here is the letter `r`, to instruct the computer to interpret the code as R code.
+  - The first set of backticks are followed by a set of curly brackets `{}` containing chunk information. The first most important thing in here is the letter `r`, to instruct the computer to interpret the code as R code.
 
-    -   The second thing we included in the curly brackets is a code chunk label. These follow the same rules as column names (i.e., no spaces!). If we want to create an output file, then every code chunk needs a different label.
+  - The second thing we included in the curly brackets is a code chunk label. These follow the same rules as column names (i.e., no spaces!). If we want to create an output file, then every code chunk needs a different label.
 
-    -   There several other options for setting up your code chunks (e.g., whether the file prints the code and output), but we haven't gone into this today.
+  - There several other options for setting up your code chunks (e.g., whether the file prints the code and output), but we haven't gone into this today.
 
 There are several options for formatting your text in different ways. You can incorporate these directly in the source code, but nowadays there's a much easier editing option in RStudio. If you click on Visual at the top of the script window, it will bring up a text editor with Word-like features. You can switch back and forth between these two editing styles as needed.
 
 So how to we turn that into a nice output file? Well, we try clicking "Knit" at the top of the window! This might be a big ask after today's short workshop, but let's try it and see what happens.
 
 ::: {.callout-caution title="Debugging: Common issues that cause problems"}
--   Not having the relevant packages installed
--   Not having everything scripted - e.g., if you have loaded data in a different way, then R won't be able to find it again when it runs your code from scratch.
--   Having unfinished code chunks - if R hits an error along the way, it will stop executing the file. If this happens, you could try commenting out that code section as a temporary solution.
--   Having code chunks with duplicate names
+- Not having the relevant packages installed
+- Not having everything scripted - e.g., if you have loaded data in a different way, then R won't be able to find it again when it runs your code from scratch.
+- Having unfinished code chunks - if R hits an error along the way, it will stop executing the file. If this happens, you could try commenting out that code section as a temporary solution.
+- Having code chunks with duplicate names
 :::
 
 If it's not working at the end of this workshop but you'd like to get it up and running, reach out to us for some support.
