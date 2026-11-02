@@ -10,12 +10,12 @@ title: "Navigating R and RStudio"
 
 Obviously we're here in an *R* workshop so may be biased, but here are a few of the reasons why *R* is worth your time:
 
--   It's **free**! This means you can take your snazzy analysis skills wherever you want, without requiring someone to pay an expensive software licence.
--   It has a **strong online community**: there are lots of free online resources to help you with all sorts of data tasks, and highly productive help forums.
--   It's **highly efficient** and allows you to manipulate and analyse large datasets with ease.
--   You can more readily make your data processing and analysis **reproducible and transparent**. By scripting all of your steps, you have a clear record of what you've done. This makes it readily shareable with collaborators, other researchers, and (perhaps most importantly) future you.
--   There are many **advanced and powerful** statistical tools being developed all the time (supply and demand).
--   You're not restricted to those methods - you can code anything you want!
+- It's **free**! This means you can take your snazzy analysis skills wherever you want, without requiring someone to pay an expensive software licence.
+- It has a **strong online community**: there are lots of free online resources to help you with all sorts of data tasks, and highly productive help forums.
+- It's **highly efficient** and allows you to manipulate and analyse large datasets with ease.
+- You can more readily make your data processing and analysis **reproducible and transparent**. By scripting all of your steps, you have a clear record of what you've done. This makes it readily shareable with collaborators, other researchers, and (perhaps most importantly) future you.
+- There are many **advanced and powerful** statistical tools being developed all the time (supply and demand).
+- You're not restricted to those methods - you can code anything you want!
 
 ## What's RStudio?
 
