@@ -23,7 +23,9 @@ Obviously we're here in an *R* workshop so may be biased, but here are a few of 
 
 # Navigating RStudio
 
-Let's start with a quick introduction to RStudio. Open the **workshop_files.Rproj** file that you have downloaded. It should open in RStudio by default, but if it doesn't you can right click the file \>\> Open with... \>\> RStudio. You can also open the **template.Rmd** file, which should mean that you can see 4 different panes in the RStudio window.
+Let's start with a quick introduction to RStudio. Open the **workshop_files.Rproj** file that you have downloaded. It should open in RStudio by default, but if it doesn't you can right click the file \>\> Open with... \>\> RStudio. It should show this project name in the top right of the window.
+
+You can also open the **template.Rmd** file, which should mean that you can see 4 different panes in the RStudio window.
 
 ![Default RStudio layout](images/RStudio_window.PNG){fig-alt="RStudio consists of four panels, for scripts, the console, the environment, and viewing." fig-align="center"}
 
