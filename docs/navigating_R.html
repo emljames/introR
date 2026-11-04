@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>It’s <strong>highly efficient</strong> and allows you to manipulate and analyse large datasets with ease.</li>
 <li>You can more readily make your data processing and analysis <strong>reproducible and transparent</strong>. By scripting all of your steps, you have a clear record of what you’ve done. This makes it readily shareable with collaborators, other researchers, and (perhaps most importantly) future you.</li>
 <li>There are many <strong>advanced and powerful</strong> statistical tools being developed all the time (supply and demand).</li>
-<li>You’re not restricted to those methods - you can code anything you want!</li>
+<li>You’re not restricted to those methods—you can code anything you want!</li>
 </ul>
 </section>
 <section id="whats-rstudio" class="level2" data-number="1.2">
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="navigating-rstudio" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Navigating RStudio</h1>
-<p>Let’s start with a quick introduction to RStudio. Open the <em>template.Rmd</em> file that you have downloaded. It should open in RStudio by default, but if it doesn’t you can right click the file &gt;&gt; Open with… &gt;&gt; RStudio. You should now see 4 different panes in the RStudio window.</p>
+<p>Let’s start with a quick introduction to RStudio. Open the <strong>workshop_files.Rproj</strong> file that you have downloaded. It should open in RStudio by default, but if it doesn’t you can right click the file &gt;&gt; Open with… &gt;&gt; RStudio. You can also open the <strong>template.Rmd</strong> file, which should mean that you can see 4 different panes in the RStudio window.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/RStudio_window.PNG" class="img-fluid figure-img" alt="RStudio consists of four panels, for scripts, the console, the environment, and viewing."></p>
@@ -289,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="packages" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="packages"><span class="header-section-number">4.2</span> Packages</h2>
-<p>These example functions are very simple, but there are much more advanced functions for different purposes - be they loading and manipulating data, running analyses, or plotting graphs. Because many of these tools are specialised for different purposes, not everything is loaded automatically in <em>R</em>. Instead, we can access the functions we need by installing and loading specific <em>packages</em>: collections of functions developed for a particular purpose.</p>
+<p>These example functions are very simple, but there are much more advanced functions for different purposes—be they loading and manipulating data, running analyses, or plotting graphs. Because many of these tools are specialised for different purposes, not everything is loaded automatically in <em>R</em>. Instead, we can access the functions we need by installing and loading specific <em>packages</em>: collections of functions developed for a particular purpose.</p>
 <p>Today we will be using functions from the <em>tidyverse</em> package. However, you can usually use Google to find other packages that will be useful for any particular purpose.</p>
 <p>If you have followed the set-up instructions for this workshop, you should have already installed the tidyverse package. If not, you can install it now by typing the following line into your console:</p>
 <div class="cell">
@@ -401,6 +401,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

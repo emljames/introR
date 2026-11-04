@@ -20,12 +20,12 @@ library(tidyverse)
 
 We will be working with data collected from a study of sleep and word learning in children ([James, Gaskell, & Henderson, 2020](https://acamh.onlinelibrary.wiley.com/doi/full/10.1111/jcpp.13253)). The experiment involved teaching children the names of unusual plants/animals, and testing their memory for them after periods of wake and sleep. For this lesson, we will analyse the data from the picture naming task, in which children were asked to name pictures of the items as quickly as they could. We will focus on data from the first two test sessions only (12-hour period containing wake or sleep).
 
-The folder circulated included folder with the data in it, so we need to instruct R to navigate to the correct file within the raw data folder. If you look in the files pane, you should see that we are currently located in the scripts folder. To navigate to the data folder, we need to include "../" in the file path to instruct R to go "up one level", then "data/" to go into the data folder, "raw/" to go into the raw data folder, then the file name (including path extension).
+The folder circulated included folder with the data in it, so we need to instruct R to navigate to the correct file within the raw data folder. If you look in the files pane, you should see that we are currently located in the scripts folder. To navigate to the correct folder, we start by specifying "data/" to go into the data folder and then "raw/" to go into the raw data folder. We then specify the file name that we want to read in, including the file extension (.csv).
 
 Let's read in the picture naming file, and assign it to the object "raw_dat". Remember, the `<-` means that the action to the right is assigned to the "object" name on the left.
 
 ```{r load-data, eval = FALSE}
-raw_dat <- read_csv("../data/raw/picName_raw.csv")
+raw_dat <- read_csv("data/raw/picName_raw.csv")
 ```
 
 ```{r load-data-orig, include=FALSE}
@@ -44,19 +44,19 @@ summary(raw_dat)
 head(raw_dat)
 ```
 
-You don't need to worry too much about what these different variables mean for the purposes of this workshop, but you can see here that this is trial level data. The dependent variables are accuracy and RT, and we have these across several items for each participant. A full data dictionary is described below.
+You don't need to worry too much about what these different variables mean for the purposes of this workshop, but you can see here that this is trial level data—each row represents a single memory trial for a single participant (with multiple trials per participant). For each of these, we have recorded their accuracy (did they correctly remember it?) and response time (how long did it take them?). A full data dictionary is described below.
 
 ## Data dictionary
 
--   **ID** --- a unique anonymised code for each participant
--   **group** --- whether participants were good comprehenders (GC) or poor comprehenders (PC)
--   **task** --- which task this data comes from (all PNN)
--   **week** --- whether participants completed this learnTime condition in the first or second week (counterbalanced)
--   **learnTime** --- whether participants learned the items in the morning (AM) or evening (PM). This was a repeated measures manipulation---all participants completed both a morning and evening condition to compare sleep and wake effects on memory.
--   **time** --- whether the data are from test 1 (immediately after learning), test 2 (12 hours later), test 3 (24 hours later), or test 4 (one month later)
--   **item** --- the word trained and tested
--   **acc** --- whether the participant successfully recalled the word in the picture naming task
--   **RT** --- response time (ms), for accurate responses only
+- **ID**: a unique anonymised code for each participant
+- **group**: whether participants were good comprehenders (GC) or poor comprehenders (PC)
+- **task**: which task this data comes from (all PNN)
+- **week**: whether participants completed this learnTime condition in the first or second week (counterbalanced)
+- **learnTime**: whether participants learned the items in the morning (AM) or evening (PM). This was a repeated measures manipulation---all participants completed both a morning and evening condition to compare sleep and wake effects on memory.
+- **time**: whether the data are from test 1 (immediately after learning), test 2 (12 hours later), test 3 (24 hours later), or test 4 (one month later)
+- **item**: the word trained and tested
+- **acc**: whether the participant successfully recalled the word in the picture naming task
+- **RT**: response time (ms), for accurate responses only
 
 We don't necessarily need everything here, so let's start wrangling!
 
@@ -76,14 +76,14 @@ In this code chunk, we create a new dataframe called `select_dat1`. The `select(
 If you have lots of variables that you want to keep, you might want a quicker way of selecting lots of variables at once. Try running these two alternatives:
 
 ```{r select-var2}
-# Select sequential columns by name
+# [add your description here]
 select_dat2 <- select(.data = raw_dat, ID, item:RT)
 
-# Select columns by column number
+# [add your description here]
 select_dat3 <- select(.data = raw_dat, 1, 5:7, 9)
 ```
 
-Compare the new dataframes (*select_dat2*, *select_dat3*) to your original one. What is the `:` doing? How have the numbers worked to select columns in the second example?
+Compare the new dataframes (*select_dat2*, *select_dat3*) to your original one. What is the `:` doing? How have the numbers worked to select columns in the second example? Update the #comments to describe what these achieve.
 
 Finally, it might sometimes be quicker just to specify the variables you *don't* need. You can do this by using a `-` sign in front of the variable name. For example, the task column is redundant here as we only have data from one task, so we can remove it as follows:
 
@@ -92,7 +92,7 @@ Finally, it might sometimes be quicker just to specify the variables you *don't*
 select_dat4 <- select(.data = raw_dat, -task)
 ```
 
-We've seen here some different ways that you can tidy your dataset for relevant variables that you need. Importantly, we've still kept our *original* dataframe (*raw_dat*), so we can always edit and re-run this code if there's something we've missed - be that by mistake as we go about writing our scripts, or further down the line when a reviewer asks for an obscure piece of information you didn't think was relevant. Tidying our data in this way is fast and efficient, and avoids problems caused by trying to retrieve data and match it across raw and processed datasets.
+We've seen here some different ways that you can tidy your dataset for relevant variables that you need. Importantly, we've still kept our *original* dataframe (*raw_dat*), so we can always edit and re-run this code if there's something we've missed—be that by mistake as we go about writing our scripts, or further down the line when a reviewer asks for an obscure piece of information you didn't think was relevant. Tidying our data in this way is fast and efficient, and avoids problems caused by trying to retrieve data and match it across raw and processed datasets.
 
 Before we move on, let's use your new column-selecting skills.
 
@@ -113,7 +113,9 @@ Once your dataset is a more manageable size, you might find that you want to ren
 You can do this using the `rename()` function, following the format `new_name = old_name`. Let's do this with our raw dataset, renaming just the learnTime and time columns to better distinguish them:
 
 ```{r rename1}
-rename_dat1 <- rename(.data = raw_dat, encode_time = learnTime, test_time = time)
+rename_dat1 <- rename(.data = raw_dat, 
+                      encode_time = learnTime, 
+                      test_time = time)
 ```
 
 As with the other *tidyverse* functions, the name of the dataset is needed as the first argument, then we simply list the new variable names that we want assigned to our old variable names. If you inspect the new dataframe (`rename_dat1`), you should be able to see that the two variables now have different names to before.
@@ -121,23 +123,26 @@ As with the other *tidyverse* functions, the name of the dataset is needed as th
 There are a few rules for creating column names! The main one is that names cannot include spaces. They can include letters (case sensitive), basic punctuation (dashes, underscores, points), and numbers as long as they are not at the start of the name. It's a good idea to adopt a consistent style for tidiness and your own memory.
 
 ::: {.callout-warning title="Poorly formatted column names"}
-If your loaded data file \*does\* include spaces in column names, you will need to surround them in back-ticks to use them until you rename them.
+If your loaded data file *does* include spaces in column names, you will need to surround them in back-ticks to use them until you rename them.
 :::
 
 ![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/common_cases.png){fig-alt="Cartoon representations of common cases in coding. A snake screams \"SCREAMING_SNAKE_CASE\" into the face of a camel (wearing ear muffs) with \"camelCase\" written along its back. Vegetables on a skewer spell out \"kebab-case\" (words on a skewer). A mellow, happy looking snake has text \"snake_case\" along it." fig-align="center" width="580"}
 
 ::: {.callout-tip title="EXERCISE 2"}
-Create a new dataframe called renamed_vars, by renaming your selected_vars dataframe from Exercise 1. Edit the column names for the following variables:
+Create a new dataframe called **renamed_vars**, by renaming your selected_vars dataframe from Exercise 1. Edit the column names for the following variables:
 
--   ID \>\> ppt_ID
--   learnTime \>\> learn_time
--   time \>\> test_time
+- Change *ID* to "ppt_ID"
+- Change *learnTime* to "learn_time"
+- Change *time* to "test_time"
 :::
 
 ```{r exercise2-solution}
 #| code-fold: true 
 #| code-summary: "Show solution"  
-renamed_vars <- rename(.data = selected_vars, ppt_ID = ID, learn_time = learnTime, test_time = time)
+renamed_vars <- rename(.data = selected_vars, 
+                       ppt_ID = ID, 
+                       learn_time = learnTime, 
+                       test_time = time)
 ```
 
 # `filter()` for relevant cases
@@ -155,8 +160,7 @@ We can use different [logical operators](https://bookdown.org/rwnahhas/IntroToR/
 ![[Artwork by \@allison_horst](https://x.com/allison_horst)](images/filter.png){fig-alt="Cartoon showing three fuzzy monsters either selecting or crossing out rows of a data table. If the type of animal in the table is “otter” and the site is “bay”, a monster is drawing a purple rectangle around the row. If those conditions are not met, another monster is putting a line through the column indicating it will be excluded. Stylized text reads “dplyr::filter() - keep rows that satisfy your conditions.”" fig-align="center" width="723"}
 
 ::: {.callout-tip title="EXERCISE 3"}
-What do you think the following lines of code might do to the data? Then try running them to see if your predictions are correct.
-:::
+What do you think the following lines of code might do to the data? Try running them to see if your predictions are correct, and add comments to help you remember in future.
 
 ```{r filter-exercise}
 # Example 1
@@ -177,6 +181,7 @@ filter_dat5 <- filter(raw_dat, time == 1 & RT <= 2000 )
 # Example 6
 filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 ```
+:::
 
 ```{r exercise3-solution}
 #| code-fold: true
@@ -202,7 +207,9 @@ filter_dat6 <- filter(raw_dat, item == "banyan" | item == "caracal")
 
 ```
 
-You can specify and combine your selection criteria in pretty much any way imaginable. Again, the key benefit here is that we haven't lost our original data at any point. Realise you've done something wrong? Edit and run it again. Need versions of your dataset with and without certain participants included? Create two versions. Reviewers query the impact of your exclusion criteria? Show them a version without. These data came from the same stored dataset (no deleting data you might regret!), and you've documented in code exactly what you've done with them. Having these steps scripted is a major win for reproducibility.
+You can specify and combine your selection criteria in pretty much any way imaginable. Again, the key benefit here is that we haven't lost our original data at any point. Realise you've done something wrong? Edit and run it again. Need versions of your dataset with and without certain participants included? Create two versions. Reviewers query the impact of your exclusion criteria? Show them a version without.
+
+These data came from the same stored dataset (no deleting data you might regret!), and you've documented in code exactly what you've done with them. Having these steps scripted is a major win for reproducibility.
 
 # Combining data cleaning steps using the pipe `|>` operator
 
@@ -210,7 +217,9 @@ So far, we've selected, renamed, and filtered our data in separate steps, reassi
 
 However, in the long run, this can get a bit messy as we end up with lots of different dataframes in the environment. It also becomes increasingly difficult to name them all something sensible, and it's easy to lose track and make mistakes of which dataframe we are suppose to be using.
 
-To counter this problem, the *tidyverse* has a handy function called the *pipe* operator. It looks like this: `|>` , or alternatively like this `%>%` (older version). You can read the pipe operator as "*and then*". It takes the output from the code to the left of it, *and then* sends it to the first argument of your next line of code. Remember that the first argument of the `select()`, `rename()`, and `filter()` functions was the data, so this works very nicely.
+To counter this problem, the *tidyverse* has a handy function called the *pipe* operator. It looks like this: `|>` , or alternatively like this `%>%` (older / tidyverse-specific version[^1]). You can read the pipe operator as "*and then*". It takes the output from the code to the left of it, *and then* sends it to the first argument of your next line of code. Remember that the first argument of the `select()`, `rename()`, and `filter()` functions was the data, so this works very nicely.
+
+[^1]: The %\>% pipe was a core feature of the tidyverse, but in recent years was adopted into base R as \|\>. The two versions have some subtle differences in how they operate across different situations, but either will work for today's session. You can use Ctrl+Shift+M as a handy shortcut.
 
 For example, we can select our variables of interest then filter for the observations we want, all in a single step as follows:
 
@@ -221,6 +230,6 @@ select_filter_dat <- raw_dat |>
   filter(RT < 3000)
 ```
 
-So you can read the above chunk as follows: create a new dataframe called `select_filter_dat` by taking the `raw_dat` dataframe **AND THEN** selecting relevant variables (ID, test, item, RT) **AND THEN** renaming test to test_time **AND THEN** filtering for only those trials where the RT was less than 3000 ms. We haven't needed to rename the dataframe at each stage, as the pipe has filled this in for us from the previous set.
+So you can read the above chunk as follows: create a new dataframe called `select_filter_dat` by taking the `raw_dat` dataframe **AND THEN** selecting relevant variables (ID, test, item, RT) **AND THEN** renaming test to test_time **AND THEN** filtering for only those trials where the RT was less than 3000 ms. We haven't needed to respecify dataframe at each stage, as the pipe has filled this in for us from the previous step.
 
 In this section we've learnt how to refine a dataset ready for use. But what if the variables we actually need for analysis don't yet exist in the data? [In the next section, we'll learn how to transform the data](https://emljames.github.io/introR/data_transformation.html) into different formats.

@@ -216,10 +216,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="load-data" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="load-data"><span class="header-section-number">1.2</span> Load data</h2>
 <p>We will be working with data collected from a study of sleep and word learning in children (<a href="https://acamh.onlinelibrary.wiley.com/doi/full/10.1111/jcpp.13253">James, Gaskell, &amp; Henderson, 2020</a>). The experiment involved teaching children the names of unusual plants/animals, and testing their memory for them after periods of wake and sleep. For this lesson, we will analyse the data from the picture naming task, in which children were asked to name pictures of the items as quickly as they could. We will focus on data from the first two test sessions only (12-hour period containing wake or sleep).</p>
-<p>The folder circulated included folder with the data in it, so we need to instruct R to navigate to the correct file within the raw data folder. If you look in the files pane, you should see that we are currently located in the scripts folder. To navigate to the data folder, we need to include “../” in the file path to instruct R to go “up one level”, then “data/” to go into the data folder, “raw/” to go into the raw data folder, then the file name (including path extension).</p>
+<p>The folder circulated included folder with the data in it, so we need to instruct R to navigate to the correct file within the raw data folder. If you look in the files pane, you should see that we are currently located in the scripts folder. To navigate to the correct folder, we start by specifying “data/” to go into the data folder and then “raw/” to go into the raw data folder. We then specify the file name that we want to read in, including the file extension (.csv).</p>
 <p>Let’s read in the picture naming file, and assign it to the object “raw_dat”. Remember, the <code>&lt;-</code> means that the action to the right is assigned to the “object” name on the left.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>raw_dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/raw/picName_raw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>raw_dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/picName_raw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You should now see an object named <code>raw_dat</code> in the environment pane, on the top right of your RStudio window. You can see that it has 6602 observations (rows) for 9 variables (columns). You can inspect this by click on the little grid icon next to it.</p>
 <p>We can also inspect the data format by calling <code>summary()</code> to preview the data, and using the <code>head()</code> function to print the first few rows. Run these lines of code and inspect the output.</p>
@@ -230,20 +230,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print first rows of dataset </span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(raw_dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You don’t need to worry too much about what these different variables mean for the purposes of this workshop, but you can see here that this is trial level data. The dependent variables are accuracy and RT, and we have these across several items for each participant. A full data dictionary is described below.</p>
+<p>You don’t need to worry too much about what these different variables mean for the purposes of this workshop, but you can see here that this is trial level data—each row represents a single memory trial for a single participant (with multiple trials per participant). For each of these, we have recorded their accuracy (did they correctly remember it?) and response time (how long did it take them?). A full data dictionary is described below.</p>
 </section>
 <section id="data-dictionary" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="data-dictionary"><span class="header-section-number">1.3</span> Data dictionary</h2>
 <ul>
-<li><strong>ID</strong> — a unique anonymised code for each participant</li>
-<li><strong>group</strong> — whether participants were good comprehenders (GC) or poor comprehenders (PC)</li>
-<li><strong>task</strong> — which task this data comes from (all PNN)</li>
-<li><strong>week</strong> — whether participants completed this learnTime condition in the first or second week (counterbalanced)</li>
-<li><strong>learnTime</strong> — whether participants learned the items in the morning (AM) or evening (PM). This was a repeated measures manipulation—all participants completed both a morning and evening condition to compare sleep and wake effects on memory.</li>
-<li><strong>time</strong> — whether the data are from test 1 (immediately after learning), test 2 (12 hours later), test 3 (24 hours later), or test 4 (one month later)</li>
-<li><strong>item</strong> — the word trained and tested</li>
-<li><strong>acc</strong> — whether the participant successfully recalled the word in the picture naming task</li>
-<li><strong>RT</strong> — response time (ms), for accurate responses only</li>
+<li><strong>ID</strong>: a unique anonymised code for each participant</li>
+<li><strong>group</strong>: whether participants were good comprehenders (GC) or poor comprehenders (PC)</li>
+<li><strong>task</strong>: which task this data comes from (all PNN)</li>
+<li><strong>week</strong>: whether participants completed this learnTime condition in the first or second week (counterbalanced)</li>
+<li><strong>learnTime</strong>: whether participants learned the items in the morning (AM) or evening (PM). This was a repeated measures manipulation—all participants completed both a morning and evening condition to compare sleep and wake effects on memory.</li>
+<li><strong>time</strong>: whether the data are from test 1 (immediately after learning), test 2 (12 hours later), test 3 (24 hours later), or test 4 (one month later)</li>
+<li><strong>item</strong>: the word trained and tested</li>
+<li><strong>acc</strong>: whether the participant successfully recalled the word in the picture naming task</li>
+<li><strong>RT</strong>: response time (ms), for accurate responses only</li>
 </ul>
 <p>We don’t necessarily need everything here, so let’s start wrangling!</p>
 </section>
@@ -259,19 +259,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this code chunk, we create a new dataframe called <code>select_dat1</code>. The <code>select()</code> function takes the name of the dataframe you want to select from as the first argument (in this case, <code>raw_dat</code>). We then pass it the names of the variables we need. You should now see this dataframe in the environment pane - we still have all 6602 observations, but only the 3 variables we’ve specified. You can click the grid to see this for yourself.</p>
 <p>If you have lots of variables that you want to keep, you might want a quicker way of selecting lots of variables at once. Try running these two alternatives:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select sequential columns by name</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [add your description here]</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>select_dat2 <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="at">.data =</span> raw_dat, ID, item<span class="sc">:</span>RT)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns by column number</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [add your description here]</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>select_dat3 <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="at">.data =</span> raw_dat, <span class="dv">1</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>, <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Compare the new dataframes (<em>select_dat2</em>, <em>select_dat3</em>) to your original one. What is the <code>:</code> doing? How have the numbers worked to select columns in the second example?</p>
+<p>Compare the new dataframes (<em>select_dat2</em>, <em>select_dat3</em>) to your original one. What is the <code>:</code> doing? How have the numbers worked to select columns in the second example? Update the #comments to describe what these achieve.</p>
 <p>Finally, it might sometimes be quicker just to specify the variables you <em>don’t</em> need. You can do this by using a <code>-</code> sign in front of the variable name. For example, the task column is redundant here as we only have data from one task, so we can remove it as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop columns </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>select_dat4 <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="at">.data =</span> raw_dat, <span class="sc">-</span>task)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We’ve seen here some different ways that you can tidy your dataset for relevant variables that you need. Importantly, we’ve still kept our <em>original</em> dataframe (<em>raw_dat</em>), so we can always edit and re-run this code if there’s something we’ve missed - be that by mistake as we go about writing our scripts, or further down the line when a reviewer asks for an obscure piece of information you didn’t think was relevant. Tidying our data in this way is fast and efficient, and avoids problems caused by trying to retrieve data and match it across raw and processed datasets.</p>
+<p>We’ve seen here some different ways that you can tidy your dataset for relevant variables that you need. Importantly, we’ve still kept our <em>original</em> dataframe (<em>raw_dat</em>), so we can always edit and re-run this code if there’s something we’ve missed—be that by mistake as we go about writing our scripts, or further down the line when a reviewer asks for an obscure piece of information you didn’t think was relevant. Tidying our data in this way is fast and efficient, and avoids problems caused by trying to retrieve data and match it across raw and processed datasets.</p>
 <p>Before we move on, let’s use your new column-selecting skills.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="EXERCISE 1">
 <div class="callout-header d-flex align-content-center">
@@ -298,7 +298,9 @@ EXERCISE 1
 <p>Once your dataset is a more manageable size, you might find that you want to rename your key variables. For example, in our current dataset, the difference between “learnTime” and “time” is not intuitive. Let’s rename these variables to make the difference clearer (and thereby reduce the risk of making mistakes in our code!).</p>
 <p>You can do this using the <code>rename()</code> function, following the format <code>new_name = old_name</code>. Let’s do this with our raw dataset, renaming just the learnTime and time columns to better distinguish them:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>rename_dat1 <span class="ot">&lt;-</span> <span class="fu">rename</span>(<span class="at">.data =</span> raw_dat, <span class="at">encode_time =</span> learnTime, <span class="at">test_time =</span> time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>rename_dat1 <span class="ot">&lt;-</span> <span class="fu">rename</span>(<span class="at">.data =</span> raw_dat, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">encode_time =</span> learnTime, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">test_time =</span> time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As with the other <em>tidyverse</em> functions, the name of the dataset is needed as the first argument, then we simply list the new variable names that we want assigned to our old variable names. If you inspect the new dataframe (<code>rename_dat1</code>), you should be able to see that the two variables now have different names to before.</p>
 <p>There are a few rules for creating column names! The main one is that names cannot include spaces. They can include letters (case sensitive), basic punctuation (dashes, underscores, points), and numbers as long as they are not at the start of the name. It’s a good idea to adopt a consistent style for tidiness and your own memory.</p>
@@ -312,7 +314,7 @@ Poorly formatted column names
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If your loaded data file *does* include spaces in column names, you will need to surround them in back-ticks to use them until you rename them.</p>
+<p>If your loaded data file <em>does</em> include spaces in column names, you will need to surround them in back-ticks to use them until you rename them.</p>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -331,18 +333,21 @@ EXERCISE 2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Create a new dataframe called renamed_vars, by renaming your selected_vars dataframe from Exercise 1. Edit the column names for the following variables:</p>
+<p>Create a new dataframe called <strong>renamed_vars</strong>, by renaming your selected_vars dataframe from Exercise 1. Edit the column names for the following variables:</p>
 <ul>
-<li>ID &gt;&gt; ppt_ID</li>
-<li>learnTime &gt;&gt; learn_time</li>
-<li>time &gt;&gt; test_time</li>
+<li>Change <em>ID</em> to “ppt_ID”</li>
+<li>Change <em>learnTime</em> to “learn_time”</li>
+<li>Change <em>time</em> to “test_time”</li>
 </ul>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Show solution</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>renamed_vars <span class="ot">&lt;-</span> <span class="fu">rename</span>(<span class="at">.data =</span> selected_vars, <span class="at">ppt_ID =</span> ID, <span class="at">learn_time =</span> learnTime, <span class="at">test_time =</span> time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>renamed_vars <span class="ot">&lt;-</span> <span class="fu">rename</span>(<span class="at">.data =</span> selected_vars, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ppt_ID =</span> ID, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">learn_time =</span> learnTime, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">test_time =</span> time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -370,9 +375,7 @@ EXERCISE 3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What do you think the following lines of code might do to the data? Then try running them to see if your predictions are correct.</p>
-</div>
-</div>
+<p>What do you think the following lines of code might do to the data? Try running them to see if your predictions are correct, and add comments to help you remember in future.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>filter_dat1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(raw_dat, RT <span class="sc">&gt;</span> <span class="dv">500</span>)</span>
@@ -391,6 +394,8 @@ EXERCISE 3
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 6</span></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>filter_dat6 <span class="ot">&lt;-</span> <span class="fu">filter</span>(raw_dat, item <span class="sc">==</span> <span class="st">"banyan"</span> <span class="sc">|</span> item <span class="sc">==</span> <span class="st">"caracal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 <div class="cell">
 <details class="code-fold">
@@ -414,13 +419,14 @@ EXERCISE 3
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>filter_dat6 <span class="ot">&lt;-</span> <span class="fu">filter</span>(raw_dat, item <span class="sc">==</span> <span class="st">"banyan"</span> <span class="sc">|</span> item <span class="sc">==</span> <span class="st">"caracal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>You can specify and combine your selection criteria in pretty much any way imaginable. Again, the key benefit here is that we haven’t lost our original data at any point. Realise you’ve done something wrong? Edit and run it again. Need versions of your dataset with and without certain participants included? Create two versions. Reviewers query the impact of your exclusion criteria? Show them a version without. These data came from the same stored dataset (no deleting data you might regret!), and you’ve documented in code exactly what you’ve done with them. Having these steps scripted is a major win for reproducibility.</p>
+<p>You can specify and combine your selection criteria in pretty much any way imaginable. Again, the key benefit here is that we haven’t lost our original data at any point. Realise you’ve done something wrong? Edit and run it again. Need versions of your dataset with and without certain participants included? Create two versions. Reviewers query the impact of your exclusion criteria? Show them a version without.</p>
+<p>These data came from the same stored dataset (no deleting data you might regret!), and you’ve documented in code exactly what you’ve done with them. Having these steps scripted is a major win for reproducibility.</p>
 </section>
 <section id="combining-data-cleaning-steps-using-the-pipe-operator" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Combining data cleaning steps using the pipe <code>|&gt;</code> operator</h1>
 <p>So far, we’ve selected, renamed, and filtered our data in separate steps, reassigning the result to a new dataframe each time. This is fine, and very helpful when you are first developing your code as it allows you to inspect/test each step as you go and check things are running as expected.</p>
 <p>However, in the long run, this can get a bit messy as we end up with lots of different dataframes in the environment. It also becomes increasingly difficult to name them all something sensible, and it’s easy to lose track and make mistakes of which dataframe we are suppose to be using.</p>
-<p>To counter this problem, the <em>tidyverse</em> has a handy function called the <em>pipe</em> operator. It looks like this: <code>|&gt;</code> , or alternatively like this <code>%&gt;%</code> (older version). You can read the pipe operator as “<em>and then</em>”. It takes the output from the code to the left of it, <em>and then</em> sends it to the first argument of your next line of code. Remember that the first argument of the <code>select()</code>, <code>rename()</code>, and <code>filter()</code> functions was the data, so this works very nicely.</p>
+<p>To counter this problem, the <em>tidyverse</em> has a handy function called the <em>pipe</em> operator. It looks like this: <code>|&gt;</code> , or alternatively like this <code>%&gt;%</code> (older / tidyverse-specific version<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>). You can read the pipe operator as “<em>and then</em>”. It takes the output from the code to the left of it, <em>and then</em> sends it to the first argument of your next line of code. Remember that the first argument of the <code>select()</code>, <code>rename()</code>, and <code>filter()</code> functions was the data, so this works very nicely.</p>
 <p>For example, we can select our variables of interest then filter for the observations we want, all in a single step as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>select_filter_dat <span class="ot">&lt;-</span> raw_dat <span class="sc">|&gt;</span></span>
@@ -428,13 +434,19 @@ EXERCISE 3
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">test_time =</span> time) <span class="sc">|&gt;</span> </span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&lt;</span> <span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So you can read the above chunk as follows: create a new dataframe called <code>select_filter_dat</code> by taking the <code>raw_dat</code> dataframe <strong>AND THEN</strong> selecting relevant variables (ID, test, item, RT) <strong>AND THEN</strong> renaming test to test_time <strong>AND THEN</strong> filtering for only those trials where the RT was less than 3000 ms. We haven’t needed to rename the dataframe at each stage, as the pipe has filled this in for us from the previous set.</p>
+<p>So you can read the above chunk as follows: create a new dataframe called <code>select_filter_dat</code> by taking the <code>raw_dat</code> dataframe <strong>AND THEN</strong> selecting relevant variables (ID, test, item, RT) <strong>AND THEN</strong> renaming test to test_time <strong>AND THEN</strong> filtering for only those trials where the RT was less than 3000 ms. We haven’t needed to respecify dataframe at each stage, as the pipe has filled this in for us from the previous step.</p>
 <p>In this section we’ve learnt how to refine a dataset ready for use. But what if the variables we actually need for analysis don’t yet exist in the data? <a href="https://emljames.github.io/introR/data_transformation.html">In the next section, we’ll learn how to transform the data</a> into different formats.</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The %&gt;% pipe was a core feature of the tidyverse, but in recent years was adopted into base R as |&gt;. The two versions have some subtle differences in how they operate across different situations, but either will work for today’s session. You can use Ctrl+Shift+M as a handy shortcut.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -521,6 +533,11 @@ EXERCISE 3
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

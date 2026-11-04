@@ -15,7 +15,7 @@ Obviously we're here in an *R* workshop so may be biased, but here are a few of 
 - It's **highly efficient** and allows you to manipulate and analyse large datasets with ease.
 - You can more readily make your data processing and analysis **reproducible and transparent**. By scripting all of your steps, you have a clear record of what you've done. This makes it readily shareable with collaborators, other researchers, and (perhaps most importantly) future you.
 - There are many **advanced and powerful** statistical tools being developed all the time (supply and demand).
-- You're not restricted to those methods - you can code anything you want!
+- You're not restricted to those methods—you can code anything you want!
 
 ## What's RStudio?
 
@@ -23,7 +23,7 @@ Obviously we're here in an *R* workshop so may be biased, but here are a few of 
 
 # Navigating RStudio
 
-Let's start with a quick introduction to RStudio. Open the *template.Rmd* file that you have downloaded. It should open in RStudio by default, but if it doesn't you can right click the file \>\> Open with... \>\> RStudio. You should now see 4 different panes in the RStudio window.
+Let's start with a quick introduction to RStudio. Open the **workshop_files.Rproj** file that you have downloaded. It should open in RStudio by default, but if it doesn't you can right click the file \>\> Open with... \>\> RStudio. You can also open the **template.Rmd** file, which should mean that you can see 4 different panes in the RStudio window.
 
 ![Default RStudio layout](images/RStudio_window.PNG){fig-alt="RStudio consists of four panels, for scripts, the console, the environment, and viewing." fig-align="center"}
 
@@ -86,7 +86,7 @@ You'll see that each one does pretty much what it says on the tin! You can find 
 
 ## Packages
 
-These example functions are very simple, but there are much more advanced functions for different purposes - be they loading and manipulating data, running analyses, or plotting graphs. Because many of these tools are specialised for different purposes, not everything is loaded automatically in *R*. Instead, we can access the functions we need by installing and loading specific *packages*: collections of functions developed for a particular purpose.
+These example functions are very simple, but there are much more advanced functions for different purposes—be they loading and manipulating data, running analyses, or plotting graphs. Because many of these tools are specialised for different purposes, not everything is loaded automatically in *R*. Instead, we can access the functions we need by installing and loading specific *packages*: collections of functions developed for a particular purpose.
 
 Today we will be using functions from the *tidyverse* package. However, you can usually use Google to find other packages that will be useful for any particular purpose.
 
