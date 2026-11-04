@@ -6,25 +6,29 @@ title: "Beyond the workshop"
 
 Want to know how to do something? Google it. There are many options for help out there, including:
 
--   Help files for particular functions
--   Open source textbooks
--   Tutorials attached to specific packages
--   Bespoke tutorials written by random people
--   Help forums - e.g., StackOverflow
+- Help files for particular functions
+- Open source textbooks
+- Tutorials attached to specific packages
+- Bespoke tutorials written by random people
+- Help forums - e.g., StackOverflow
 
 # Data processing in R
 
--   [DataCamp](www.datacamp.com) - interactive courses for programming in R (free introductory levels, ££ for more advanced)
--   [CodeAcademy](https://www.codecademy.com/learn/learn-r) - interactive exercises for introductory R
--   [Data Carpentry](https://datacarpentry.org/r-socialsci/) - slightly longer workshop materials for similar content as we covered today.
--   [Software Carpentry](https://swcarpentry.github.io/r-novice-gapminder/) - similar style materials again, but slightly more content, includes further information on writing your own functions and using R Markdown.
--   [R for Data Science](https://r4ds.had.co.nz/) - textbook written by the author of the *tidyverse* himself, freely available online
--   [Gorilla to Tidy Data](https://emljames.github.io/GorillaR) - Emma's tutorial for processing output files from the online experiment platform Gorilla. This is similar in style to the workshop today, but directly applied to processing messy output from Gorilla. Part 2 also extends to some more complex challenges that you might encounter, including reshaping and combining datasets.
--   [PsyTeachR](https://psyteachr.github.io/)- there are plenty of excellent resources that cover different aspects of data processing and undergraduate-level statistics from the psyTeachR team at the University of Glasgow.
+- [DataCamp](www.datacamp.com) - interactive courses for programming in R (free introductory levels, ££ for more advanced)
+- [CodeAcademy](https://www.codecademy.com/learn/learn-r) - interactive exercises for introductory R
+- [Data Carpentry](https://datacarpentry.org/r-socialsci/) - slightly longer workshop materials for similar content as we covered today.
+- [Software Carpentry](https://swcarpentry.github.io/r-novice-gapminder/) - similar style materials again, but slightly more content, includes further information on writing your own functions and using R Markdown.
+- [R for Data Science](https://r4ds.had.co.nz/) - textbook written by the author of the *tidyverse* himself, freely available online
+- [Gorilla to Tidy Data](https://emljames.github.io/GorillaR) - Emma's tutorial for processing output files from the online experiment platform Gorilla. This is similar in style to the workshop today, but directly applied to processing messy output from Gorilla. Part 2 also extends to some more complex challenges that you might encounter, including reshaping and combining datasets.
+- [PsyTeachR](https://psyteachr.github.io/)- there are plenty of excellent resources that cover different aspects of data processing and undergraduate-level statistics from the psyTeachR team at the University of Glasgow.
 
 # Cheat sheets
 
 Cheat sheets are handy summaries of key tools. They can be useful to print and stick by your desk for easy reference! You'll find cheatsheets for `dplyr`, `tidyr`, and `ggplot2` [here](https://rstudio.com/resources/cheatsheets/).
+
+# Free textbooks! 
+
+Several people have written textbooks to support different aspects of data analysis in R, and have made them freely available online. A very helpful chap called Oscar Baruffa then made a [big book linking to all these books](https://www.bigbookofr.com/). This is a great place to search for resources related to your particular statistical task.
 
 # Using R in the age of GenAI
 
@@ -32,7 +36,9 @@ Generative AI can be very useful to tackle coding problems: for suggesting ways 
 
 1.  Trying to solve problems yourself will bring benefits in the long run, it is a risky strategy to attempt to shortcut these initial learning steps without really learning how R works.
 2.  You need to know enough to be able to check/validate its outputs. There have been horror stories of ChatGPT "improving figures" by fudging data, which is not what you want.
-3.  You might wish to try alternative models/platforms: Claude has a better reputation for coding problems (but disclaimer, I have not tried this myself).
+3.  You might wish to try alternative models/platforms. For example, Claude has a better reputation for coding problems (but I have not tried this myself, and it is also not permitted on the university network).
+
+Emily Nordmann of the Glasgow PsyTeachR team has written some [useful guidance](https://psyteachr.github.io/AITutoR/) on how you might use AI to support you in learning R.
 
 # Courses at the university
 
@@ -42,21 +48,22 @@ There are some helpful resources on getting started with R from the University o
 
 ## Advanced statistics modules (Psychology)
 
-If you want to see more of what R can do, you're welcome to audit the advanced statistics modules that run in the department (Emma and Jamie both teach on these). You can be added to the VLE, and/or attend the timetabled sessions.
+If you want to see more of what R can do, you're welcome to audit the advanced statistics modules that Emma leads in the department. You can be added to the VLE, and/or attend the timetabled sessions.
 
-A different variant of the core module runs in both Semester 1 and Semester 2. Both versions involve an introductory lecture to a different statistical approach each week, plus a practical to demonstrate the method in practice. The Semester 1 version is tailored to third year undergraduate students and can be considered "R light" (limited R knowledge assumed, shorter simple practical demonstration); the Semester 2 version is tailored to MSc Data Science students and places more emphasis on applying the method in R.
+Different module variants run in Semester 1 and Semester 2. Both versions involve an introductory lecture to a different statistical approach each week, plus a practical session to demonstrate the method in practice. The Semester 1 version is tailored to third year undergraduate students and can be considered "R light" (limited R knowledge assumed, shorter simple [practical demonstrations](https://emljames.github.io/arm/)); the Semester 2 version is tailored to MSc Data Science students and places more emphasis on [applying the method in R](https://emljames.github.io/ambr/).
 
 The precise topics covered vary slightly between the two versions of the module, but can include:
 
--   Meta-analysis
--   Mixed effects models
--   Stochastic methods / bootstrapping
--   Nonlinear curve fitting
--   Structural equation modelling
--   Machine learning
--   Fourier analysis
--   Bayesian statistics
--   Item response theory
--   Network modelling
+- Meta-analysis
+- Mixed effects models
+- Stochastic methods (including bootstrapping and power simulations)
+- Nonlinear curve fitting
+- Structural equation modelling
+- Machine learning
+- Fourier analysis
+- Bayesian statistics
+- Item response theory
+- Network modelling
+- Missing data anlaysis
 
 Please contact Emma for more information if you would like to access or attend these sessions.

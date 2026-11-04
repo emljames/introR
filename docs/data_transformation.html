@@ -237,7 +237,7 @@ Setting up
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_acc =</span> <span class="fu">mean</span>(acc),</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_RT =</span> <span class="fu">mean</span>(RT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can use the same principles to produce group summary statistics at each test point. For example, to calculate the mean and SD for accuracy scores, we group only by the time variable:</p>
+<p>You can use the same principles to produce group summary statistics at each test point. For example, to calculate the mean and SD for participants’ accuracy scores, we group only by the time variable:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ppt_average2 <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">|&gt;</span> </span>
@@ -285,7 +285,7 @@ EXERCISE 4
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_correct =</span> mean_acc<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We’ve taken our data frame of participant averages, and used <code>mutate()</code> to create a new variable called percent_correct. Again, we have the new name on the left, with details on how to produce it on the right. We specify that the variable <code>percent_correct</code> should be calculated by multiplying <code>mean_acc</code> by 100. We can see that the new data frame now has one more variable, and can check that it’s doing as we expect.</p>
+<p>We’ve taken our data frame of participant averages, and used <code>mutate()</code> to create a new variable called percent_correct. Again, we have the new name on the left, with details on how to produce it on the right. We specify that the variable <code>percent_correct</code> should be calculated by multiplying <code>mean_acc</code> by 100. We can see that the new data frame now has one more variable, and can inspect the dataframe to check that it’s doing as we expect.</p>
 <p>Let’s try adding another example. Reaction time data are often skewed, and require some kind of transformation to aid analysis. One such transformation is the inverse, which we calculate using 1/RT value. Let’s add this to the above example.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ppt_average3 <span class="ot">&lt;-</span> ppt_average2 <span class="sc">|&gt;</span> </span>
@@ -318,7 +318,7 @@ EXERCISE 5
 <p>Create a dataset called sleep_wake by chaining the following steps together:</p>
 <ol type="1">
 <li>Take the raw data</li>
-<li>Include only ID, learnTime, time, acc, and RT (renaming if you choose)</li>
+<li>Include only ID, learnTime, time, acc, and RT columns (renaming if you choose)</li>
 <li>Subset the data to include the first two test times only</li>
 <li>Create a log-transformed RT variable (log_RT), by using the log() function on RT</li>
 <li>Group by ID, learnTime and time to calculate average accuracies, raw RTs and log-RTs (i.e., for each participant for each condition)</li>
@@ -348,10 +348,10 @@ EXERCISE 5
 </section>
 <section id="saving-datasets" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="saving-datasets"><span class="header-section-number">3.2</span> Saving datasets</h2>
-<p>We’ve now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don’t have to re-run this script each time, and so that we have a shareable data file.</p>
-<p>It’s good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it’s the processed version. We can use the <code>write_csv()</code> function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (here specifying how to navigate to the correct folder, and including the file extension).</p>
+<p>We’ve now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don’t have to re-run this script each time, and so that we have a shareable usable data file.</p>
+<p>It’s good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it’s the processed version. We can use the <code>write_csv()</code> function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (making sure that you specify how to navigate to the correct folder, and include the file extension).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(sleep_wake, <span class="st">"../data/processed/picName_processed.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(sleep_wake, <span class="st">"data/processed/picName_processed.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

@@ -50,7 +50,7 @@ ppt_average2 <- raw_dat |>
             mean_RT = mean(RT, na.rm = TRUE))
 ```
 
-You can use the same principles to produce group summary statistics at each test point. For example, to calculate the mean and SD for accuracy scores, we group only by the time variable:
+You can use the same principles to produce group summary statistics at each test point. For example, to calculate the mean and SD for participants' accuracy scores, we group only by the time variable:
 
 ```{r ppt-time}
 ppt_average2 |> 
@@ -84,7 +84,7 @@ ppt_average3 <- ppt_average2 |>
   mutate(percent_correct = mean_acc*100)
 ```
 
-We've taken our data frame of participant averages, and used `mutate()` to create a new variable called percent_correct. Again, we have the new name on the left, with details on how to produce it on the right. We specify that the variable `percent_correct` should be calculated by multiplying `mean_acc` by 100. We can see that the new data frame now has one more variable, and can check that it's doing as we expect.
+We've taken our data frame of participant averages, and used `mutate()` to create a new variable called percent_correct. Again, we have the new name on the left, with details on how to produce it on the right. We specify that the variable `percent_correct` should be calculated by multiplying `mean_acc` by 100. We can see that the new data frame now has one more variable, and can inspect the dataframe to check that it's doing as we expect.
 
 Let's try adding another example. Reaction time data are often skewed, and require some kind of transformation to aid analysis. One such transformation is the inverse, which we calculate using 1/RT value. Let's add this to the above example.
 
@@ -108,7 +108,7 @@ As a final exercise, let's create a processed dataset that can show us whether w
 Create a dataset called sleep_wake by chaining the following steps together:
 
 1.  Take the raw data
-2.  Include only ID, learnTime, time, acc, and RT (renaming if you choose)
+2.  Include only ID, learnTime, time, acc, and RT columns (renaming if you choose)
 3.  Subset the data to include the first two test times only
 4.  Create a log-transformed RT variable (log_RT), by using the log() function on RT
 5.  Group by ID, learnTime and time to calculate average accuracies, raw RTs and log-RTs (i.e., for each participant for each condition)
@@ -138,12 +138,12 @@ sleep_wake |>
 
 ## Saving datasets
 
-We've now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don't have to re-run this script each time, and so that we have a shareable data file.
+We've now created a tidied dataset of participant averages for the variables of interest. In some cases, it might make sense to save this processed dataset so that we don't have to re-run this script each time, and so that we have a shareable usable data file.
 
-It's good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it's the processed version. We can use the `write_csv()` function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (here specifying how to navigate to the correct folder, and including the file extension).
+It's good practice to save your raw and processed data in separate folders, and choosing a file name that clarifies that it's the processed version. We can use the `write_csv()` function to do this, which requires the name of the dataframe you want to save and the file path you want to save it to (making sure that you specify how to navigate to the correct folder, and include the file extension).
 
 ```{r save-dat, eval = FALSE}
-write_csv(sleep_wake, "../data/processed/picName_processed.csv")
+write_csv(sleep_wake, "data/processed/picName_processed.csv")
 ```
 
 # Other data processing steps

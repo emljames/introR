@@ -180,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption><a href="https://x.com/allison_horst">Artwork by @allison_horst</a></figcaption>
 </figure>
 </div>
-<p>Today we have been working in an R Markdown file (.Rmd). This differs from a straight forward R script (.R) in that it integrates regular text, code, and output more efficiently, whereas an .R script interprets everything as code by default — essentially like the grey sections we’ve been typing code in today. There are many people who will <em>always</em> use R Markdown when they use R (or the newer version, <em>Quarto</em>). Some people even use it to write their entire manuscripts in a reproducible way!</p>
+<p>Today we have been working in an R Markdown file (.Rmd). This differs from a straight forward R script (.R) in that it integrates regular text, code, and output more efficiently, whereas an .R script interprets everything as code by default — essentially like the grey sections we’ve been typing code in today. There are many people who will <em>always</em> use R Markdown when they use R (or a similar format, <em>Quarto</em>). Some people even use it to write their entire manuscripts in a reproducible way!</p>
 <p>There are many different features of R Markdown that could form a whole workshop on its own. However, with very few extra bits, we have already created a structured output from today’s work. Here are the features that we set up for you in the template file:</p>
 <ul>
 <li><p>We used the # symbol in regular text to denote headings and subsections. # marks the level 1 heading, ## level 2, and ### level 3.</p></li>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>They start and end with three backticks (```) - located on the keyboard above the tab key, to the left of the 1.</p></li>
 <li><p>The first set of backticks are followed by a set of curly brackets <code>{}</code> containing chunk information. The first most important thing in here is the letter <code>r</code>, to instruct the computer to interpret the code as R code.</p></li>
-<li><p>The second thing we included in the curly brackets is a code chunk label. These follow the same rules as column names (i.e., no spaces!). If we want to create an output file, then every code chunk needs a different label.</p></li>
+<li><p>The second thing we included in the curly brackets is a code chunk label. It is recommended to avoid spaces in these (they can cause other issues later down the line), and to give each one a unique name. If we want to create an output file, then every code chunk needs a different label.</p></li>
 <li><p>There several other options for setting up your code chunks (e.g., whether the file prints the code and output), but we haven’t gone into this today.</p></li>
 </ul></li>
 </ul>
@@ -206,8 +206,8 @@ Debugging: Common issues that cause problems
 <div class="callout-body-container callout-body">
 <ul>
 <li>Not having the relevant packages installed</li>
-<li>Not having everything scripted - e.g., if you have loaded data in a different way, then R won’t be able to find it again when it runs your code from scratch.</li>
-<li>Having unfinished code chunks - if R hits an error along the way, it will stop executing the file. If this happens, you could try commenting out that code section as a temporary solution.</li>
+<li>Not having everything scripted—e.g., if you have loaded data in a different way, then R won’t be able to find it again when it runs your code from scratch.</li>
+<li>Having unfinished code chunks—if R hits an error along the way, it will stop executing the file. If this happens, you could try commenting out that code section as a temporary solution.</li>
 <li>Having code chunks with duplicate names</li>
 </ul>
 </div>
@@ -219,13 +219,13 @@ Debugging: Common issues that cause problems
 <p>Here are a few key principles for working in R:</p>
 <ol type="1">
 <li><strong>Code everything!</strong> (as much as you can). This is hard when you are a beginner. Why take an hour to make the stupid line of code work when you could open the file in Excel and delete the column in mere seconds? But future you will be grateful when you have to redownload some data and start again. You only need to figure it out once (ask for support if you need to!), and you’ll be super whizzy in the future.</li>
-<li><strong>Never delete raw data</strong> (unless there are GDPR/ethics implications) — keep raw and processed data separate.</li>
+<li><strong>Never delete raw data</strong> (unless there are GDPR/ethics implications)—keep raw and processed data separate.</li>
 <li><strong>Use sensible names</strong> for variables and for objects. This will help to make your code more readable, and avoid mistakes. For example, <code>data_session1</code> is more informative than <code>data2</code>.</li>
 <li><strong>Comment everything!</strong> Well, not <em>everything.</em> But document your key steps along the way so that it’s readable. This will help other people to understand your code, and will make it easier for future-you to return to.</li>
-<li><strong>Chunk</strong> your data processing and analysis steps for readability - either in separate files, and/or using features in R Markdown.</li>
+<li><strong>Chunk</strong> your data processing and analysis steps for readability—either in separate files, and/or using features in R Markdown.</li>
 <li>Try to <strong>document package versions.</strong> One downside to R’s updating and ongoing work is that packages and functions can change, meaning that your code is not entirely future proof. There are some elegant ways to incorporate version control in your scripts, but a simple way to document this you can include a call to <code>sessionInfo()</code> at the end of your .Rmd script.</li>
 </ol>
-<p>Remember, a benefit of openness is that you can look to others for examples! The Open Science Framework is ideal for this. Of course there is a lot of variability in coding practices, but looking at how other people go about structuring and reporting their analyses can be a good way to learn. There’s no one right way, so you can decide what you think works well for your particular situation.</p>
+<p>Remember, a benefit of openness is that you can look to others for examples! The Open Science Framework is ideal for this<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Of course there is a lot of variability in coding practices, but looking at how other people go about structuring and reporting their analyses can be a good way to learn. There’s no one right way, so you can decide what you think works well for your particular situation.</p>
 </section>
 <section id="the-final-word" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> The final word</h1>
@@ -240,7 +240,13 @@ Debugging: Common issues that cause problems
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Or <em>was,</em> until they recently decided to stop this provision. This makes me very sad, but this advice still holds for this year!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
